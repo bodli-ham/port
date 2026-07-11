@@ -105,7 +105,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
     <div class="cov-list-item"><span class="cov-list-num">01</span> 건기식 섭취율 데이터 분석 — KNHANES 7개년 통합, 44,048명 표본</div>
     <div class="cov-list-item"><span class="cov-list-num">02</span> 데이터 기반 메시지 최적화 — 변수를 하나씩 조정한 순차 테스트, 등록률 5.7% → 15.3%</div>
   </div>
-  <div class="cov-meta"><strong>류보라</strong> · boraryu37@gmail.com · bodli-ham.github.io</div>
+  <div class="cov-meta"><strong>류보라</strong> · boraryu37@gmail.com · https://github.com/bodli-ham</div>
 </div>
 
 <!-- ══════════ PAGE 1 : 데이터 분석 ══════════ -->
@@ -133,22 +133,36 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
   </div>
 
   <div class="chart-mini">
-    <div class="chart-mini-title">연도별 전체 섭취율</div>
-    <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-      <line x1="30" y1="95" x2="540" y2="95" stroke="#DDE0EE" stroke-width="1.5"/>
-      <polyline points="60,72 260,42 380,54 480,50" fill="none" stroke="#3A5FD9" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="60" cy="72" r="3.5" fill="#fff" stroke="#3A5FD9" stroke-width="2"/>
-      <circle cx="260" cy="42" r="3.5" fill="#fff" stroke="#3A5FD9" stroke-width="2"/>
-      <circle cx="380" cy="54" r="3.5" fill="#fff" stroke="#3A5FD9" stroke-width="2"/>
-      <circle cx="480" cy="50" r="3.5" fill="#fff" stroke="#3A5FD9" stroke-width="2"/>
-      <text x="60" y="62" font-family="DM Mono,monospace" font-size="9" fill="#1A1A2E" text-anchor="middle" font-weight="700">51.4%</text>
-      <text x="260" y="32" font-family="DM Mono,monospace" font-size="9" fill="#1A1A2E" text-anchor="middle" font-weight="700">68.4%</text>
-      <text x="380" y="44" font-family="DM Mono,monospace" font-size="9" fill="#1A1A2E" text-anchor="middle" font-weight="700">65.2%</text>
-      <text x="480" y="40" font-family="DM Mono,monospace" font-size="9" fill="#1A1A2E" text-anchor="middle" font-weight="700">66.5%</text>
-      <text x="60" y="107" font-family="DM Mono,monospace" font-size="8" fill="#8888AA" text-anchor="middle">2018</text>
-      <text x="260" y="107" font-family="DM Mono,monospace" font-size="8" fill="#8888AA" text-anchor="middle">2022</text>
-      <text x="380" y="107" font-family="DM Mono,monospace" font-size="8" fill="#8888AA" text-anchor="middle">2023</text>
-      <text x="480" y="107" font-family="DM Mono,monospace" font-size="8" fill="#8888AA" text-anchor="middle">2024</text>
+    <div class="chart-mini-title">연도별 전체 섭취율 (95% CI 기반 가중 추정치)</div>
+    <svg viewBox="0 0 660 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+      <line x1="30" y1="70" x2="630" y2="70" stroke="var(--line)" stroke-width="1"/>
+      <line x1="30" y1="110" x2="630" y2="110" stroke="var(--line)" stroke-width="1"/>
+      <line x1="30" y1="150" x2="630" y2="150" stroke="var(--line)" stroke-width="1.5"/>
+      <text x="24" y="74" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="end">70%</text>
+      <text x="24" y="114" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="end">50%</text>
+      <polygon points="60,104.8 150,93.0 240,80.6 330,71.4 420,70.8 510,77.2 600,74.8 600,79.4 510,81.8 420,75.6 330,76.4 240,85.8 150,97.6 60,109.6" fill="var(--accent)" opacity="0.12"/>
+      <polyline points="60,107.2 150,95.4 240,83.2 330,73.8 420,73.2 510,79.6 600,77.0" fill="none" stroke="var(--accent)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="60" cy="107.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <circle cx="150" cy="95.4" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <circle cx="240" cy="83.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <circle cx="330" cy="73.8" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <circle cx="420" cy="73.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <circle cx="510" cy="79.6" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <circle cx="600" cy="77.0" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+      <text x="60" y="99.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">51.4%</text>
+      <text x="150" y="87.4" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">57.3%</text>
+      <text x="240" y="75.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">63.4%</text>
+      <text x="330" y="65.8" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">68.1%</text>
+      <text x="420" y="65.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">68.4%</text>
+      <text x="510" y="71.6" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">65.2%</text>
+      <text x="600" y="69.0" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">66.5%</text>
+      <text x="60" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2018</text>
+      <text x="150" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2019</text>
+      <text x="240" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2020</text>
+      <text x="330" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2021</text>
+      <text x="420" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2022</text>
+      <text x="510" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2023</text>
+      <text x="600" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2024</text>
     </svg>
   </div>
 
@@ -169,7 +183,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
     <p class="blk-p"><span class="tag">10대</span>페인포인트를 공략한 특화 라인업 검토</p>
   </div>
 
-  <div class="footline"><span>건기식 섭취율 데이터 분석 — <a href="data-analysis-portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline;">[포트폴리오 원본 보기]</a></span><span>1 / 2</span></div>
+  <div class="footline"><span>건기식 섭취율 데이터 분석 — <a href="data-analysis-portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:12px;">[포트폴리오 원본 보기]</a></span><span>1 / 2</span></div>
 </div>
 
 <!-- ══════════ PAGE 2 : 메시지 최적화 ══════════ -->
@@ -215,7 +229,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
     <p class="blk-p">동시 대조군을 둔 A/B 테스트는 아니었지만, 타이밍·세그먼트·맥락을 하나씩 순차 조정하며 반응을 기록했던 방식은 퍼포먼스 광고의 비교 실험 설계나 발행 시간대 최적화에도 적용해볼 수 있다고 생각합니다.</p>
   </div>
 
-  <div class="footline"><span>메시지 최적화 실험 — <a href="msg-optimization_portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline;">[포트폴리오 원본 보기]</a></span><span>2 / 2</span></div>
+  <div class="footline"><span>메시지 최적화 실험 — <a href="msg-optimization_portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:12px;">[포트폴리오 원본 보기]</a></span><span>2 / 2</span></div>
 </div>
 
 </body>
