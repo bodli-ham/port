@@ -391,6 +391,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
     <a href="#results">분석 결과</a>
     <a href="#insights">인사이트</a>
     <a href="#proposals">기획 제안</a>
+    <a href="#execution">실행 제안</a>
     <a href="#data">데이터·방법론</a>
     <a href="#future">한계·과제</a>
   </div>
@@ -403,8 +404,8 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   <div class="cover-eyebrow">국민건강영양조사 데이터 분석 포트폴리오</div>
 
   <h1 class="cover-title">
-    누가 건기식 섭취율<br>
-    <span class="accent">상승을 이끌었는가?</span>
+    건기식 섭취율 상승,<br>
+    <span class="accent">어떤 세대에서 가장 빨랐나?</span>
   </h1>
 
   <div class="cover-rule"></div>
@@ -416,10 +417,10 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   <div class="origin-box">
     <div class="origin-box-label">분석 핵심 요약</div>
     <p>
-      국내 건강기능식품 시장이 성숙기에 접어들며 전체 섭취율이 65~68% 수준에서 안정화되는 추세입니다. 이제는 양적 팽창보다 <strong>세그먼트별 맞춤형 접근</strong>이 기획의 핵심입니다.
+      국내 건강기능식품 시장이 성숙기에 접어들며 전체 섭취율이 65~68% 수준에서 안정화되는 추세입니다. 지금은 양적 팽창보다 <strong>세그먼트별로 다르게 접근하는 것</strong>이 더 중요한 시점입니다.
     </p>
     <p>
-      분석 결과, <strong>섭취율 수준은 50대 여성(83.2%)</strong>이 가장 높지만, <strong>최근 증가 속도는 20대</strong>가 가장 가파르게 증가한 것으로 관찰되었습니다. 본 포트폴리오는 이 데이터를 기반으로 한 구체적인 기획 방향성을 제시합니다.
+      분석 결과, <strong>섭취율은 50대 여성(83.2%)</strong>이 가장 높지만, <strong>증가 속도는 20대</strong>가 50대 보다 더 빠른 것으로 나타났습니다. 본 포트폴리오는 이 데이터를 기반으로 한 구체적인 기획 방향성을 제시합니다.
     </p>
   </div>
 
@@ -606,63 +607,126 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   </table>
   <p style="font-size:11px;color:var(--ink-lo); margin-top:-8px; margin-bottom:24px;">* 국민건강영양조사 2024년 원자료, 복합표본 가중 섭취율. 굵게 표시한 쪽이 해당 연령대에서 더 높은 성별입니다. 격차는 50대(18.7%p)·70대(16.9%p)·60대(16.6%p)에서 가장 크고, 10대에서만 남성이 더 높습니다.</p>
 
-  <h3>증가 속도(Growth) — 어느 연령대가 가장 빠르게 늘었나</h3>
-  <p class="body">단순 수준 비교로는 "누가 상승을 이끌었는가"에 답할 수 없어, 연도×연령대 상호작용을 포함한 가중 로지스틱 회귀로 <strong>연령대별 연도별 증가 속도</strong>를 20–29세를 기준으로 비교했습니다.</p>
+  <h3>섭취율 증가 속도(Growth) — 어느 연령대가 가장 빠르게 늘었나</h3>
+  <p class="body">단순 수준 비교로는 "어떤 연령대에서 상승이 가장 빨랐는가"에 답할 수 없어, 연도×연령대 상호작용을 포함한 가중 로지스틱 회귀로 <strong>연령대별 연도별 증가 속도</strong>를 20–29세를 기준으로 비교했습니다.</p>
   
   <div class="chart-section">
     <div class="chart-container">
-      <svg viewBox="0 0 660 342" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-        <line x1="572" y1="20" x2="572" y2="312" stroke="var(--ink-lo)" stroke-width="1.5" stroke-dasharray="4"/>
-        <text x="572" y="14" font-size="9.5" fill="var(--ink-lo)" text-anchor="middle" font-family="var(--sans)" font-weight="700">20대 기준선 (OR=1.000)</text>
-        
-        <text x="8" y="54.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">1–9세</text>
-        <rect x="467.0" y="40" width="105.0" height="20" rx="3" fill="var(--accent)"/>
-        <text x="461.0" y="54.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.925</text>
-        <text x="580" y="54.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
-        
-        <text x="8" y="88.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">10–19세</text>
-        <rect x="468.4" y="74" width="103.6" height="20" rx="3" fill="var(--accent)"/>
-        <text x="462.4" y="88.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.926</text>
-        <text x="580" y="88.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
-        
-        <text x="8" y="122.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">30–39세</text>
-        <rect x="524.4" y="108" width="47.6" height="20" rx="3" fill="var(--paper-dd)"/>
-        <text x="518.4" y="122.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.966</text>
-        <text x="580" y="122.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
-        
-        <text x="8" y="156.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">40–49세</text>
-        <rect x="532.8" y="142" width="39.2" height="20" rx="3" fill="var(--paper-dd)"/>
-        <text x="526.8" y="156.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.972</text>
-        <text x="580" y="156.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
-        
-        <text x="8" y="190.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">50–59세</text>
-        <rect x="496.4" y="176" width="75.6" height="20" rx="3" fill="var(--accent)"/>
-        <text x="490.4" y="190.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.946</text>
-        <text x="580" y="190.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
-        
-        <text x="8" y="224.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">60–69세</text>
-        <rect x="525.8" y="210" width="46.2" height="20" rx="3" fill="var(--paper-dd)"/>
-        <text x="519.8" y="224.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.967</text>
-        <text x="580" y="224.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
-        
-        <text x="8" y="258.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">70–79세</text>
-        <rect x="513.2" y="244" width="58.8" height="20" rx="3" fill="var(--line)"/>
-        <text x="507.2" y="258.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.958</text>
-        <text x="580" y="258.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">경계선(p=0.09)</text>
-        
-        <text x="8" y="292.0" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">80세 이상</text>
-        <rect x="462.8" y="278" width="109.2" height="20" rx="3" fill="var(--accent)"/>
-        <text x="456.8" y="292.0" font-size="10" fill="var(--ink)" text-anchor="end" font-family="DM Mono,monospace" font-weight="700">0.922</text>
-        <text x="580" y="292.0" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
-        
-        <text x="8" y="332" font-size="9" fill="var(--ink-lo)" font-family="var(--sans)">* 막대가 길수록(왼쪽일수록) 20대 대비 연도별 증가 속도가 느렸다는 뜻입니다.</text>
+      <svg viewBox="0 0 660 358" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+        <!-- 보조 그리드 -->
+        <line x1="238.3" y1="20" x2="238.3" y2="316" stroke="var(--line)" stroke-width="1"/>
+        <line x1="371.7" y1="20" x2="371.7" y2="316" stroke="var(--line)" stroke-width="1"/>
+        <!-- 20대 기준선 (OR=1.000) -->
+        <line x1="505" y1="16" x2="505" y2="316" stroke="var(--ink-lo)" stroke-width="1.5" stroke-dasharray="4"/>
+        <text x="505" y="10" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="var(--sans)" font-weight="700">20대 기준선 (OR = 1.000)</text>
+        <text x="238.3" y="330" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">0.90</text>
+        <text x="371.7" y="330" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">0.95</text>
+        <text x="505" y="330" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.00</text>
+
+        <!-- 1-9세: OR .925 [.875–.979] 유의 -->
+        <text x="8" y="60" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">1–9세</text>
+        <line x1="171.7" y1="56" x2="449.0" y2="56" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="171.7" y1="51" x2="171.7" y2="61" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="449.0" y1="51" x2="449.0" y2="61" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="305.0" cy="56" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="305.0" y="46" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.925</text>
+        <text x="584" y="60" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <!-- 10-19세: OR .926 [.879–.976] 유의 -->
+        <text x="8" y="94" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">10–19세</text>
+        <line x1="182.3" y1="90" x2="441.0" y2="90" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="182.3" y1="85" x2="182.3" y2="95" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="441.0" y1="85" x2="441.0" y2="95" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="307.7" cy="90" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="307.7" y="80" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.926</text>
+        <text x="584" y="94" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <!-- 30-39세: OR .966 [.922–1.012] 비유의: 기준선 넘어감 -->
+        <text x="8" y="128" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">30–39세</text>
+        <line x1="297.0" y1="124" x2="537.0" y2="124" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="297.0" y1="119" x2="297.0" y2="129" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="537.0" y1="119" x2="537.0" y2="129" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="414.3" cy="124" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="414.3" y="114" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.966</text>
+        <text x="584" y="128" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
+
+        <!-- 40-49세: OR .972 [.926–1.020] 비유의: 기준선 넘어감 -->
+        <text x="8" y="162" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">40–49세</text>
+        <line x1="307.7" y1="158" x2="558.3" y2="158" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="307.7" y1="153" x2="307.7" y2="163" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="558.3" y1="153" x2="558.3" y2="163" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="430.3" cy="158" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="430.3" y="148" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.972</text>
+        <text x="584" y="162" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
+
+        <!-- 50-59세: OR .946 [.904–.989] 유의 -->
+        <text x="8" y="196" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">50–59세</text>
+        <line x1="249.0" y1="192" x2="475.7" y2="192" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="249.0" y1="187" x2="249.0" y2="197" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="475.7" y1="187" x2="475.7" y2="197" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="361.0" cy="192" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="361.0" y="182" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.946</text>
+        <text x="584" y="196" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <!-- 60-69세: OR .967 [.922–1.014] 비유의: 기준선 넘어감 -->
+        <text x="8" y="230" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">60–69세</text>
+        <line x1="297.0" y1="226" x2="542.3" y2="226" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="297.0" y1="221" x2="297.0" y2="231" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="542.3" y1="221" x2="542.3" y2="231" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="417.0" cy="226" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="417.0" y="216" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.967</text>
+        <text x="584" y="230" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
+
+        <!-- 70-79세: OR .958 [.912–1.007] 경계 p=0.09: 기준선 살짝 넘어감 -->
+        <text x="8" y="264" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">70–79세</text>
+        <line x1="270.3" y1="260" x2="523.7" y2="260" stroke="var(--note)" stroke-width="2.5"/>
+        <line x1="270.3" y1="255" x2="270.3" y2="265" stroke="var(--note)" stroke-width="2"/>
+        <line x1="523.7" y1="255" x2="523.7" y2="265" stroke="var(--note)" stroke-width="2"/>
+        <circle cx="393.0" cy="260" r="5" fill="var(--note)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="393.0" y="250" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.958</text>
+        <text x="584" y="264" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">경계선(p=0.09)</text>
+
+        <!-- 80세 이상: OR .922 [.867–.981] 유의 -->
+        <text x="8" y="298" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">80세 이상</text>
+        <line x1="150.3" y1="294" x2="454.3" y2="294" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="150.3" y1="289" x2="150.3" y2="299" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="454.3" y1="289" x2="454.3" y2="299" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="297.0" cy="294" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="297.0" y="284" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.922</text>
+        <text x="584" y="298" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <text x="8" y="342" font-size="9" fill="var(--ink-lo)" font-family="var(--sans)">* 점=오즈비(OR), 가로선=95% 신뢰구간. 신뢰구간이 20대 기준선(OR=1.000)을 가로지르면 통계적으로 20대와 속도 차이가 없다는 뜻입니다.</text>
       </svg>
     </div>
   </div>
   
   <div class="callout gray">
-    <p class="body" style="margin:0;">모든 연령대의 상호작용 오즈비가 1 이하로 나타나, <strong>20대가 다른 연령대에 비해 상대적으로 빠르게(또는 비슷하게) 증가</strong>한 것으로 관찰됩니다. 1–9세·10대·50대·80세 이상은 20대보다 유의하게 느리게 늘었고, 30·40·60대는 20대와 증가 속도에 유의한 차이가 없었습니다.</p>
+    <p class="body" style="margin:0;">20대는 9개 연령대 중 점추정치가 가장 높지만(다른 8개 모두 OR&lt;1), 그 중 신뢰구간이 20대 기준선을 넘지 않아 <strong>통계적으로 유의하게 느린</strong> 연령대는 1–9세·10대·50대·80세 이상 4개뿐입니다. 30·40·60대는 신뢰구간이 기준선을 가로질러 20대와 증가 속도 차이가 없고, 70대는 p=0.090으로 경계선에 걸쳐 있습니다. 따라서 "20대가 모든 연령대보다 빠르다"는 전면적 주장은 데이터로 뒷받침되지 않으며, "20대는 일부 연령대보다는 유의하게 빠르다"는 제한된 주장만 가능합니다.</p>
   </div>
+
+  <h3>성별 격차, 연령대마다 통계적으로 다른가 (모형5)</h3>
+  <p class="body">앞선 표에서 관측된 성별 격차(및 10대의 역전 현상)가 우연한 표본 변동이 아닌지 확인하기 위해, 연도를 통제한 '연령대×성별' 상호작용 모형을 추가로 적합했습니다(기준: 20대·남성).</p>
+
+  <table class="exp-table">
+    <thead>
+      <tr>
+        <th>연령대 (20대 기준)</th>
+        <th>성별 격차 OR</th>
+        <th>해석</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1–9세</td><td>0.718</td><td>20대보다 유의하게 작음</td></tr>
+      <tr><td>10–19세</td><td>0.639</td><td>20대보다 유의하게 작음 (성별 역전과 방향 일치)</td></tr>
+      <tr><td>30–39세</td><td>—</td><td>20대와 유의한 차이 없음</td></tr>
+      <tr><td>40–49세</td><td>—</td><td>20대와 유의한 차이 없음</td></tr>
+      <tr><td>50–59세</td><td>1.669</td><td>20대보다 유의하게 큼</td></tr>
+      <tr><td>60–69세</td><td>1.409</td><td>20대보다 유의하게 큼</td></tr>
+      <tr><td>70–79세</td><td>—</td><td>20대와 유의한 차이 없음</td></tr>
+      <tr><td>80세 이상</td><td>—</td><td>20대와 유의한 차이 없음</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px;color:var(--ink-lo); margin-top:-8px; margin-bottom:24px;">* 10대의 역전 현상(OR 0.639)은 원자료에서 10대만 남성이 더 높게 나타난 패턴과 방향이 일치해, 우연한 표본 변동이 아니라는 근거로 쓸 수 있습니다. 50대·60대 격차는 원자료로 직접 계산한 오즈비(각각 약 2.74배·2.36배)와도 방향·크기가 대체로 부합합니다.</p>
 </div>
 </section>
 
@@ -680,7 +744,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   <div class="ins-list">
     <div class="ins-item">
       <span class="ins-n">01</span>
-      <span class="ins-t"><strong>'수준'과 '증가 속도'는 다른 세그먼트를 가리킵니다.</strong> 섭취율 자체는 50대 여성(83.2%)이 가장 높지만, 연도별 증가 속도가 유의하게 느렸던 연령대(50대 포함)와는 별개로, 20대는 다른 대부분 연령대보다 상대적으로 빠르게 늘어난 편으로 관찰됩니다.</span>
+      <span class="ins-t"><strong>'섭취 수준'과 '증가 속도'는 다른 세그먼트를 가리킵니다.</strong> 섭취율 자체는 50대 여성(83.2%)이 가장 높습니다. 하지만 20·30·40·60·70대의 증가 속도가 유의하게 더 빠르고, 1–9세·10대·50대·80세 이상 4개 연령대의 증가 속도는 상대적으로 더 느립니다.</span>
     </div>
     <div class="ins-item">
       <span class="ins-n">02</span>
@@ -688,7 +752,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
     </div>
     <div class="ins-item">
       <span class="ins-n">03</span>
-      <span class="ins-t"><strong>성별 격차는 연령대마다 방향과 크기가 다릅니다.</strong> 50대(18.7%p)·70대(16.9%p)·60대(16.6%p)에서 여성이 크게 앞서지만, 10대는 유일하게 남성(47.1%)이 여성(41.1%)보다 높습니다. "여성이 항상 높다"는 단순화는 이 데이터와 맞지 않습니다.</span>
+      <span class="ins-t"><strong>성별 격차는 연령대마다 방향과 크기가 다릅니다.</strong> 50대(18.7%p)·70대(16.9%p)·60대(16.6%p)에서 여성이 크게 앞서지만, 10대는 유일하게 남성(47.1%)이 여성(41.1%)보다 높습니다. "여성이 항상 높다"는 단순화는 이 데이터와 맞지 않습니다. 연령대×성별 상호작용 모형(모형5)에서도 10대의 역전과 50·60대의 격차 확대가 통계적으로 유의해, 우연한 표본 변동이 아니라는 근거가 있습니다.</span>
     </div>
     <div class="ins-item">
       <span class="ins-n">04</span>
@@ -703,39 +767,81 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
 <div class="page-wrap">
   <div class="sec-label">STEP 04 · 기획 제안</div>
   <h2 class="sec-title">🔗 제안</h2>
-  <p class="sec-sub">도출된 세그먼트별 특징을 고려하여, 상품 기획 및 마케팅 전략 수립 시 반영할 구체적인 제안사항입니다.</p>
+  <p class="sec-sub">도출된 세그먼트별 특징을 고려하여, 상품 기획 전략 수립 시 반영할 구체적인 제안사항입니다.</p>
 
   <div class="callout blue">
-    <div class="callout-hd">20대 — Growth Target</div>
-    <p class="body" style="margin:0;">현재 섭취 수준(남 48.2%·여 61.2%)은 중년층보다 낮지만, 연도별 증가 속도는 상대적으로 가장 빠른 축에 속하는 것으로 관찰됩니다. 장기 고객 확보 관점에서 이 세그먼트의 초기 접점을 선점하는 것을 검토해볼 수 있다고 생각합니다.</p>
+    <div class="callout-hd">20대 — Growth Target (대체 수요 가능성 감안 시 유효)</div>
+    <p class="body" style="margin:0;">현재 섭취 수준(남 48.2%·여 61.2%)은 중년층보다 낮습니다. 증가 속도는 20대의 점추정치가 가장 높지만, '20대가 전반적으로 가장 빠르다'는 단순화는 이 데이터와 맞지 않습니다(STEP02 참고). 다만 이 조사는 '건강기능식품'으로 공식 인정된 품목만 집계하며, 콜라겐·관절·이너뷰티처럼 원료 상징성이 강한 카테고리일수록 기능성을 표방하는 일반식품(젤리·음료 등)으로 수요 일부가 대체·분산됐을 가능성이 있습니다. 이런 대체·분산 가능성을 감안하면, 건기식 정식 라인 외에 기능성 표방 일반식품 형태로 제품 라인을 확장하는 것도 20대 접점을 넓히는 방법으로 검토할 수 있습니다(가설, 이 데이터로는 검증 불가).</p>
   </div>
   
   <div class="callout green">
     <div class="callout-hd">50대 여성 — Core Target (섭취 수준 1위)</div>
-    <p class="body" style="margin:0;">섭취율이 83.2%로 포화에 가까워, 신규 유입보다 기존 섭취 경험을 바탕으로 세부 기능성 카테고리를 결합한 제품 확장을 검토할 수 있다고 생각합니다. 다만 이 그룹은 연도별 증가 속도 자체는 20대보다 유의하게 느려, '수준은 높지만 이미 성숙한 세그먼트'로 해석하는 것이 맞을 것 같습니다.</p>
+    <p class="body" style="margin:0;">섭취율이 83.2%로 포화에 가까워, 신규 유입보다 기존 섭취 경험을 바탕으로 세부 기능성 카테고리를 결합한 제품 확장을 검토할 수 있다고 생각합니다. 이 그룹은 연도별 증가 속도 자체는 20대보다 유의하게 느려, '수준은 높지만 이미 성숙한 세그먼트'로 해석하는 것이 맞을 것 같습니다.</p>
   </div>
   
   <div class="callout gray">
     <div class="callout-hd">10대 청소년 페인포인트(Pain Point) 공략</div>
-    <p class="body" style="margin:0;">10대 진입 시 섭취율이 크게 낮아지는 현상(1–9세 70%대 → 10대 남 47.1%·여 41.1%)에 대응하여, 이들이 학업이나 일상에서 실제로 겪는 피로·스트레스 등 불편함을 해소할 수 있는 실질적인 가치를 소구하는 맞춤형 제품 기획이 필요합니다.</p>
+    <p class="body" style="margin:0;">10대 진입 시 섭취율이 크게 낮아지는 현상(1–9세 70%대 → 10대 남 47.1%·여 41.1%)에 대응하여, 이들이 학업이나 일상에서 실제로 겪는 피로·스트레스 등 불편함을 해소할 수 있는 실질적인 가치를 소구하는 맞춤형 제품 기획이 필요합니다. 다만 이 세그먼트는 수준 자체가 낮아 투자 대비 효과를 보수적으로 추정하고, 소용량·저가 구성 등으로 진입 장벽을 낮춘 파일럿 제품으로 반응을 먼저 확인하는 것을 권장합니다.</p>
   </div>
   
   <div class="callout gray">
     <div class="callout-hd">성별 역전 구간 타기팅 및 소구점 발굴</div>
-    <p class="body" style="margin:0;">10대까지는 남녀 차이가 크지 않거나 남학생의 섭취율(47.1%)이 여학생(41.1%)보다 높게 나타나지만, 20대에 접어들며 여성이 역전하여 격차가 벌어지는 양상이 관찰되었습니다. 이러한 연령별 역전 현상을 고려하여, 각 연령대와 성별 집단이 요구하는 특정 소구점을 도출해 세분화된 상품 기획을 진행해야 합니다.</p>
+    <p class="body" style="margin:0;">10대까지는 남학생의 섭취율(47.1%)이 여학생(41.1%)보다 높지만, 20대에 접어들며 여성이 역전하여 격차가 벌어지는 양상이 관찰되었습니다. 이 역전 현상은 모형5 분석에서도 통계적으로 유의해(STEP02 참고), 우연한 표본 변동이 아니라는 근거가 있습니다. 연령대와 성별에 따라 소구점과 제형을 다르게 기획할 필요가 있습니다.</p>
   </div>
   
   <div class="callout yellow">
     <div class="callout-hd">비섭취자(약 33~35%) — Volume Growth</div>
-    <p class="body" style="margin:0;">성숙기 시장에서 전체 볼륨을 늘리려면, 아직 섭취하지 않는 응답자의 진입 장벽을 낮추는 체험 키트 등의 접근이 고려될 수 있습니다.</p>
+    <p class="body" style="margin:0;">성숙기 시장에서 전체 볼륨을 늘리려면, 아직 섭취하지 않는 응답자의 진입 장벽을 낮추는 체험 키트, 소용량 트라이얼 패키지 등의 제품 구성이 고려될 수 있습니다.</p>
   </div>
 </div>
 </section>
 
-<!-- ── STEP 05: 데이터 개요 및 방법론 ── -->
+<!-- ── STEP 05: 상품 기획 실행 제안 ── -->
+<section id="execution">
+<div class="page-wrap">
+  <div class="sec-label">STEP 05 · 상품 기획 실행 제안</div>
+  <h2 class="sec-title">🧪 상품 기획 실행 제안</h2>
+  <p class="sec-sub">마케팅 실행(누구에게 언제 어떻게 말할지)과는 별개로, 같은 분석 결과를 상품 기획(무엇을 만들지) 관점에서 정리했습니다. 모든 항목은 상관관계이며, 실제 제품화 여부는 컨셉 테스트 등 별도의 검증이 필요합니다.</p>
+
+  <h3>생애주기 기반 라인업 전략</h3>
+  <p class="body">1–9세(부모 주도 구매, 73~75%로 최고 수준) → 10대(44%대로 급락) → 20·30대(재상승 초입) → 50대 이후(83.2%로 최고 재상승)로 이어지는 U자형 패턴이 관찰됩니다. '습관이 일시적으로 끊겼다가 다시 붙는' 생애주기형 카테고리로 해석할 여지가 있습니다(인과관계는 확인되지 않음).</p>
+  <div class="callout blue">
+    <div class="callout-hd">10대 후반~20대 초반 — 재진입 시점</div>
+    <p class="body" style="margin:0;">이탈 후 재진입이 시작되는 구간으로, 저용량·실속형 제형이나 낮은 진입 가격대의 라인을 검토해볼 수 있는 지점입니다.</p>
+  </div>
+
+  <h3>성별에 따른 원료·제형 우선순위</h3>
+  <div class="callout green">
+    <div class="callout-hd">여성向 — 투자 유지 근거 충분</div>
+    <p class="body" style="margin:0;">사회경제·건강행태를 통제해도 여성의 섭취 오즈는 남성의 1.70배로 유지·확대됩니다. 특히 50대(OR 1.669)·60대(OR 1.409)는 20대 대비 성별 격차가 통계적으로 유의하게 크고 효과크기도 실질적이어서(STEP02 모형5 참고), 여성向 라인(콜라겐·이너뷰티 등)에 대한 투자를 유지할 근거가 충분합니다.</p>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">남성向 — '미개척'이 아니라 '반응 세그먼트가 이미 존재'</div>
+    <p class="body">남성을 하나로 묶기보다, 건강관리 성향이 높은 남성부터 우선 타겟팅하는 것이 근거 있는 접근입니다. 남성 14,681명(전체 남성의 75.2%)을 신체활동·흡연·음주로 스크리닝한 결과:</p>
+    <ul style="margin:12px 0 8px;">
+      <li>운동 실천 + 비흡연 남성: 섭취 오즈 <strong>최고 64.00%</strong></li>
+      <li>운동 미실천 + 흡연 남성: 섭취 오즈 <strong>최저 50.87%</strong> (13.13%p 차이, 두 요인 모두 p&lt;0.001)</li>
+      <li>음주를 추가로 통제해도 신체활동·흡연 효과는 거의 그대로 유지되는 안정적인 연관성</li>
+    </ul>
+    <p class="body" style="margin:0;"><strong>주의 — 음주는 배제 기준으로 쓰면 안 됩니다.</strong> 월간 음주자가 비음주자보다 오히려 섭취 오즈가 18% 더 높게 나타났습니다(OR 1.184, p&lt;0.001). 음주는 흡연과 달리 사회생활·취미·자기만족적 성격이 섞여 있는 행동이라 단순히 '건강관리를 안 하는 습관'으로 보기 어렵고, 마시는 만큼 건강을 더 챙기려는 보상 심리가 작용할 가능성도 배제할 수 없습니다 — 다만 이는 검증되지 않은 가설입니다. 제품 카피에서 '금주+건강관리'를 전제로 한 소구는 이 데이터와 맞지 않을 수 있으며, 운동·비흡연 성향 남성을 겨냥한 회복·컨디셔닝 제형 개발을 검토할 수 있습니다.</p>
+  </div>
+
+  <h3>시장 성숙도에 따른 SKU 전략</h3>
+  <div class="callout gray">
+    <p class="body" style="margin:0;">2022년 이후 정체(68% → 65~67%)는 신규 SKU 확대보다 기존 라인 내 교차 판매·번들 구성에 무게를 둘 신호로 볼 수 있습니다. 이미 포화인 세그먼트(50대 여성 등)는 신규 제품보다 세트·구독형 구성으로 구매 품목을 늘리는 편이 효율적일 수 있습니다.</p>
+  </div>
+
+  <h3>제품화 전 후속 조사 제안</h3>
+  <p class="body" style="margin-bottom:0;">이 분석은 '누가 언제 많이/적게 섭취하는지'까지만 답하고, '어떤 제형·가격·원료를 선호하는지'는 답하지 못합니다. 가격 민감도, 원료 선호도, 구매 채널, 브랜드 신뢰 관련 변수가 데이터에 없기 때문입니다. 다음 우선순위는 컨셉 테스트와 정성 조사(남성 세그먼트 제형 선호 확인, 10대·비섭취자 진입장벽 조사)로 이 공백을 메우는 것이며, 이후 실제 출시는 <strong>컨셉 검증 → 소량 생산 → 확장</strong> 순서로 진행할 것을 권장합니다.</p>
+
+</div>
+</section>
+
+<!-- ── STEP 06: 데이터 개요 및 방법론 ── -->
 <section id="data">
 <div class="page-wrap">
-  <div class="sec-label">STEP 05 · 데이터 개요</div>
+  <div class="sec-label">STEP 06 · 데이터 개요</div>
   <h2 class="sec-title">🗂 데이터 개요 및 방법론</h2>
   <p class="sec-sub">분석에 활용된 원천 데이터 및 통계 검증 설계 구조입니다.</p>
   
@@ -773,7 +879,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
       </tr>
       <tr>
         <td>설계효과(Deff)</td>
-        <td>2.39 — 복합표본 설계로 인한 표준오차 증가가 정상 반영됨을 확인하는 진단 지표</td>
+        <td>전체 2.39 (연도별 최댓값 2019년 2.90 · 최솟값 2024년 1.72). 2020~2021년 신뢰구간이 넓었던 주된 이유는 집락효과가 아니라 표본수 감소로 확인됨</td>
       </tr>
     </tbody>
   </table>
@@ -783,7 +889,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
 <!-- ── STEP 06: 전처리 및 신뢰성 검증 ── -->
 <section id="preprocessing">
 <div class="page-wrap">
-  <div class="sec-label">STEP 06 · 전처리 및 검증</div>
+  <div class="sec-label">STEP 07 · 전처리 및 검증</div>
   <h2 class="sec-title">🧪 전처리 및 신뢰성 검증</h2>
   <p class="sec-sub">통계 데이터 정합성과 모델 설계 안정성을 위한 데이터 필터링 내역입니다.</p>
 
@@ -843,7 +949,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
 <!-- ── STEP 07: 가중 로지스틱 회귀 결과 ── -->
 <section id="regression">
 <div class="page-wrap">
-  <div class="sec-label">STEP 07 · 통계 검정</div>
+  <div class="sec-label">STEP 08 · 통계 검정</div>
   <h2 class="sec-title">📐 가중 로지스틱 회귀 결과</h2>
   <p class="sec-sub">영향 요인들을 통제한 복합표본 가중 로지스틱 회귀 분석의 상세 결과표입니다.</p>
 
@@ -876,10 +982,16 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
         <td>여성이 남성보다 '약간' 더 가파르게 증가(p=0.039, CI가 1에 근접해 해석에 유의)</td>
       </tr>
       <tr>
+        <td>성별 (보정 전)</td>
+        <td>1.512</td>
+        <td>—</td>
+        <td>교육·소득·건강행태 등을 통제하기 전 성별 오즈비</td>
+      </tr>
+      <tr>
         <td>성별 (완전사례 보정모형)</td>
         <td>1.702</td>
         <td>—</td>
-        <td>여성이 남성보다 섭취 오즈가 높은 것과 연관(p&lt;0.001) · 인과관계로 해석하지 않음</td>
+        <td>통제 후 오히려 커짐 — 사회경제·건강행태 변수로 설명되지 않는 연관성(p&lt;0.001) · 인과관계로 해석하지 않음</td>
       </tr>
       <tr>
         <td>다중공선성(VIF)</td>
@@ -895,12 +1007,12 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
 <!-- ── STEP 08: 한계와 향후 과제 ── -->
 <section id="future" style="margin-bottom: 0;">
 <div class="page-wrap">
-  <div class="sec-label">STEP 08 · 한계 및 과제</div>
+  <div class="sec-label">STEP 09 · 한계 및 과제</div>
   <h2 class="sec-title">🔍 한계와 향후 과제</h2>
   <p class="sec-sub">데이터의 통계적 한계를 공유하고, 향후 사업 다각화 및 실무 적용을 위한 후속 연구 방향을 제언합니다.</p>
 
   <div class="callout gray">
-    <p class="body" style="margin:0;">본 분석은 매년 새로 추출된 표본을 비교한 반복 횡단면 조사이므로, 개인 수준의 변화나 특정 요인의 직접적 인과관계로 단정할 수 없습니다. 완전사례 분석(3차 모형)은 결측 제외로 인한 33,770명(76.9%) 표본이라 편향 가능성이 있고, 일부 세부 교차(연도×성별×연령대) 셀은 표본수가 작아 신뢰구간이 넓다는 점도 함께 고려해야 합니다.</p>
+    <p class="body" style="margin:0;">본 분석은 매년 새로 추출된 표본을 비교한 반복 횡단면 조사이므로, 개인 수준의 변화나 특정 요인의 직접적 인과관계로 단정할 수 없습니다. 완전사례 분석(3차 모형)은 만성질환 진단여부나 흡연·음주 등 일부 통제 변수가 미성년자에게는 조사 대상이 아니어서(해당없음) 분석에서 제외된 33,770명(76.9%)의 성인 중심 표본이므로, 분석 결과를 전체 연령대로 일반화하여 해석할 때 선택 편향(Selection Bias)이 존재할 수 있음에 유의해야 합니다. 또한 일부 세부 교차(연도×성별×연령대) 셀은 표본수가 작아 신뢰구간이 넓다는 점도 함께 고려해야 합니다.</p>
   </div>
 
   <h3 style="margin-top:40px;">🚀 데이터 결합 및 확장 연구 제언</h3>
