@@ -24,12 +24,12 @@
   --mono:'DM Mono',monospace;
 }
 html{background:#DDE0EE;}
-body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;word-break:keep-all;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 
 .page{
   width:210mm;min-height:297mm;
   margin:0 auto;background:var(--paper);
-  padding:20mm 18mm;
+  padding:16mm 16mm;
   page-break-after:always;
   position:relative;
 }
@@ -54,11 +54,11 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 .doc-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
   border-left:2px solid var(--accent);padding-left:8px;margin-bottom:10px;}
 .doc-title{font-size:21px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3;}
-.doc-sub{font-size:12px;color:var(--ink-lo);margin-bottom:22px;line-height:1.7;max-width:520px;}
+.doc-sub{font-size:12px;color:var(--ink-lo);margin-bottom:14px;line-height:1.7;max-width:520px;}
 
 /* ── METRIC ROW ── */
-.metric-row{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:22px;}
-.metric-cell{flex:1;padding:14px 16px;border-right:1px solid var(--line);}
+.metric-row{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:14px;}
+.metric-cell{flex:1;padding:10px 12px;border-right:1px solid var(--line);}
 .metric-cell:last-child{border-right:none;}
 .metric-k{font-size:9.5px;color:var(--ink-lo);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
 .metric-v{font-family:var(--mono);font-size:24px;font-weight:700;color:var(--navy);}
@@ -67,22 +67,22 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 .metric-s{font-size:10.5px;color:var(--ink-lo);margin-top:2px;}
 
 /* ── BLOCK ── */
-.blk{margin-bottom:20px;}
-.blk-h{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:8px;padding-left:10px;border-left:3px solid var(--accent);}
-.blk-p{font-size:12px;color:var(--ink-mid);line-height:1.8;}
-.blk-p+.blk-p{margin-top:6px;}
+.blk{margin-bottom:14px;}
+.blk-h{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;padding-left:8px;border-left:3px solid var(--accent);}
+.blk-p{font-size:12px;color:var(--ink-mid);line-height:1.7;}
+.blk-p+.blk-p{margin-top:4px;}
 
-.ins-mini{display:flex;flex-direction:column;gap:8px;}
-.ins-mini-item{display:flex;gap:10px;padding:10px 14px;background:var(--paper-d);border-radius:5px;font-size:12px;color:var(--ink-mid);line-height:1.7;}
+.ins-mini{display:flex;flex-direction:column;gap:6px;}
+.ins-mini-item{display:flex;gap:8px;padding:8px 12px;background:var(--paper-d);border-radius:5px;font-size:12px;color:var(--ink-mid);line-height:1.6;}
 .ins-mini-n{font-family:var(--mono);font-weight:700;color:var(--accent);flex-shrink:0;}
 .ins-mini-item strong{color:var(--ink);}
 
-.chart-mini{border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:20px;}
+.chart-mini{border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:14px;}
 .chart-mini-title{font-size:10.5px;color:var(--ink-lo);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
 
 .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--accent-lo);color:var(--accent);margin-right:6px;}
 
-.footline{position:absolute;bottom:14mm;left:18mm;right:18mm;display:flex;justify-content:space-between;
+.footline{position:absolute;bottom:14mm;left:16mm;right:16mm;display:flex;justify-content:space-between;
   font-size:9.5px;color:var(--ink-lo);border-top:1px solid var(--line);padding-top:8px;}
 
 @media print{
@@ -98,14 +98,14 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
   <div class="cov-eyebrow">Portfolio Summary · 2026</div>
   <h1 class="cov-title">데이터로 검증하고,<br><span>근거로 제안합니다.</span></h1>
   <p class="cov-desc">
-    <strong> 데이터 기반 상품기획자의 업무 여정</strong><br>
+    <strong>데이터 기반 상품기획자의 업무 여정</strong><br>
     가설을 세우고 데이터로 검증하며, 확인된 범위 안에서 제안합니다.<br> 국가 공공데이터 분석을 통한 시장 분석부터 분석 결과를 반영한 상품 기획, 그리고 비즈니스 가설 검증과 실제 메시지 최적화 성과 기록까지의 여정입니다.
   </p>
   <div class="cov-list">
     <div class="cov-list-item">
       <span class="cov-list-num">01</span>
       <div>
-        <strong>시장 분석 (데이터분석):</strong> 건기식 섭취율 데이터 분석 (KNHANES 7개년 통합, 44,048명 표본)
+        <strong>시장 분석:</strong> 건기식 섭취율 데이터 분석 (KNHANES 7개년 통합, 44,048명 표본)
         <div style="font-size: 11px; color: var(--ink-lo); margin-top: 3px; font-weight: 500;">
           └ <strong>하위 검증:</strong> 서울시민 먹거리조사(2024, n=3,435) — 인지-실천 간극 분석
         </div>
@@ -114,7 +114,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
     <div class="cov-list-item">
       <span class="cov-list-num">02</span>
       <div>
-        <strong>상품 기획 (분석결과 반영):</strong> Concept-v1 (데이터 기반 30대 타겟 세분화 및 제형/원료 설계)
+        <strong>상품 기획:</strong> Concept-v1 (데이터 기반 30대 타겟 세분화 및 제형/원료 설계)
         <div style="font-size: 11px; color: var(--ink-lo); margin-top: 3px; font-weight: 500;">
           └ <strong>참고자료:</strong> 규제 리터러시 정리 (광고 심의 및 원료 가이드라인 검토)
         </div>
@@ -134,7 +134,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 <div class="page">
   <div class="doc-label">Project 01 · Market Analysis</div>
   <h2 class="doc-title">시장 진단: 건기식 섭취율 데이터 분석</h2>
-  <p class="doc-sub">국민건강영양조사(KNHANES) 2018-2024년(7개년) 통합자료를 정량 분석하여 연령·성별 섭취 패턴을 분석하고, 타겟 세그먼트 추출의 객관적 근거를 정리한 프로젝트입니다.</p>
+  <p class="doc-sub">국민건강영양조사(KNHANES) 2018-2024년(7개년) 통합자료를 정량 분석하여 연령·성별 섭취 패턴을 분석하고, 타겟 세그먼트 추출 근거를 정리한 프로젝트입니다.</p>
 
   <div class="metric-row">
     <div class="metric-cell">
@@ -193,23 +193,24 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
     <div class="ins-mini">
       <div class="ins-mini-item"><span class="ins-mini-n">01</span><span><strong>'섭취 수준'과 '증가 속도'는 다른 세그먼트를 가리킵니다.</strong> 섭취율 자체는 50대 여성(83.2%)이 가장 높지만, 증가 속도는 20대가 50대 등 일부 연령대보다 통계적으로 유의하게 빠릅니다.</span></div>
       <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>시장은 성숙기 국면으로 보입니다.</strong> 2022년 이후 상승세가 완만해져, 규모 확대보다 기존 라인 내 교차 판매 전략이 유효할 수 있습니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>성별 격차는 연령대마다 다릅니다.</strong> 50대·70대·60대는 여성이 16~19%p 앞서지만, 10대는 남성(47.1%)이 여성(41.1%)보다 높습니다.</span></div>
+      <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>성별 섭취율 격차는 연령대마다 다릅니다.</strong> 50대·70대·60대는 여성이 16~19%p 앞서지만, 10대는 남성(47.1%)이 여성(41.1%)보다 높습니다.</span></div>
     </div>
-    <p style="font-size:10px;color:var(--ink-lo);margin-top:8px;">* 반복 횡단면 조사 기반으로, 상관관계로만 해석할 수 있습니다.</p>
+    <p style="font-size:10px;color:var(--ink-lo);margin-top:6px;">* 반복 횡단면 조사이므로, 상관관계로만 해석 가능합니다.</p>
   </div>
 
   <div class="blk">
     <div class="blk-h">제안</div>
-    <p class="blk-p"><span class="tag">10대</span>피로·스트레스 해소 등 실질적 혜택을 제공하는 소용량·저가 파일럿 제품 기획</p>
+    <p class="blk-p"><span class="tag">10대</span>집중력·성장·스트레스 해소 등 실질적 혜택을 제공하는 소용량·저가 파일럿 제품 기획</p>
     <p class="blk-p"><span class="tag">20·30대</span>기능성 일반식품(젤리·음료 등)으로 대체 소비되는 성향을 감안한 제품 확장 검토</p>
     <p class="blk-p"><span class="tag">50대 여성</span>기존 섭취 경험자를 겨냥한 세부 기능성 카테고리 결합 세트 및 구독형 라인업 확장</p>
-    <div style="margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 10px; margin-bottom: 28px;">
-      <p class="blk-p" style="font-weight: 700; color: var(--navy-mid); margin-bottom: 2px;">
+    
+    <div class="callout-card" style="margin-top: 10px; background: var(--paper-d); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 5px; padding: 10px 12px; margin-bottom: 6px;">
+      <p class="blk-p" style="font-weight: 700; color: var(--navy-mid); margin-bottom: 3px; font-size: 11.5px;">
         🔗 하위 검증: 서울시민 먹거리조사(2024) — 인식-실천 간극 분석
       </p>
       <p class="blk-p" style="font-size: 11.5px; color: var(--ink-mid);">
-        "아는 만큼 실천으로 이어지는가"를 별도 검증 — 인식과 실천은 중간 수준으로 연관되지만 (&beta;=0.46), 설명 비중은 13.5%에 그쳐 실천을 가르는 요인은 다른 곳에 더 많이 남아 있습니다. 
-        &rarr; <a href="https://bodli-ham.github.io/port/md/nutrition-gap-portfolio.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline;">[인지-실천 간극 분석 보기]</a>
+        "아는 만큼 실천으로 이어지는가"를 별도 검증
+        &rarr; <a href="https://bodli-ham.github.io/port/md/nutrition-gap-portfolio.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline;">[인지-실천 간극 분석결과 보기]</a>
       </p>
     </div>
   </div>
@@ -220,8 +221,8 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 <!-- ══════════ PAGE 2 : 상품기획안 ══════════ -->
 <div class="page">
   <div class="doc-label">Project 02 · Product Strategy</div>
-  <h2 class="doc-title">상품기획안: Concept-v1</h2>
-  <p class="doc-sub">시장 진단 데이터(Project 01)를 제품 사양으로 실체화한 단계입니다. 데이터 기반으로 도출된 30대 남성 타겟의 루틴에 맞춤화된 제형/성분을 설계하고 규제 리스크까지 연계 검토했습니다.</p>
+  <h2 class="doc-title">상품기획안: 루틴덱스(ROUTINDEX)_v1</h2>
+  <p class="doc-sub">시장 진단 데이터(Project 01)를 제품 기획으로 실체화한 단계입니다. 데이터 기반으로 도출된 30대 남성 타겟의 루틴에 맞춤화된 제형/성분을 설계하고 규제 리스크까지 연계 검토했습니다.</p>
 
   <div class="metric-row">
     <div class="metric-cell">
@@ -236,7 +237,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
     </div>
     <div class="metric-cell">
       <div class="metric-k">목표 단가</div>
-      <div class="metric-v accent" style="font-family: var(--sans); font-size: 19px;">~2,200원</div>
+      <div class="metric-v accent" style="font-family: var(--sans); font-size: 19px;">~1,000원</div>
       <div class="metric-s">개당 가격, 30개입 정기구독</div>
     </div>
   </div>
@@ -244,39 +245,37 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
   <div class="blk">
     <div class="blk-h">기획 방향 및 컨셉</div>
     <div class="ins-mini">
-      <div class="ins-mini-item"><span class="ins-mini-n">01</span><span><strong>라이프스타일 중심 소구:</strong> 단순 건강 개선 클레임 대신 "루틴 유지"를 강조하여 브랜드 자체의 광고 심의 승인 리스크를 원천적으로 낮춥니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>원료 배합의 중복성 최소화:</strong> 타겟이 이미 섭취 중인 기존 건기식과 중복 섭취가 발생하지 않도록 마그네슘, 유단백가수분해물 등의 배합 수치를 조절합니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>휴대성을 고려한 스틱 제형:</strong> 기존 소비자의 라이프스타일에 자연스럽게 얹어갈 수 있도록 헬스장 락커 비치와 휴대에 유리한 스틱형 분말 폼을 채택합니다.</span></div>
+      <div class="ins-mini-item"><span class="ins-mini-n">01</span><span><strong>라이프스타일 중심 소구:</strong> 단순 건강 개선 클레임 대신 "컨디션 유지"를 강조하여 자신의 루틴에 자연스럽게 녹아드는 방향으로 기획합니다. "루틴 유지"를 강조하여 제품의 광고 심의 승인 리스크를 원천적으로 낮추고 브랜드 정체성과도 부합하도록 조정합니다.</span></div>
+      <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>원료 배합의 중복성 최소화:</strong> 타겟이 이미 섭취 중인 기존 건기식과 중복 섭취가 발생하지 않도록 마그네슘, 유단백가수분해물 등의 배합 수치를 조절합니다. 기존 제품과의 시너지를 낼 수 있는 제품 성분을 고려합니다.</span></div>
+      <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>휴대성을 고려한 소분 포장:</strong> 섭취 장벽을 최소화하고 라이프스타일에 자연스럽게 얹어갈 수 있도록 헬스장 락커 비치 및 휴대에 용이한 파우더 재형을 채택합니다.</span></div>
     </div>
   </div>
 
   <div class="blk">
-    <div class="blk-h">다음 단계 — ODM 협업 실행 절차</div>
-    <p class="blk-p"><span class="tag">01. 계약</span> 스틱형 소량 생산(초도 물량) 대응 및 비교 견적이 우수한 ODM 파트너사 계약</p>
+    <div class="blk-h">실행 계획: ODM/OEM 협업</div>
+    <p class="blk-p"><span class="tag">01. 계약</span> 스틱형 소량 생산(초도 물량) 대응 및 비교 견적이 우수한 파트너사 계약</p>
     <p class="blk-p"><span class="tag">02. 관능평가</span> 단맛 강도 대신 단백질 특유의 텁텁함과 잔맛 최소화를 기준 삼아 감미 배합 조정</p>
     <p class="blk-p"><span class="tag">03. 네이밍 확정</span> 의약품 연상을 우려해 '리커버'와 같은 직관 명칭 대신 '루틴덱스' 등 승인 안정성 우위 명칭 선택</p>
   </div>
 
-  <div class="blk">
-    <div style="margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 10px; margin-bottom: 28px;">
-      <p class="blk-p" style="font-weight: 700; color: var(--navy-mid); margin-bottom: 2px;">
-        🔗 참고자료: 규제 리터러시 정리 (광고 심의 및 원료 가이드라인)
-      </p>
-      <p class="blk-p" style="font-size: 11.5px; color: var(--ink-mid);">
-        식품 등의 표시·광고법과 광고 심의 가이드를 상세히 파헤쳐, 상품 기획 과정에서 범할 수 있는 허위·과대광고 리스크 및 배합 가능 원료 체크포인트를 정리했습니다.
-        &rarr; <a href="./regulation-literacy.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline;">[규제 리터러시 정리 보기]</a>
-      </p>
-    </div>
+  <div class="callout-card" style="margin-top: 10px; background: var(--paper-d); border: 1px solid var(--line); border-left: 3px solid #5B3E8A; border-radius: 5px; padding: 10px 12px; margin-bottom: 6px;">
+    <p class="blk-p" style="font-weight: 700; color: #5B3E8A; margin-bottom: 3px; font-size: 11.5px;">
+      🔗 참고자료: 규제 리터러시 정리 (광고 심의 및 원료 가이드라인)
+    </p>
+    <p class="blk-p" style="font-size: 11px; color: var(--ink-mid); line-height: 1.6; margin-top: 0;">
+      식품 등의 표시·광고법과 광고 심의 가이드를 분석하여 상품 기획 시 범할 수 있는 허위·과대광고 리스크 및 원료 체크포인트를 정리한 별도 참고 문서입니다.
+      <br>&rarr; <a href="./regulation-literacy.html" target="_blank" style="color: #5B3E8A; font-weight: 700; text-decoration: underline;">[규제 리터러시 정리 보기]</a>
+    </p>
   </div>
 
   <div class="footline"><span>상품기획안 Concept-v1 — <a href="concept-v1.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:12px;">[기획서 초안 원본 보기]</a></span><span>2 / 3</span></div>
 </div>
 
-<!-- ══════════ PAGE 2 : 메시지 최적화 ══════════ -->
+<!-- ══════════ PAGE 3 : 메시지 최적화 ══════════ -->
 <div class="page">
   <div class="doc-label">Project 03 · Message Optimization (Actual Performance)</div>
-  <h2 class="doc-title">실행 최적화: 데이터 기반 메시지 최적화 (실제 성과)</h2>
-  <p class="doc-sub">앞선 두 단계가 데이터 분석과 가상 기획이었다면, 본 프로젝트는 실제 현업에서 다변수 메시지 순차 테스트를 단독 설계 및 운영하여 가입 등록률을 3배 가까이 개선한 실제 업무 성과 기록입니다.</p>
+  <h2 class="doc-title">고객 행동 데이터 기반 메시지 최적화 (실제 업무 성과)</h2>
+  <p class="doc-sub">앞선 두 단계가 데이터 분석과 가상 기획이었다면, 본 프로젝트는 <strong>실제 현업에서 다변수 메시지 순차 테스트를 단독 설계 및 운영하여 초기 등록률을 3배 가까이 개선한 실제 업무 성과</strong>입니다.</p>
 
   <div class="metric-row">
     <div class="metric-cell">
@@ -298,21 +297,21 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 
   <div class="blk">
     <div class="blk-h">검증한 것</div>
-    <p class="blk-p">발송 타이밍 · 이미지 포맷 · 계절 맥락(크리스마스·새해) · 연령대 세분화 · 채널 확장(LMS+알림톡) 순으로 변수를 하나씩 조정하며 반응을 기록했습니다.</p>
+    <p class="blk-p">발송 타이밍 · 이미지 포맷 · 계절 맥락(크리스마스·새해) · 연령대 세분화 · 채널 확장(LMS+알림톡) 순으로 변수를 하나씩 조정하며 반응을 기록하여 보험 부가서비스 기준 이례적 수치를 기록했습니다.</p>
   </div>
 
   <div class="blk">
     <div class="blk-h">인사이트</div>
     <div class="ins-mini">
       <div class="ins-mini-item"><span class="ins-mini-n">01</span><span><strong>타이밍이 포맷보다 먼저입니다.</strong> 같은 이미지도 발송 시간대에 따라 반응이 달랐습니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>계절 맥락이 열어볼 이유를 만듭니다.</strong> 크리스마스·새해 테마 발송에서 등록 전환이 가장 가파르게 상승했습니다 (12월 8.6% → 1월 18.9%).</span></div>
+      <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>계절x감성 맥락이 열어볼 이유를 만듭니다.</strong> 크리스마스·새해 테마 발송에서 등록 전환이 가장 가파르게 상승했습니다 (12월 8.6% → 1월 18.9% → 2월 28.9%).</span></div>
       <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>장기 미등록자는 포기 대상이 아니었습니다.</strong> 21차 발송 이후 처음 등록한 사례가 있었습니다.</span></div>
     </div>
   </div>
 
   <div class="blk">
-    <div class="blk-h">유저 여정 최적화에 적용한다면</div>
-    <p class="blk-p">동시 대조군을 둔 대조 실험은 아니었지만, 타이밍·세그먼트·맥락 변수를 순차적으로 조정하며 유저 반응률을 기록했던 방식은 <strong>제품 온보딩 퍼널 개선이나 피처 반응률 최적화 실험</strong>에도 유용하게 적용할 수 있습니다.</p>
+    <div class="blk-h">상품 기획으로 적용한다면</div>
+    <p class="blk-p">소비자의 마음을 얻기 위해서는 단순히 좋은 상품을 출시하는 것이 아니라 <strong>타이밍·세그먼트·맥락 변수를 고려한 제품 기획이 </strong> 선행되어야 한다는 인사이트를 얻을 수 있습니다.</p>
   </div>
 
   <div class="footline"><span>메시지 최적화 실험 — <a href="msg-optimization_portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:12px;">[포트폴리오 원본 보기]</a></span><span>3 / 3</span></div>
