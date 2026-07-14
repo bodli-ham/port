@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서울시민 영양성분 인식-실천 갭(Gap) 분석 포트폴리오 | 류보라</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── 디자인 토큰 ── */
+:root {
+  --navy:      #1B2B5E;
+  --navy-mid:  #2B3F82;
+  --navy-lo:   rgba(27,43,94,0.08);
+  --ink:       #1A1A2E;
+  --ink-mid:   #3D3D5C;
+  --ink-lo:    #8888AA;
+  --paper:     #FFFFFF;
+  --paper-d:   #F4F5F9;
+  --paper-dd:  #EAECF4;
+  --line:      #DDE0EE;
+  --accent:    #3A5FD9;
+  --accent-lo: rgba(58,95,217,0.09);
+  --warn:      #C0390A;
+  --warn-lo:   rgba(192,57,10,0.08);
+  --ok:        #1A6E48;
+  --ok-lo:     rgba(26,110,72,0.08);
+  --note:      #5B3E8A;
+  --note-lo:   rgba(91,62,138,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; word-break: keep-all; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif;
+  background: var(--paper-d);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: var(--navy);
+  z-index: 999;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  height: 52px;
+}
+.nav-name {
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.92);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55);
+  text-decoration: none; letter-spacing: 0.04em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: rgba(255,255,255,0.95); }
+
+/* ── LAYOUT ── */
+.page-wrap { max-width: 900px; margin: 0 auto; padding: 0 48px; }
+
+section {
+  background: var(--paper);
+  margin-bottom: 3px;
+  padding: 72px 0 64px;
+}
+
+/* ── COVER (HERO) ── */
+#cover {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+#cover::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 48%; height: 100%;
+  background: linear-gradient(135deg, rgba(58,95,217,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+#cover::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3A5FD9 0%, #7AA3FF 50%, transparent 100%);
+}
+
+.cover-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  color: #7AA3FF; text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.cover-title {
+  font-size: clamp(30px, 4.5vw, 52px);
+  font-weight: 800; line-height: 1.25;
+  color: #fff; margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+.cover-title .accent { color: #7AA3FF; }
+
+.cover-rule {
+  width: 40px; height: 3px;
+  background: #3A5FD9; margin-bottom: 28px;
+}
+
+.cover-body {
+  font-size: 15px; color: rgba(255,255,255,0.65);
+  max-width: 680px; line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+.origin-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-left: 3px solid #3A5FD9;
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+.origin-box-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+  color: #7AA3FF; text-transform: uppercase; margin-bottom: 12px;
+}
+.origin-box p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.85; }
+.origin-box p + p { margin-top: 10px; }
+.origin-box strong { color: rgba(255,255,255,0.92); }
+
+.cover-meta {
+  font-size: 12px; color: rgba(255,255,255,0.38);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+.cover-meta span { color: rgba(255,255,255,0.6); }
+
+/* ── NAVY META STRIP ── */
+.meta-strip-navy {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 720px;
+  background: rgba(255,255,255,0.04);
+}
+.meta-cell-navy {
+  padding: 12px 18px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  flex: 1; min-width: 160px;
+}
+.meta-cell-navy:last-child { border-right: none; }
+.meta-k-navy {
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 4px; font-weight: 700;
+  font-family: 'DM Mono', monospace;
+}
+.meta-v-navy {
+  font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9);
+}
+
+/* ── SECTION HEADER ── */
+.sec-label {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--accent); text-transform: uppercase;
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+  margin-bottom: 14px;
+}
+.sec-title {
+  font-size: 24px; font-weight: 800; color: var(--ink);
+  line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.015em;
+}
+.sec-sub {
+  font-size: 13px; color: var(--ink-lo); margin-bottom: 44px;
+  max-width: 720px; line-height: 1.75;
+}
+
+/* ── TYPOGRAPHY ── */
+.body {
+  font-size: 15px; color: var(--ink-mid); line-height: 1.85; margin-bottom: 16px;
+}
+.body strong {
+  color: var(--ink); font-weight: 700;
+}
+h3 {
+  font-size: 16px; font-weight: 800; color: var(--ink);
+  margin: 40px 0 16px;
+  padding-left: 12px; border-left: 3px solid var(--accent);
+}
+
+/* ── CALLOUT BOX ── */
+.callout {
+  border: 1px solid var(--line);
+  border-left: 3.5px solid;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  background: var(--paper-d);
+}
+.callout.blue   { border-left-color: var(--accent); background: var(--accent-lo); }
+.callout.red    { border-left-color: var(--warn); background: var(--warn-lo); }
+.callout.green  { border-left-color: var(--ok); background: var(--ok-lo); }
+.callout.yellow { border-left-color: var(--note); background: var(--note-lo); }
+.callout.gray   { border-left-color: var(--ink-lo); background: var(--paper-d); }
+.callout.neutral{ border-left-color: var(--line); background: var(--paper-d); }
+
+.callout-hd {
+  font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+}
+.callout.blue .callout-hd { color: var(--navy-mid); }
+.callout.red .callout-hd { color: var(--warn); }
+.callout.green .callout-hd { color: var(--ok); }
+.callout.yellow .callout-hd { color: var(--note); }
+.callout.gray .callout-hd { color: var(--ink-mid); }
+.callout.neutral .callout-hd { color: var(--ink-mid); }
+
+/* ── DATA TABLES ── */
+.exp-table {
+  width: 100%; border-collapse: collapse; margin: 28px 0;
+  font-size: 13px; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(27,43,94,0.05);
+}
+.exp-table thead th {
+  background: var(--navy); color: rgba(255,255,255,0.8); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.05em;
+  padding: 12px 16px; text-align: left;
+}
+.exp-table tbody td {
+  padding: 12px 16px; border-bottom: 1px solid var(--line);
+  color: var(--ink-mid); vertical-align: top; line-height: 1.6;
+}
+.exp-table tr:last-child td { border-bottom: none; }
+.exp-table tr:nth-child(even) td { background: var(--paper-d); }
+.exp-table tr:hover td { background: var(--accent-lo); }
+
+.tag-green { color: var(--ok); font-weight: 700; }
+.tag-red   { color: var(--warn); font-weight: 700; }
+.tag-amber { color: var(--note); font-weight: 700; }
+
+.chip {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--paper-dd);
+  color: var(--navy-mid);
+  font-size: 10px; font-weight: 700;
+  border-radius: 4px;
+  margin-left: 6px;
+  letter-spacing: .02em;
+}
+.chip-yellow {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--note-lo);
+  color: var(--note);
+  font-size: 10px; font-weight: 700;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+.chip-check {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--ok);
+  font-weight: 700;
+}
+
+/* ── LISTS ── */
+ul, ol { margin: 20px 0; padding-left: 24px; }
+li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
+
+/* ── INSIGHTS LIST ── */
+.ins-list { margin: 28px 0; display: flex; flex-direction: column; gap: 14px; }
+.ins-item {
+  display: flex; gap: 18px;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(27,43,94,0.04);
+  transition: box-shadow 0.15s;
+}
+.ins-item:hover {
+  box-shadow: 0 2px 8px rgba(27,43,94,0.08);
+}
+.ins-n {
+  font-size: 14px; font-weight: 800;
+  color: var(--accent); flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.ins-t { font-size: 13.5px; color: var(--ink-mid); line-height: 1.75; }
+.ins-t strong { color: var(--ink); margin-right: 4px; font-weight: 700; }
+
+/* ── STATS BLOCK ── */
+.big-res {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin: 28px 0;
+  box-shadow: 0 1px 4px rgba(27,43,94,0.05);
+}
+.res-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.res-cell { text-align: center; }
+.res-k {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ink-lo); margin-bottom: 6px; text-transform: uppercase;
+}
+.res-v {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800; color: var(--ink); line-height: 1.1;
+}
+.res-v.green { color: var(--ok); }
+.res-v.highlight { color: var(--accent); }
+.res-s {
+  font-size: 11px; color: var(--ink-mid); margin-top: 6px;
+}
+.res-divider {
+  width: 1px; height: 48px; background: var(--line);
+}
+
+@media (max-width: 680px) {
+  .res-grid { grid-template-columns: 1fr; }
+  .res-divider { width: 40px; height: 1px; justify-self: center; margin: 12px 0; }
+}
+
+/* ── CHARTS ── */
+.chart-section { margin: 32px 0; }
+.chart-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ink-lo); margin-bottom: 12px; text-transform: uppercase;
+}
+.chart-container {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(27,43,94,0.05);
+}
+
+/* ── DATA EXTENSION LIST LABELS ── */
+.msg-section-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent); margin: 36px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.msg-section-label::before {
+  content: ''; display: inline-block; width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+}
+
+/* ── FOOTER & CONTACT ── */
+.contact-strip {
+  background: var(--navy); border-radius: 6px; padding: 28px 32px;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  margin-top: 48px;
+}
+.cn-name { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; letter-spacing: -0.01em; }
+.cn-role { font-size: 13px; color: rgba(255,255,255,0.45); }
+.cn-right { display: flex; flex-direction: column; gap: 6px; }
+.cn-item  { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+.divider { border: none; border-top: 1px solid var(--line); margin: 48px 0 40px; }
+
+.footer {
+  padding: 48px 0; text-align: center;
+  background: var(--paper-d);
+}
+.footer p { font-size: 11px; color: var(--ink-lo); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">류보라 · 서울시민 영양성분 인식-실천 갭 분석</div>
+  <div class="nav-links">
+    <a href="#intro">연구 배경</a>
+    <a href="#preprocessing">데이터 전처리</a>
+    <a href="#metrics">지표 및 신뢰도</a>
+    <a href="#results">가설 검정</a>
+    <a href="#regression">다중회귀분석</a>
+    <a href="#robustness">신뢰성 검증</a>
+    <a href="#visualizations">종합 시각화</a>
+    <a href="#conclusion">정책 제언</a>
+  </div>
+</nav>
+
+<!-- ── COVER (HERO) ── -->
+<section id="cover">
+<div class="page-wrap">
+
+  <div class="cover-eyebrow">서울시민 먹거리 데이터 분석 보고서</div>
+
+  <h1 class="cover-title">
+    서울시민 영양성분<br>
+    <span class="accent">"인식-실천" 갭(Gap) 분석</span>
+  </h1>
+
+  <div class="cover-rule"></div>
+
+  <p class="cover-body">
+    2024년 서울시민 먹거리조사 원시자료를 바탕으로 만 18세 이상 가구원 3,435명의 영양 정보에 대한 지식 수준(인식)과 실제 생활 속 활용 정도(실천) 사이의 정량적 격차와 그 영향 요인을 규명했습니다.
+  </p>
+
+  <div class="origin-box">
+    <div class="origin-box-label">분석 핵심 요약</div>
+    <p>
+      서울시민 전체 평균 기준에서는 통계적으로 유의미한 거시적 인식-실천 격차가 나타나지 않았습니다(평균 갭: 0.003). 그러나 <strong>개인 수준에서는 응답자의 80.1%가 격차</strong>를 보여 큰 개별 변동성을 띠고 있습니다.
+    </p>
+    <p>
+      특히 <strong>30대와 40대</strong>는 인식에 비해 실제 식생활 실천이 미달하는 <strong>'인식 우위(실천 부족)'</strong>를 보인 반면, <strong>60대</strong>는 인지 수준 대비 실천도가 높은 <strong>'실천 우위'</strong> 패턴을 나타냈습니다. 또한, 가구 내 <strong>식품 구매 및 조리 주체</strong>일수록 실천 수준이 높아 행동 기회요인의 영향이 지대함을 규명했습니다.
+    </p>
+  </div>
+
+  <div class="cover-meta">
+    <span>2024년 서울시민 먹거리조사 원시자료</span> · <span>지표 표준화 평균 산출</span> · <span>다중회귀분석(OLS)</span>
+  </div>
+
+  <div class="meta-strip-navy">
+    <div class="meta-cell-navy">
+      <div class="meta-k-navy">📅 분석 대상 표본</div>
+      <div class="meta-v-navy">만 18세 이상 가구원 3,435명</div>
+    </div>
+    <div class="meta-cell-navy">
+      <div class="meta-k-navy">👤 역할</div>
+      <div class="meta-v-navy">단독 설계 · 전처리 · 통계 분석 · 시각화</div>
+    </div>
+    <div class="meta-cell-navy">
+      <div class="meta-k-navy">🛠 분석 방법론</div>
+      <div class="meta-v-navy">표준화 지표, 비모수 차이 검정, Type-II ANOVA</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ── STEP 01: 연구 배경과 목적 ── -->
+<section id="intro">
+<div class="page-wrap">
+  <div class="sec-label">STEP 01 · 연구 배경</div>
+  <h2 class="sec-title">🚩 연구 배경 및 설계 제한점</h2>
+  <p class="sec-sub">식생활 속 영양 정보에 대한 앎(인식)과 행동(실천) 사이의 괴리를 실증 규명하기에 앞서 단면 데이터 및 설문 설계상의 한계와 연구 가설을 설정했습니다.</p>
+  
+  <p class="body">
+    현대 보건학 및 영양학에서 영양성분 표시(나트륨, 첨가당 권고량 등)에 대한 올바른 이해는 건강한 식생활의 선행 조건으로 강조됩니다. 그러나 영양 정보를 알고 있는 수준(인식)과 실제 구매 및 식생활에서 이를 확인·고려하는 수준(실천) 사이에는 괴리가 존재할 수 있으며, 이를 <strong>'인식-실천 갭(Gap)'</strong>이라 칭합니다.
+  </p>
+  <p class="body">
+    본 연구는 2024년 서울시민 먹거리조사 데이터를 활용해 서울시민의 영양성분에 대한 인식과 실천 수준을 정량화하고, 인구통계학적 특성별 격차를 실증 분석하여 구체적 보건 정책의 기초 자료를 제공하는 데 목적이 있습니다.
+  </p>
+
+  <div class="callout red">
+    <div class="callout-hd">⚠️ 연구 설계의 전제 조건 및 한계점</div>
+    <p class="body"><strong>1. 단면연구(Cross-sectional Study)의 한계:</strong> 본 조사는 동일 시점에 수집된 단면조사이므로, 인식과 실천 간의 통계적 유의성이 검증되더라도 이는 <strong>'상관관계'일 뿐 인과관계를 입증하는 것은 불가능</strong>합니다. 따라서 해석 시 연관성 및 차이 검정의 용어로 서술을 제한합니다.</p>
+    <p class="body" style="margin:0;"><strong>2. 자기보고식(Self-report) 설문의 편향:</strong> 설문 응답은 주관적 판단에 의존합니다. 특히 실천도 문항의 경우, 도덕적으로 바람직한 행동을 과장하여 보고하려는 <strong>'사회적 바람직성 편향(Social Desirability Bias)'</strong>이 개입했을 수 있습니다. 반면 지식 문항(B11, B12)은 객관식 정답 여부로 평가되어 편향의 여지가 적습니다. 이러한 비대칭적 편향으로 실제보다 실천 점수가 과대추정되어 평균 갭이 상쇄되었을 가능성을 감안해야 합니다.</p>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">🎯 수립된 가설 목록</div>
+    <ul style="margin:8px 0 0 16px;">
+      <li><strong>H1:</strong> 인식 수준과 실천 수준은 양(+)의 상관관계를 가질 것이다. (채택)</li>
+      <li><strong>H2:</strong> 인식-실천 갭(격차)이 존재할 것이다. (부분 채택)</li>
+      <li><strong>H3:</strong> 인식-실천 갭의 크기는 연령대에 따라 차이가 있을 것이다. (채택)</li>
+      <li><strong>H4:</strong> 인식-실천 갭의 크기는 소득 및 학력 수준에 따라 차이가 있을 것이다. (학력 채택, 소득 유보)</li>
+      <li><strong>H5:</strong> 식품 구매 및 식사 준비 주체 여부에 따라 실천 수준이 다를 것이다. (채택)</li>
+      <li><strong>H6:</strong> 다른 통제변수를 고려해도 인식-실천 연관성은 유지될 것이다. (채택)</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 02: 데이터 준비 및 전처리 ── -->
+<section id="preprocessing">
+<div class="page-wrap">
+  <div class="sec-label">STEP 02 · 데이터 전처리</div>
+  <h2 class="sec-title">⚙️ 데이터 준비 및 정교한 전처리</h2>
+  <p class="sec-sub">원시자료의 구조적 특징과 설문 설계상의 분기 필터를 고려하여 결측치 왜곡을 선제적으로 통제했습니다.</p>
+  
+  <p class="body">
+    원시자료 분석 과정에서 발생할 수 있는 표본 왜곡을 방지하기 위해 이상치 및 결측치에 대해 명확한 처리 기준을 수립하고 전처리를 수행했습니다.
+  </p>
+
+  <div class="ins-list">
+    <div class="ins-item">
+      <span class="ins-n">01</span>
+      <span class="ins-t">
+        <strong>구조적 결측(Structural Missingness) 해소: 영양표시 확인 변수 병합</strong><br>
+        65세 미만을 대상으로 한 외식가공식품 영양표시 확인 여부(B14, 결측 733건, 21.3%)와 65세 이상 대상 가공식품 소비기한/영양표시 확인 여부(B15, 결측 2,702건, 78.7%)는 상호배타적인 구조적 결측입니다. 이를 연령 기준(만 65세)으로 병합하여 단일 파생변수인 <code>영양표시확인여부</code>를 생성하여 결측을 100% 해소했습니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">02</span>
+      <span class="ins-t">
+        <strong>고용형태 변수(DM07)의 구조적 결측 유지</strong><br>
+        비경제활동인구(주부, 학생, 무직 등 976건, 28.4%)의 고용형태 결측은 단순 결측이 아닌 구조적 생략입니다. 회귀분석 시 이를 리스트와이즈 제거할 경우 표본 편향이 발생하므로, '비경제활동(코드 99)'이라는 임의의 유효 범주로 대체하여 분석을 설계했습니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">03</span>
+      <span class="ins-t">
+        <strong>제도적 결측(Institutional Missingness)의 식별 및 결측 처리</strong><br>
+        식품영양정보고려정도(C3_6), 건강식품구매정도(C3_5) 등에서 나타난 "⑨ 구매경험없음" 응답(각 43건, 1.25%)은 실천 0점으로 대체되어서는 안 되며, 소비 기회 자체가 없었던 집단입니다. 이를 단순 낮은 실천으로 오인하여 산입할 경우 통계가 왜곡되므로, 결측(NaN)으로 지정하여 지표 계산에서 제외했습니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">04</span>
+      <span class="ins-t">
+        <strong>지식 문항의 이진 파생변수화(Binarization)</strong><br>
+        WHO 나트륨 1일 권고량(B11)과 첨가당 1일 권고량(B12) 문항은 정답(2,000mg 및 50g)에 대해서만 1점, 오답 및 "잘 모른다" 응답은 0점으로 처리하여 이진 파생변수로 가공했습니다. "잘 모른다"는 결측이 아닌 지식 없음(오답) 범주로 취급했습니다.
+      </span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 03: 지표 구성 및 신뢰도 검증 ── -->
+<section id="metrics">
+<div class="page-wrap">
+  <div class="sec-label">STEP 03 · 지표 구성 및 신뢰도</div>
+  <h2 class="sec-title">📊 지표 구성 및 신뢰도 검증</h2>
+  <p class="sec-sub">서로 다른 척도(이진형 및 5점 리커트 척도)의 문항들을 결합하기 위해 개별 문항을 표준화(z-score)한 후 평균 지표를 도출했습니다.</p>
+
+  <div class="callout blue">
+    <div class="callout-hd">📐 지표별 문항 구성</div>
+    <p class="body"><strong>· 인식 점수(Awareness Score):</strong> 나트륨 지식 정답 여부(B11) + 첨가당 지식 정답 여부(B12) + 영양균형식품 인지도(B17_1) + 가공식품 정보 이해도(B18_1) + 건강광고 판단 정도(B18_5, 보조) 표준화 평균</p>
+    <p class="body"><strong>· 핵심 실천 점수(Core Practice Score):</strong> 영양표시확인여부(B14/B15 병합) + 가공식품 정보 확인 정도(B19_2) + 식품영양정보 고려 정도(C3_6) 표준화 평균</p>
+    <p class="body"><strong>· 보조 실천 점수(Supplementary Practice Score):</strong> 건강식품 구매 정도(C3_5) + 신선식품 우선 구매 정도(C3_7) + 식생활 노력 정도(B4) 표준화 평균</p>
+    <p class="body" style="margin:0;"><strong>· 갭 점수(Gap Score):</strong> <span style="font-family:'DM Mono', monospace; font-weight:700; color:var(--accent);">Gap = 인식 점수(z) - 핵심 실천 점수(z)</span></p>
+  </div>
+
+  <h3>문항 내적 일관성 검정 (Cronbach's &alpha;)</h3>
+  <table class="exp-table">
+    <thead>
+      <tr>
+        <th>지표 구분</th>
+        <th>구성 문항 수</th>
+        <th>Cronbach's &alpha;</th>
+        <th>신뢰도 신뢰성 검증 결과</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>인식 지표 (Awareness Index)</strong></td>
+        <td>5</td>
+        <td><span class="tag-green">0.652</span></td>
+        <td>수용 가능 (사회과학 지수 기준치 &ge; 0.6 충족)</td>
+      </tr>
+      <tr>
+        <td><strong>핵심 실천 지표 (Core Practice Index)</strong></td>
+        <td>3</td>
+        <td><span class="tag-green">0.667</span></td>
+        <td>수용 가능 (합산 지표 구성의 타당성 확보)</td>
+      </tr>
+      <tr>
+        <td><strong>보조 실천 지표 (Supplementary Practice Index)</strong></td>
+        <td>3</td>
+        <td><span class="tag-amber">0.540</span></td>
+        <td>신뢰도 다소 낮음 (독립적 해석 시 각별한 주의 필요)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px;color:var(--ink-lo); margin-top:-8px;">* 핵심 분석 변수인 인식 및 핵심 실천 지표는 크론바흐 알파 기준치를 통과하여 지표 결합의 통계적 안정성을 확보했습니다.</p>
+</div>
+</section>
+
+<!-- ── STEP 04: 가설 검정 및 분석 결과 ── -->
+<section id="results">
+<div class="page-wrap">
+  <div class="sec-label">STEP 04 · 가설 검정</div>
+  <h2 class="sec-title">📈 가설 검정 및 분석 결과</h2>
+  <p class="sec-sub">인식과 실천 수준의 상관관계 및 세부 인구통계학적 특성별 격차를 다양한 통계 검정을 통해 검증했습니다.</p>
+
+  <div class="big-res">
+    <div class="res-grid">
+      <div class="res-cell">
+        <div class="res-k">Spearman 상관계수</div>
+        <div class="res-v highlight">0.398</div>
+        <div class="res-s">p &lt; 0.001 (유의한 상관)</div>
+      </div>
+      <div class="res-divider"></div>
+      <div class="res-cell">
+        <div class="res-k">평균 갭 점수</div>
+        <div class="res-v">0.003</div>
+        <div class="res-s">95% CI: -0.023 ~ 0.029</div>
+      </div>
+      <div class="res-divider"></div>
+      <div class="res-cell">
+        <div class="res-k">실천 우위 집단</div>
+        <div class="res-v green">42.8%</div>
+        <div class="res-s">인식 우위 집단: 37.3%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">H1. 인식 수준과 실천 수준은 양(+)의 상관관계를 가질 것이다. (채택)</div>
+    <p class="body" style="margin:0;">Spearman &rho; = 0.398 (p &lt; 0.001), Pearson r = 0.416 (p &lt; 0.001)로 유의미한 양의 상관관계가 검증되었습니다. 다만 상관계수가 0.4 수준인 <strong>'중간 정도의 연관성'</strong>에 해당하므로, 지식이 높아도 실천하지 않거나 지식은 적어도 실천하는 개인적 변동 분포가 널리 혼재함을 나타냅니다.</p>
+  </div>
+
+  <div class="callout neutral">
+    <div class="callout-hd">H2. 인식-실천 갭(격차)이 존재할 것이다. (부분 채택)</div>
+    <p class="body" style="margin:0;">전체 서울시민의 평균 갭 점수는 0.003이며 신뢰구간에 0이 포함되므로, 거시적 수준에서 일방적인 갭 쏠림은 유의하지 않습니다. 그러나 개인 수준에서는 응답자의 80.1%가 크고 작은 격차를 띠고 있어 <strong>'개인별 격차의 변동성이 매우 크다'</strong>는 가설은 확실히 지지됩니다.</p>
+  </div>
+
+  <div class="callout yellow">
+    <div class="callout-hd">H3. 인식-실천 갭의 크기는 연령대에 따라 차이가 있을 것이다. (채택)</div>
+    <p class="body">Kruskal-Wallis 검정 결과 H = 22.636 (p &lt; 0.001)으로 연령별 갭 편차는 매우 유의합니다.</p>
+    <ul style="margin:0 0 0 16px;">
+      <li><strong>30대(갭: 0.071) & 40대(갭: 0.108):</strong> 인식 수준에 비해 실제 생활 속 행동이 따라가지 못하는 <strong>'인식 우위(실천 부족)'</strong>를 보입니다.</li>
+      <li><strong>60대(갭: -0.094):</strong> 인지적 지식 수준 대비 실제 실천 활동이 더 높게 나타나는 <strong>'실천 우위'</strong> 양상이 관찰되었습니다.</li>
+    </ul>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-hd">H4. 인식-실천 갭의 크기는 소득 및 학력 수준에 따라 차이가 있을 것이다. (학력 채택, 소득 유보)</div>
+    <p class="body">학력별 차이는 H = 31.032 (p &lt; 0.001)로 뚜렷하지만, 소득별 차이는 H = 9.634 (p = 0.047)로 유의수준 5% 경계선상에 위치합니다. 또한 두 독립변수 간의 강한 공선성을 고려할 때 복합적인 연관성으로 해석하는 것이 바람직합니다.</p>
+    <ul style="margin:0 0 0 16px;">
+      <li><strong>중졸 이하 집단(갭: 0.143):</strong> 인식과 실천 모든 점수가 최하위이면서 낙차가 가장 커 집중 케어가 필요한 <strong>사회적 취약 집단</strong>에 해당합니다.</li>
+      <li><strong>고졸 집단(갭: -0.081):</strong> 실천 우위 패턴을 띠며, <strong>대졸 이상(갭: 0.055)</strong>은 다시 인식 우위의 형태를 보입니다.</li>
+    </ul>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">H5. 식품 구매 및 식사 준비 주체 여부에 따라 실천 수준이 다를 것이다. (채택)</div>
+    <p class="body" style="margin:0;">식품구매주체(DQ1) 및 식사준비주체(DQ2) 여부에 따른 Mann-Whitney U 검정 결과 모두 p &lt; 0.001로 유의합니다. 가구 내 식품을 직접 구매하는 주체(실천 평균: 0.069)와 조리를 맡은 주체(실천 평균: 0.083)가 비주체 집단(각 -0.109, -0.124) 대비 실천율이 유의하게 우수합니다. 이는 <strong>'행동할 수 있는 기회(Opportunity)'</strong> 자체가 실천을 결정하는 핵심 변수임을 나타냅니다.</p>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 05: 다중회귀분석 및 상대적 설명력 ── -->
+<section id="regression">
+<div class="page-wrap">
+  <div class="sec-label">STEP 05 · 통계 검정</div>
+  <h2 class="sec-title">📐 다중회귀모형 및 변수별 설명 기여도</h2>
+  <p class="sec-sub">인구통계학적 특성과 고용 변수를 모두 보정한 OLS 다중회귀모형을 적용하여 요인별 영향력을 분석했습니다.</p>
+  
+  <p class="body">
+    구축된 다중회귀모형은 실천 점수를 종속변수로 설정하고 성별, 연령대, 학력, 소득, 직업, 고용형태와 핵심 설명변수인 인식 점수를 투입했습니다 (설명력 R<sup>2</sup> = 21.5%).
+  </p>
+  <p class="body">
+    통제 하에서도 <strong>인식 점수(&beta; = 0.460, p &lt; 0.001, t = 23.577)</strong>는 실천을 설명하는 가장 영향력 있는 설명 요인으로 기능합니다. 또한 여성(&beta; = 0.240, p &lt; 0.001)이 남성 대비 실천도가 유의하게 높았고, 고졸(&beta; = 0.392, p &lt; 0.001) 및 대졸 이상(&beta; = 0.391, p &lt; 0.001) 역시 중졸 이하 대조군에 비해 유의한 실천 증가 경향을 가집니다.
+  </p>
+
+  <h3>Type-II ANOVA 제곱합 분할에 따른 변수별 상대적 설명력</h3>
+  <table class="exp-table">
+    <thead>
+      <tr>
+        <th>설명 변수</th>
+        <th>설명 비율 (Variance Explained)</th>
+        <th>p-value (유의확률)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>인식 점수 (Awareness Score)</strong></td>
+        <td><strong>13.49%</strong></td>
+        <td><strong>&lt; 0.001 (매우 유의)</strong></td>
+      </tr>
+      <tr>
+        <td>성별 (Gender)</td>
+        <td>1.70%</td>
+        <td>&lt; 0.001 (매우 유의)</td>
+      </tr>
+      <tr>
+        <td>학력 (Education)</td>
+        <td>0.76%</td>
+        <td>&lt; 0.001 (매우 유의)</td>
+      </tr>
+      <tr>
+        <td>고용형태 (Employment)</td>
+        <td>0.51%</td>
+        <td>&lt; 0.001 (매우 유의)</td>
+      </tr>
+      <tr>
+        <td>직업 (Job)</td>
+        <td>0.35%</td>
+        <td>0.014 (유의)</td>
+      </tr>
+      <tr>
+        <td>소득 (Income)</td>
+        <td>0.22%</td>
+        <td>0.059 (경계선상 비유의)</td>
+      </tr>
+      <tr>
+        <td>연령대 (Age Group)</td>
+        <td>0.14%</td>
+        <td>0.321 (비유의)</td>
+      </tr>
+      <tr style="background: var(--paper-dd); font-weight:700;">
+        <td>잔차 (Unexplained Variance)</td>
+        <td>82.83%</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout gray">
+    <div class="callout-hd">💡 미설명 잔차(82.83%)가 주는 보건의학적 통찰</div>
+    <p class="body" style="margin:0;">인식 점수의 기여율(13.49%)은 다른 통제변수들 중 가장 큰 성별(1.70%)의 8배에 달할 만큼 지대하지만, 회귀모형이 규명하지 못하는 잔차가 82.83%에 달합니다. 이는 실제 영양성분 실천이 단순히 지식의 유무나 신분적 지표에 의해서만 결정되는 것이 아니라, <strong>시장 환경, 식품 가격, 접근 편의성, 고착화된 구매 습관</strong>과 같은 정량화되지 않는 외부 환경적 변수에 의해서도 크게 좌우됨을 보여주는 실증적 증거입니다.</p>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 06: 분석 신뢰성 및 강건성 검증 ── -->
+<section id="robustness">
+<div class="page-wrap">
+  <div class="sec-label">STEP 06 · 강건성 검증</div>
+  <h2 class="sec-title">🧪 분석 신뢰성 및 강건성 검증 (Robustness Checks)</h2>
+  <p class="sec-sub">통계 분석의 객관적 타당성을 공고히 하기 위해 수행한 세 가지 민감도/신뢰성 분석 내역입니다.</p>
+
+  <div class="ins-list">
+    <div class="ins-item">
+      <span class="ins-n">01</span>
+      <span class="ins-t">
+        <strong>설계 가중치(Sampling Weights) 적용 여부 비교</strong><br>
+        가중치를 반영하지 않은 모형 대비 가중치를 적용한 가중 분석 시 통계치가 전반적으로 하향 이동하는 양상이 나타났습니다 (인식 평균: 0.000 &rarr; -0.048, 실천 평균: -0.003 &rarr; -0.117). 이는 응답을 완료한 무가중치 원 데이터 표본이 실제 서울시 전체 인구구조에 비해 영양 관심도가 다소 높은 군으로 쏠려(과대대표) 있음을 보여줍니다. 따라서 공식 자료 수치 제시 시에는 가중 가중치 적용을 준수해야 합니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">02</span>
+      <span class="ins-t">
+        <strong>지표 문항 구성에 따른 민감도 검증</strong><br>
+        실천도 지표를 핵심 실천 항목(3개)이 아닌 보조 실천문항을 포함한 전체 실천 점수로 대체하여 상관을 재추정했음에도 상관계수 크기 및 유의 수준의 근본적 차이가 발견되지 않아, 구성 지표의 견고함이 확인되었습니다 (Core 상관: &rho; = 0.398 vs Full 상관: &rho; = 0.384).
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">03</span>
+      <span class="ins-t">
+        <strong>기존 표준 공인지수와의 준거 타당도 검증</strong><br>
+        본 연구에서 새로 조합한 핵심 실천지표가 국민건강영양조사의 공인 지표인 영양지수(NQ)의 실천 코드(전체실천상중하코드)와 유의한 정(+)의 상관관계(&rho; = 0.391, p &lt; 0.001)를 띰에 따라 구성개념에 대한 타당도(Criterion Validity)가 성공적으로 교차 입증되었습니다.
+      </span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 07: 시각화 종합 ── -->
+<section id="visualizations">
+<div class="page-wrap">
+  <div class="sec-label">STEP 07 · 시각화 분석</div>
+  <h2 class="sec-title">🖼️ 분석 결과 시각화 종합</h2>
+  <p class="sec-sub">인식/실천 점수의 빈도 기술통계, 두 변수 간의 분산 적합선(상관), 인구통계학적 특성별 갭 분포 차이를 종합 시각화한 대시보드 결과물입니다.</p>
+
+  <div class="chart-section" style="margin-top: 10px;">
+    <div class="chart-container" style="padding: 12px; text-align: center;">
+      <img src="2. eda_overview.png" alt="인식 및 실천 분석 종합 시각화(Overview)" style="width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); display: block; margin: 0 auto;">
+      <p style="font-size:12px; color:var(--ink-lo); margin-top:12px; line-height: 1.6;">
+        [그림] 인식 및 핵심실천 지표의 분포 산포와 상관 회귀선, 연령·소득·학력 수준에 따른 Gap 변동 분포 추이
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 08: 결론 및 정책 제언 ── -->
+<section id="conclusion" style="margin-bottom: 0;">
+<div class="page-wrap">
+  <div class="sec-label">STEP 08 · 결론 및 제언</div>
+  <h2 class="sec-title">💡 결론 및 정책적 제언</h2>
+  <p class="sec-sub">정밀 분석 결과를 기반으로 도출된 식생활 개선을 위한 실무적 가이드라인 및 공공 보건 영양 정책 설계 방향입니다.</p>
+
+  <div class="ins-list">
+    <div class="ins-item">
+      <span class="ins-n">01</span>
+      <span class="ins-t">
+        <strong>정밀한 수치 교육보다 행동 위주의 가이드라인 설계</strong><br>
+        나트륨이나 첨가당 1일 WHO 권고치 등 수치적 정답률은 25% 선으로 무작위 찍기 수준인 반면, 영양 정보 탐색 태도는 비교적 우수했습니다. 이는 복잡한 '숫자 지식'을 주입하는 보건 교육보다는 영양성분 표시를 <strong>'쉽고 간단하게 읽고 비교·선택하는 행동 요령'</strong>을 체화하도록 돕는 직관적인 교육이 훨씬 효과적임을 방증합니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">02</span>
+      <span class="ins-t">
+        <strong>사회경제적 취약 집단에 대한 핀포인트 정보 전달</strong><br>
+        중졸 이하 저학력층 및 식품 미구매/비조리 집단은 인식과 실천 모든 영역에서 점수가 가장 낮을 뿐만 아니라, 두 지표 사이의 낙차(Gap)가 제일 큰 고위험군입니다. 이들을 표적화하여 일상생활에서 자연스럽게 접할 수 있는 접근성 높은 식생활 영양 전달 체계를 강화해야 합니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">03</span>
+      <span class="ins-t">
+        <strong>가구 내 주체적 식생활 관여 유도 전략</strong><br>
+        식품 직접 구매와 조리 담당 여부가 실천 행동을 좌우하는 중추 역할을 하므로, 급격히 증가하는 1인 가구를 겨냥해 스스로 식자재와 간편식을 주체적으로 스크리닝할 수 있게끔 행동 변화를 촉진하는 공공 캠페인 보강이 요구됩니다.
+      </span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">04</span>
+      <span class="ins-t">
+        <strong>환경적 보건 인프라 개선 및 유통 인프라 개선 병행</strong><br>
+        회귀모형의 잔차율이 82.83%에 봉착하므로 영양 지식의 보급만으로는 실생활 실천율 제고에 명확한 한계가 존재합니다. 저염·저당 건강식품의 유통 접근성을 대폭 확대하고, 가격적 혜택(인센티브)을 제공하여 자연스럽게 건강한 선택지를 유도하는 제도적 유인책 연구가 수반되어야 합니다.
+      </span>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <div>
+      <div class="cn-name">류보라</div>
+      <div class="cn-role">데이터 기반 상품기획 BM · 식품공학 전공 · 헬스케어 7년</div>
+    </div>
+    <div class="cn-right">
+      <div class="cn-item">Email: boraryu37@gmail.com</div>
+      <div class="cn-item">Github: https://github.com/bodli-ham</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 bodli's Blog · 데이터 분석 프로젝트. All rights reserved.</p>
+  <p style="margin-top: 6px; font-size: 10px; color: var(--ink-lo);">데이터 출처: 서울특별시 질병관리청 2024년 서울시민 먹거리조사 원시자료</p>
+</footer>
+
+</body>
+</html>
