@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[가상 기획서] "관리하는 사람만 아는" 퍼포먼스 라인 — 심화 v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1c2733; --ink-2:#354453; --ink-3:#6b7a89; --ink-4:#9aa8b5;
+  --bg:#f7fafc; --bg-2:#e9f2f8;
+  --blue:#3f7ab0; --blue-lt:#e6f1fa; --blue-mid:#2c5c85; --blue-dk:#1f3f5c;
+  --amber:#c07a1f; --amber-lt:#fbf1e0;
+  --green:#1a6e48; --green-lt:#e0f3ea;
+  --yellow:#d97706; --yellow-lt:#fef9e0;
+  --border:rgba(63,122,176,.16);
+  --sans:'Noto Sans KR',sans-serif; --mono:'DM Mono',monospace; --display:'Bebas Neue',sans-serif;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink-2);font-size:14px;line-height:1.75;letter-spacing:-.01em;word-break:keep-all}
+.page{max-width:980px;margin:0 auto;padding:2.5rem 2rem 4rem}
+
+.doc-hd{border-bottom:3px solid var(--ink);padding-bottom:1.2rem;margin-bottom:1.8rem;display:flex;justify-content:space-between;align-items:flex-end}
+.doc-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--blue-mid);text-transform:uppercase;margin-bottom:.5rem}
+.doc-title{font-family:var(--display);font-size:34px;letter-spacing:.01em;color:var(--ink)}
+.doc-meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);line-height:1.6}
+
+.warn-strip{background:var(--yellow-lt);border:1px solid rgba(217,119,6,.3);border-radius:8px;padding:.8rem 1.1rem;font-size:12px;color:#7a4c04;margin-bottom:2rem;line-height:1.75}
+
+.sec{margin-bottom:2.4rem}
+.sec-hd{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.sec-num{font-family:var(--mono);font-size:11px;font-weight:700;color:white;background:var(--blue);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-title{font-size:16px;font-weight:800;color:var(--ink)}
+
+/* 페르소나 */
+.persona{background:white;border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;display:grid;grid-template-columns:100px 1fr;gap:1.2rem;align-items:center}
+.persona-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dk));display:flex;align-items:center;justify-content:center;font-size:38px}
+.persona-name{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.persona-desc{font-size:13px;color:var(--ink-3);line-height:1.8}
+.persona-desc b{color:var(--ink-2)}
+
+/* 네이밍 후보 */
+.name-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.name-card{background:white;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem}
+.name-card.pick{border:2px solid var(--blue);box-shadow:0 2px 10px rgba(63,122,176,.12)}
+.name-pick-tag{font-family:var(--mono);font-size:9px;font-weight:700;color:white;background:var(--blue);display:inline-block;padding:2px 8px;border-radius:10px;margin-bottom:8px;letter-spacing:.06em}
+.name-kr{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.name-en{font-family:var(--mono);font-size:10.5px;color:var(--ink-4);margin-bottom:8px}
+.name-rat{font-size:12px;color:var(--ink-3);line-height:1.7}
+
+/* 폼 비교 */
+.form-table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;font-size:12.5px}
+.form-table th{background:var(--blue-dk);color:white;font-weight:700;padding:.7rem .9rem;text-align:left;font-size:11px}
+.form-table td{padding:.7rem .9rem;border-bottom:1px solid var(--border);color:var(--ink-2);line-height:1.7}
+.form-table tr:last-child td{border-bottom:none}
+.form-table tr.pick td{background:var(--blue-lt)}
+.form-table td.label{font-weight:700;color:var(--ink)}
+
+/* 성분 후보 */
+.ing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.ing-card{background:white;border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
+.ing-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.ing-name{font-size:13.5px;font-weight:700;color:var(--ink)}
+.ing-status{font-family:var(--mono);font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.04em}
+.ing-status.check{background:var(--yellow-lt);color:var(--yellow)}
+.ing-status.confirmed{background:var(--green-lt);color:var(--green)}
+.ing-note{font-size:11.5px;color:var(--ink-3);line-height:1.7}
+
+/* 카피 */
+.copy-list{display:flex;flex-direction:column;gap:.7rem}
+.copy-item{background:white;border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:.9rem 1.1rem}
+.copy-txt{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.copy-note{font-size:11.5px;color:var(--ink-3)}
+
+/* ODM 적용 시뮬레이션 */
+.odm-steps{display:flex;flex-direction:column;gap:0}
+.odm-step{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:1rem 0;border-bottom:1px dashed var(--border)}
+.odm-step:last-child{border-bottom:none}
+.odm-step-num{width:30px;height:30px;border-radius:50%;background:var(--blue-lt);color:var(--blue-mid);font-family:var(--mono);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+.odm-step-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.odm-step-body{font-size:12.5px;color:var(--ink-3);line-height:1.75}
+.odm-step-body b{color:var(--ink-2)}
+
+.price-row{display:flex;gap:1rem}
+.price-box{flex:1;background:white;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;text-align:center}
+.price-box .n{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--ink)}
+.price-box .l{font-size:11px;color:var(--ink-3);margin-top:4px}
+
+.risk-box{margin-top:.5rem;border-radius:10px;padding:1rem 1.2rem;font-size:12px;line-height:1.8;background:var(--amber-lt);border:1px solid rgba(192,122,31,.3);color:#6b4a10}
+.risk-box b{color:#4a3308}
+
+.foot-note{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:10.5px;color:var(--ink-4);line-height:1.8}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-hd">
+    <div>
+      <div class="doc-tag">Internal Draft · Concept Development v2</div>
+      <div class="doc-title">"관리하는 사람만 아는" 퍼포먼스 라인</div>
+    </div>
+    <div class="doc-meta">작성 · 류보라<br>Concept B 심화안<br>2026 · Draft, 사내 공유용</div>
+  </div>
+
+  <div class="warn-strip">
+    ⚠ 데이터분석 결과로 얻은 타겟을 대상으로 가상의 상품기획 여정을 따라 문서를 작성해보았습니다. 원료·클레임·심의 관련 항목은 모두 실제 진행 전 확인이 필요한 가안입니다.
+  </div>
+
+  <!-- 1. 페르소나 재정의 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">1</div><div class="sec-title">타겟 재정의 — 누구를 위한 것인가</div></div>
+    <div class="persona">
+      <div class="persona-avatar">🏃</div>
+      <div>
+        <div class="persona-name">30대 후반, 주 3회 이상 러닝/웨이트, 비흡연, 관리 습관이 이미 있는 남성</div>
+        <div class="persona-desc">"건강해지고 싶어서"가 아니라 <b>이미 관리 중인 루틴에 자연스럽게 끼워 넣을 것</b>을 찾는 사람. 헬스케어 언어보다 러닝화·스포츠워치 사는 것과 비슷한 감각으로 접근. "몸에 좋다"보다 "루틴이 무너지지 않게 돕는다"는 언어에 더 반응할 가능성.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 네이밍 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">2</div><div class="sec-title">브랜드/제품명 후보</div></div>
+    <div class="name-grid">
+      <div class="name-card pick">
+        <div class="name-pick-tag">1순위 후보</div>
+        <div class="name-kr">루틴덱스</div>
+        <div class="name-en">ROUTINDEX</div>
+        <div class="name-rat">"루틴 + 지수(index)". 건강 클레임보다 습관 관리 도구라는 인상을 앞세움. 기능성 문구 없이도 브랜드명 자체로 승인 리스크가 낮음.</div>
+      </div>
+      <div class="name-card">
+        <div class="name-kr">애프터런</div>
+        <div class="name-en">AFTERRUN</div>
+        <div class="name-rat">운동 직후 시점을 명확히 지칭. 카테고리(회복) 연상은 강하지만 특정 종목(러닝) 이미지에 갇힐 위험.</div>
+      </div>
+      <div class="name-card">
+        <div class="name-kr">리커버 스틱</div>
+        <div class="name-en">RECOVR</div>
+        <div class="name-rat">기능을 직접 지칭해 이해는 빠르나, "회복"이 의약품 연상(치료·완화)과 가까워 심의 단계에서 표현 수위 조정 여지가 큼.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 제품 폼 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">3</div><div class="sec-title">제품 형태 검토</div></div>
+    <table class="form-table">
+      <tr><th>형태</th><th>장점</th><th>단점</th><th>비고</th></tr>
+      <tr class="pick">
+        <td class="label">스틱형 분말</td>
+        <td>운동가방 휴대 용이. 이미 개인이 가진 습관(예: 운동 직후)에 자연스럽게 연결되는 형태라 습관화 장벽이 낮음</td>
+        <td>소비자의 기존 루틴 안에 다르게 다가가야 한다는 과제가 남음 — 이미 챙겨 먹는 건기식이 있다면 그걸 대체할 확실한 이유를 주거나, 부담 없이 하나 더 얹을 수 있는 형태라는 확신을 줘야 함</td>
+        <td>1순위 — 헬스장 락커 비치용 개별포장에도 적합</td>
+      </tr>
+      <tr>
+        <td class="label">캡슐</td>
+        <td>맛 이슈 없음, 표준 제형이라 ODM 리드타임 짧음</td>
+        <td>"의약품처럼 삼키는" 행위라 라이프스타일보다 헬스케어 톤에 가까워짐</td>
+        <td>세컨 라인 확장 시 고려</td>
+      </tr>
+      <tr>
+        <td class="label">액상 샷</td>
+        <td>즉시성 강함, 편의점 냉장 진열 가능성</td>
+        <td>단가·유통(냉장) 부담 큼, 초기 볼륨 검증 전 리스크 높음</td>
+        <td>스틱형 검증 후 2단계 확장안</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 4. 성분 후보 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">4</div><div class="sec-title">핵심 성분 방향 (가안)</div></div>
+    <div class="risk-box" style="margin-bottom:.9rem">
+      <b>선정 원칙</b> — 아래 4개는 후보 성분 풀이며, 최종 배합에는 이 중 1~2개만 선정하는 방향으로 좁힙니다. 타겟이 이미 다른 건기식을 섭취 중인 경우가 많다는 점을 감안해 <b>하루 총 섭취 성분 수가 과도해지지 않도록</b> 조절하고, 첨가물 최소화 방향에도 부합시킵니다. 향후 브랜드 내 다른 제품(예: STEP01의 50대 여성 라인)과 겹치는 성분이 없는지도 확인해, 브랜드 전체 라인업 안에서 중복 섭취가 발생하지 않도록 배합을 조정합니다.
+    </div>
+    <div class="ing-grid">
+      <div class="ing-card">
+        <div class="ing-hd"><div class="ing-name">마그네슘</div><div class="ing-status check">법적지위 확인필요</div></div>
+        <div class="ing-note">근피로·근육경련 관련 인지도 높은 성분. 고시형 여부 및 인정 기능성 문구 범위는 원료별 재확인 필요.</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-hd"><div class="ing-name">항산화 비타민군(C·E)</div><div class="ing-status check">법적지위 확인필요</div></div>
+        <div class="ing-note">운동 후 산화 스트레스 관리 연상. 다수가 고시형이나 인정 문구·배합비 상한 별도 확인 필요.</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-hd"><div class="ing-name">유단백가수분해물</div><div class="ing-status check">법적지위 확인필요</div></div>
+        <div class="ing-note">'수면의 질 개선' 기능성이 2026년 고시형으로 신규 추가된 원료(규제이해 프로젝트 참고). 운동 후 회복=수면 연결 스토리 가능하나 원가·배합 실현성 별도 확인.</div>
+      </div>
+      <div class="ing-card">
+        <div class="ing-hd"><div class="ing-name">오메가3 / 코엔자임Q10</div><div class="ing-status check">법적지위 확인필요</div></div>
+        <div class="ing-note">KNHANES 데이터상 남성 섭취 비중이 상대적으로 늘어난 카테고리(2018–2021 탐색적 관찰, 유의성 검정 전). 스틱형 제형 적합성 별도 검토 필요.</div>
+      </div>
+    </div>
+    <div class="risk-box" style="margin-top:.9rem">
+      <b>확인 필요</b> — 최종 배합비 확정 전 원료 법적 지위(고시형/개별인정형), 스틱형 제형에서의 용해도·맛 구현 가능성, 그리고 위 선정 원칙에 따른 성분 수 축소·중복 배제를 ODM과 함께 검증해야 합니다. 이 문서 단계에서는 "방향성 후보"입니다.
+    </div>
+  </div>
+
+  <!-- 5. 카피 후보 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">5</div><div class="sec-title">카피 톤 후보 (1차 심의 필터 통과 가능성 우선)</div></div>
+    <div class="copy-list">
+      <div class="copy-item">
+        <div class="copy-txt">"루틴이 끊기지 않게, 딱 한 스틱."</div>
+        <div class="copy-note">기능성 클레임 없이 습관·라이프스타일 소구. 심의 리스크 가장 낮음.</div>
+      </div>
+      <div class="copy-item">
+        <div class="copy-txt">"운동 후, 다음 루틴을 준비하는 시간"</div>
+        <div class="copy-note">회복을 직접 언급하지 않고 시간대·상황으로 우회 소구.</div>
+      </div>
+      <div class="copy-item">
+        <div class="copy-txt">"○○ 성분, 근피로 개선에 도움을 줄 수 있음"</div>
+        <div class="copy-note">식약처 인정 기능성 표현 형식 그대로 사용 — 원료의 실제 인정 범위와 정확히 일치할 때만 사용 가능. 배합비 확정 후 표현 재검증 필요.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ODM 타임라인 적용 시뮬레이션 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">6</div><div class="sec-title">다음 단계 — ODM 협업 실행 절차</div></div>
+    <div class="body" style="margin-bottom:1rem;font-size:12.5px;color:var(--ink-3)">핵심 성분 후보(4번)를 정리하는 시점에 이미 후보 ODM 1~2곳에 제조 가능 여부를 컨택했다고 가정하고, 카피 톤(5번)까지 정리된 지금부터는 아래 절차로 넘어갑니다.</div>
+    <div class="odm-steps">
+      <div class="odm-step">
+        <div class="odm-step-num">01</div>
+        <div><div class="odm-step-title">계약서 전달 및 계약</div><div class="odm-step-body">스틱형 소량 생산(초도 물량) 대응 가능한 ODM인지, 앞서 컨택한 곳들의 답변을 비교해 계약 전 확정. 대량 생산 기준 미니멈이 있는 곳은 초기 검증 단계에 부적합.</div></div>
+      </div>
+      <div class="odm-step">
+        <div class="odm-step-num">02</div>
+        <div><div class="odm-step-title">배합비 조정 및 확정</div><div class="odm-step-body">스틱형은 맛 확인 과정을 거치게 됨. "관리하는 사람" 타겟은 인공감미료·과당에 예민한 경향이 있어, <b>단맛 강도보다 텁텁함·잔맛 없음을 기준으로 관능평가</b>할 것을 제안.</div></div>
+      </div>
+      <div class="odm-step">
+        <div class="odm-step-num">03</div>
+        <div><div class="odm-step-title">제품명 확정</div><div class="odm-step-body">기능성 내용을 직접 포함한 제품명은 오히려 승인이 어려울 가능성이 높다는 게 ODM 쪽 안내였습니다. '루틴덱스'처럼 기능성 문구를 포함하지 않는 네이밍이 이 기준에서도 더 안전한 선택. 반대로 '리커버'류는 심사 지연 가능성을 감안해 일정에 여유를 둬야 함.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. 가격/채널 -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-num">7</div><div class="sec-title">가격대 · 채널 (가안)</div></div>
+    <div class="price-row">
+      <div class="price-box"><div class="n">1,800~2,200원</div><div class="l">스틱 1개당 가격대</div></div>
+      <div class="price-box"><div class="n">30개입</div><div class="l">월 정기구독 기본 구성</div></div>
+      <div class="price-box"><div class="n">D2C 우선</div><div class="l">피트니스 앱 제휴 2단계</div></div>
+    </div>
+  </div>
+
+  <div class="foot-note">
+    * 근거 데이터: 국민건강영양조사(KNHANES) 2018–2024 통합자료(운동습관×흡연여부 서브그룹).<br>
+    * 성분·심의 관련 내용은 규제이해 프로젝트의 체크리스트를 기준으로 작성했으며, 실제 진행 시 원료사·ODM·심의기구 확인이 선행되어야 합니다.
+  </div>
+
+</div>
+</body>
+</html>
