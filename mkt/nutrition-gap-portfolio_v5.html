@@ -42,23 +42,25 @@ body {
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
-  background: var(--navy);
-  z-index: 999;
+  background: #1B2B5E;
+  z-index: 10000;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
-  height: 52px;
+  height: 54px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .nav-name {
-  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.92);
-  letter-spacing: 0.06em; text-transform: uppercase;
+  font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,0.7);
+  letter-spacing: 0.04em;
 }
-.nav-links { display: flex; gap: 24px; }
+.nav-links { display: flex; gap: 28px; }
 .nav-links a {
-  font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55);
-  text-decoration: none; letter-spacing: 0.04em;
-  transition: color .2s;
+  font-size: 12.5px; font-weight: 700; color: #ffffff;
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: opacity .2s;
+  opacity: 0.9;
 }
-.nav-links a:hover { color: rgba(255,255,255,0.95); }
+.nav-links a:hover { opacity: 1; }
 
 /* ── LAYOUT ── */
 .page-wrap { max-width: 900px; margin: 0 auto; padding: 0 48px; }
@@ -378,13 +380,86 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   background: var(--paper-d);
 }
 .footer p { font-size: 11px; color: var(--ink-lo); }
+
+/* ── HYPOTHESIS CUSTOM STYLING ── */
+.callout.blue {
+  background: #F4F6FC !important;
+  border: 1px solid #D9E1F7 !important;
+  border-left: 4px solid var(--accent) !important;
+  border-radius: 8px;
+  padding: 24px;
+}
+.hyp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 13px;
+}
+.hyp-table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 2px solid var(--navy-mid);
+}
+.hyp-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(27,43,94,0.06);
+  color: var(--ink-mid);
+  vertical-align: middle;
+}
+.hyp-table tr:hover td {
+  background: rgba(58,95,217,0.03);
+}
+.hyp-id {
+  font-family: 'DM Mono', monospace;
+  font-weight: 700;
+  color: var(--ink);
+}
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-align: center;
+}
+.badge-accept {
+  background-color: #E6F4EA;
+  color: #1A6E48;
+}
+.badge-reject {
+  background-color: #FCE8E6;
+  color: #C0390A;
+}
+.badge-partial {
+  background-color: #F3E8FD;
+  color: #5B3E8A;
+}
+.hyp-note {
+  color: var(--ink-lo);
+  font-size: 12.5px;
+}
+.hyp-sep-row td {
+  padding: 12px 12px;
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  background: transparent !important;
+}
+.hyp-sep-text {
+  font-style: italic;
+  color: var(--ink-lo);
+  font-size: 11.5px;
+  letter-spacing: -0.01em;
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-name">류보라 · 서울시민 영양 정보와 식습관 실천의 관계 분석</div>
+  <div class="nav-name">류보라 · 인식-실천 갭 분석</div>
   <div class="nav-links">
     <a href="#intro">분석 배경</a>
     <a href="#results">분석 결과</a>
@@ -425,14 +500,10 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
     </p>
   </div>
 
-  <div class="cover-meta">
-    <span>2024년 서울시민 먹거리조사 원시자료</span> · <span>응답 가중치 기반 표준화 지표 산출</span> · <span>가중 다중회귀분석(WLS)</span>
-  </div>
-
   <div class="meta-strip-navy">
     <div class="meta-cell-navy">
       <div class="meta-k-navy">📅 분석 대상 표본</div>
-      <div class="meta-v-navy">만 18세 이상 가구원 3,435명(응답 가중치 적용)</div>
+      <div class="meta-v-navy">만 18세 이상 가구원 3,435명<br>(응답 가중치 적용)</div>
     </div>
     <div class="meta-cell-navy">
       <div class="meta-k-navy">👤 역할</div>
@@ -468,19 +539,61 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
 
   <div class="callout blue">
     <div class="callout-hd">🎯 수립된 가설 목록</div>
-    <ul style="margin:8px 0 0 16px;">
-      <li><strong>H1:</strong> <strong>인식 수준과 실천 수준은 양(+)의 상관관계를 가질 것이다.</strong> (채택 — 통계적으로 유의한 관계 확인)</li>
-      <li><strong>H2:</strong> 인식-실천 갭(격차)이 존재할 것이다. (기각 — 평균 갭은 0 수준)</li>
-      <li><strong>H3:</strong> 인식-실천 갭은 연령대에 따라 차이가 있을 것이다. (기각 — 연령대별 갭 차이는 효과를 증명할 수 없음. STEP04 참고)</li>
-      <li><strong>H4:</strong> 인식-실천 갭은 소득 및 학력 수준에 따라 차이가 있을 것이다. (부분 채택 — 소득은 기각. 학력은 전체적으로는 애매한 수준(p=0.09)이나, 그중 '고졸' 집단만 개별적으로 유의)</li>
-      <li><strong>H5:</strong> <strong>식품 구매 및 식사 준비 주체 여부에 따라 실천 수준이 다를 것이다.</strong> (채택)</li>
-      <li><strong>H6:</strong> 다른 통제변수를 고려해도 인식-실천 연관성은 유지될 것이다. (채택)</li>
-    </ul>
-    <p class="body" style="font-size:12px;color:var(--ink-lo); margin:12px 0 0;">* H7·H8(성별·고용형태)은 위 결과를 확인한 뒤 인구통계 변수를 마저 살펴보기 위해 추가로 검증했습니다(STEP02 참고).</p>
-    <ul style="margin:8px 0 0 16px;">
-      <li><strong>H7:</strong> 인식-실천 갭은 성별에 따라 방향이 다를 것이다. (채택 — 남녀 방향 차이는 유의(p&lt;0.001))</li>
-      <li><strong>H8:</strong> 인식-실천 갭은 고용형태에 따라 차이가 있을 것이다. (부분 채택 — 전체 유의(p=0.0023), 무급가족종사자만 개별적으로 유의하나 소표본(n=37) 주의)</li>
-    </ul>
+    <table class="hyp-table">
+      <thead>
+        <tr><th style="width:36px;">#</th><th>가설</th><th style="width:74px;">결과</th><th>근거</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hyp-id">H1</td>
+          <td>인식 수준과 실천 수준은 양(+)의 상관관계를 가질 것이다.</td>
+          <td><span class="badge badge-accept">채택</span></td>
+          <td class="hyp-note">통계적으로 유의한 관계 확인</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H2</td>
+          <td>인식-실천 갭(격차)이 존재할 것이다.</td>
+          <td><span class="badge badge-reject">기각</span></td>
+          <td class="hyp-note">평균 갭은 0 수준</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H3</td>
+          <td>인식-실천 갭은 연령대에 따라 차이가 있을 것이다.</td>
+          <td><span class="badge badge-reject">기각</span></td>
+          <td class="hyp-note">연령대별 갭 차이는 효과를 증명할 수 없음 · STEP04 참고</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H4</td>
+          <td>인식-실천 갭은 소득 및 학력 수준에 따라 차이가 있을 것이다.</td>
+          <td><span class="badge badge-partial">부분채택</span></td>
+          <td class="hyp-note">소득은 기각. 학력은 전체적으로 애매(p=0.09)하나 '고졸'만 개별 유의</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H5</td>
+          <td>식품 구매 및 식사 준비 주체 여부에 따라 실천 수준이 다를 것이다.</td>
+          <td><span class="badge badge-accept">채택</span></td>
+          <td class="hyp-note">통계적으로 유의한 관계 확인</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H6</td>
+          <td>다른 통제변수를 고려해도 인식-실천 연관성은 유지될 것이다.</td>
+          <td><span class="badge badge-accept">채택</span></td>
+          <td class="hyp-note">통계적으로 유의한 관계 확인</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H7</td>
+          <td>인식-실천 갭은 성별에 따라 방향이 다를 것이다.</td>
+          <td><span class="badge badge-accept">채택</span></td>
+          <td class="hyp-note">남녀 방향 차이는 유의(p&lt;0.001)</td>
+        </tr>
+        <tr>
+          <td class="hyp-id">H8</td>
+          <td>인식-실천 갭은 고용형태에 따라 차이가 있을 것이다.</td>
+          <td><span class="badge badge-partial">부분채택</span></td>
+          <td class="hyp-note">전체 유의(p=0.0023), 무급가족종사자만 개별 유의(소표본 n=37 주의)</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 </section>
@@ -4185,7 +4298,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
 
   <div class="callout gray">
     <div class="callout-hd">💡 설명되지 않는 82.58%가 말해주는 것</div>
-    <p class="body" style="margin:0;">인식 점수 하나가 설명하는 비중(12.70%)은 그다음으로 큰 성별(2.08%)의 6배에 가까울 만큼 큽니다. 하지만 이 변수들을 모두 합쳐도 실천 차이의 82.58%는 여전히 설명되지 않고 남습니다. <strong>즉 실천 여부는 지식이나 성별·학력 같은 개인 특성만으로 정해지는 것이 아니라, 가격, 접근성, 이미 굳어진 구매 습관처럼 이 조사에 담기지 않은 환경적 요인의 영향</strong>을 더 크게 받고 있다고 볼 수 있습니다.</p>
+    <p class="body" style="margin:0;">인식 점수 하나가 설명하는 비중(12.70%)은 그다음으로 큰 성별(2.08%)의 6배에 가까울 만큼 큽니다. 하지만 이 변수들을 모두 합쳐도 실천 차이의 82.58%는 여전히 설명되지 않고 남습니다. 즉 실천 여부는 지식이나 성별·학력 같은 개인 특성만으로 정해지는 것이 아니라, <strong>가격, 접근성, 이미 굳어진 구매 습관처럼 이 조사에 담기지 않은 환경적 요인의 영향</strong>을 더 크게 받고 있다고 볼 수 있습니다.</p>
   </div>
 </div>
 </section>
@@ -4215,7 +4328,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
     </div>
     <div class="ins-item">
       <span class="ins-n">04</span>
-      <span class="ins-t"><strong>연령대만 보고 '젊을수록 실천을 잘한다'고 단정할 수 없습니다.</strong> 연령대별 갭 점수의 점 추정치(30대 +0.071, 40대 +0.111 등)만 보면 차이가 있어 보이지만, 통계적으로는 어느 연령대도 갭이 0과 유의하게 다르지 않았습니다(STEP02 H3). 다중회귀분석(STEP03)에서 다른 변수를 함께 살펴봤을 때도 마찬가지였습니다(p=0.59, 방법은 STEP06 참고). <strong>연령대에서 관측된 결과는 우연에 의해 나타났을 확률이 높아 의미를 부여하기 어렵습니다. 따라서 연령대는 인식-실천 갭을 예측하는 신뢰할 만한 축이 아닙니다.</strong></span>
+      <span class="ins-t"><strong>연령대만 보고 '젊을수록 실천을 잘한다'고 단정할 수 없습니다.</strong> 연령대별 갭 점수의 점 추정치(30대 +0.071, 40대 +0.111 등)만 보면 차이가 있어 보이지만, 통계적으로는 어느 연령대도 갭이 0과 유의하게 다르지 않았습니다(STEP02 H3). 다중회귀분석(STEP03)에서 다른 변수를 함께 살펴봤을 때도 마찬가지였습니다(p=0.59, 방법은 STEP06 참고). <strong>연령대에서 관측된 결과는 우연에 의해 나타났을 확률이 높아 의미를 부여하기 어렵습니다.</strong> 따라서 연령대는 인식-실천 갭을 예측하는 신뢰할 만한 축이 아닙니다.</span>
     </div>
     <div class="ins-item">
       <span class="ins-n">05</span>
@@ -4252,8 +4365,8 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   </div>
 
   <div class="callout gray">
-    <div class="callout-hd">실무에 의미</div>
-    <p class="body" style="margin:0;">'영양 인식이 오르면 자연히 실천·구매도 늘 것'이라는 가정을 실무에 그대로 쓰기는 조심스럽다는 근거를 확인했습니다. <strong>인식과 실천 사이의 갭(차이) 자체는 개인차가 매우 커서</strong>, 연령·소득으로는 예측할 수 없었습니다. 유의한 신호로 남은 것은 세 가지뿐입니다 — 학력 중 <strong>'고졸' 집단</strong>(STEP02 H4), <strong>남녀의 갭 방향 차이</strong>(STEP02 H7), 그리고 표본이 매우 작은 <strong>무급가족종사자</strong>(STEP02 H8, n=37이라 해석 주의)입니다. 반면 <strong>실천 수준</strong> 자체는 <strong>직접 구매·요리하는지 여부</strong>(STEP02 H5)가 가장 뚜렷하게, 가장 안정적으로 설명합니다. 즉 "누가 인식과 실천 사이에 갭이 큰가"를 인구통계만으로 예측하기는 여전히 어렵고, "구매·조리 접근성을 낮추는 설계"가 훨씬 근거가 탄탄한 방향입니다.</p>
+    <div class="callout-hd">실무에 주는 의미</div>
+    <p class="body" style="margin:0;">'영양 인식이 오르면 자연히 실천·구매도 늘 것'이라는 가정을 실무에 그대로 쓰기는 조심스럽다는 근거를 확인했습니다. <strong>인식과 실천 사이의 갭(차이) 자체는 개인차가 매우 커서</strong>, 연령·소득으로는 예측할 수 없었습니다. 유의한 신호로 남은 것은 세 가지뿐입니다 — 학력 중 '고졸' 집단(STEP02 H4), 남녀의 갭 방향 차이(STEP02 H7), 그리고 표본이 매우 작은 무급가족종사자(STEP02 H8, n=37이라 해석 주의)입니다. 반면 <strong>실천 수준</strong> 자체는 <strong>직접 구매·요리하는지 여부</strong>(STEP02 H5)가 가장 뚜렷하게, 가장 안정적으로 설명합니다. 즉 "누가 인식과 실천 사이에 갭이 큰가"를 인구통계만으로 예측하기는 여전히 어렵고, "구매·조리 접근성을 낮추는 설계"가 훨씬 근거가 탄탄한 방향입니다.</p>
   </div>
 </div>
 
@@ -4463,7 +4576,7 @@ li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
   <div class="contact-strip">
     <div>
       <div class="cn-name">류보라</div>
-      <div class="cn-role">데이터 기반 기획 BM · 식품공학 전공 · 헬스케어 7년</div>
+      <div class="cn-role">데이터 기반 콘텐츠 마케터 · 식품공학 전공 · 헬스케어 7년</div>
     </div>
     <div class="cn-right">
       <div class="cn-item">Email: boraryu37@gmail.com</div>
