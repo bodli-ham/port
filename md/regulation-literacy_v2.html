@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>상품기획 포트폴리오 | 공개버</title>
+<title>상품기획 · QC/RA 실무 포트폴리오 | 류보라</title>
 <style>
 /* ── 토큰 ── */
 :root {
@@ -229,6 +229,17 @@ section.dark {
 .badge-check { background: var(--accent-lo); color: var(--accent); border: 1px solid rgba(58,95,217,0.2); }
 .badge-oppo  { background: var(--ok-lo); color: var(--ok); border: 1px solid rgba(26,110,72,0.2); }
 .badge-note  { background: var(--note-lo); color: var(--note); border: 1px solid rgba(91,62,138,0.2); }
+.tl-item.pending { border: 2px dashed var(--warn); }
+.pending-tag {
+  font-size: 9px; font-weight: 700; color: var(--warn); background: var(--warn-lo);
+  border: 1px solid rgba(192,57,10,0.3); border-radius: 3px; padding: 1px 6px;
+  margin-left: 6px; letter-spacing: 0.04em; white-space: nowrap;
+}
+.tl-group-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-lo); margin: 2px 0 6px 2px;
+}
+.tl-group-label.pending-label { color: var(--warn); }
 
 /* ── 광고 심의 흐름 ── */
 .ad-box {
@@ -388,8 +399,9 @@ section.dark {
 
 <!-- NAV -->
 <nav>
-  <div class="nav-name">류보라 · 상품기획 BM 포트폴리오</div>
+  <div class="nav-name">류보라 · 상품기획 · QC/RA 포트폴리오</div>
   <div class="nav-links">
+    <a href="#brand">브랜드 적용</a>
     <a href="#changes">규제 구조</a>
     <a href="#tools">실무 연결</a>
     <a href="#how">업무 방식</a>
@@ -400,26 +412,26 @@ section.dark {
 <section id="cover">
 <div class="page-wrap">
 
-  <div class="cover-eyebrow">상품기획 BM 포트폴리오 · 2026</div>
+  <div class="cover-eyebrow">건기식 QC/RA 실무 포트폴리오 · 2026</div>
 
   <h1 class="cover-title">
-    규제를 먼저 읽고,<br>
-    <span class="accent">기획을 시작합니다.</span>
+    규제를 실무 언어로 바꿔,<br>
+    <span class="accent">기획과 함께 움직입니다.</span>
   </h1>
 
   <div class="cover-rule"></div>
 
   <p class="cover-body">
-    일을 시작하기 전에 내가 어떤 틀 안에서 움직여야 하는지 먼저 파악하고자 이 자료를 만들었습니다.
+    직접 상품을 기획하든, 품질관리(QC/RA) 입장에서 기획자와 논의하든 — 규제를 그 순간 바로 꺼내 쓸 수 있는 체크포인트로 정리했습니다.
   </p>
 
   <div class="origin-box">
-    <div class="origin-box-label">이 포트폴리오를 만든 이유</div>
+    <div class="origin-box-label">이 자료는 무엇인가</div>
     <p>
-      식품공학을 전공했지만 건기식 기획·BM 경험은 없습니다. 경험 없이 지원하는 만큼, <strong>일을 시작하기 전에 내가 어떤 틀 안에서 움직여야 하는지를 먼저 파악</strong>하고자 했습니다.
+      건기식·이너뷰티 QC/RA·상품기획 실무에서 반복적으로 마주치는 규제 판단을, <strong>원료 협력 → 표시 검토 → 광고 검토 → 인허가</strong> 흐름에 따라 정리한 참고 자료입니다. 최신 고시·행정예고 동향과, 그 동향을 실무에서 어떻게 판단하고 적용할지의 기준을 함께 담았습니다.
     </p>
     <p>
-      건기식 광고를 보며 "왜 이런 부분을 더 강조하지 않을까"라고 아쉽게 느꼈던 지점이, 광고 사전심의 제도와 허위·과대 광고 금지 규정을 알게 된 후 <strong>규제 안에서는 이렇게밖에 할 수 없는 구조</strong>임을 이해하게 됐습니다. 그 이해가 이 자료를 만든 출발점입니다.
+      식품공학을 전공했지만 건기식 기획·QC/RA 실무 경험은 아직 없습니다. 그래서 규제 지식을 나열하는 대신, <strong>실제 업무에서 마주칠 판단 지점을 먼저 구조화</strong>하는 방식으로 이 자료를 만들었습니다. 합류 후에는 이 구조를 현장 기준에 맞춰 빠르게 보정해가며 실제 업무에 쓰겠습니다.
     </p>
   </div>
 
@@ -430,13 +442,69 @@ section.dark {
 </div>
 </section>
 
+<!-- ── SECTION: 브랜드 관점 요약 (예시 — 세렌) ── -->
+<section id="brand">
+<div class="page-wrap">
+
+  <div class="sec-label">브랜드 관점 적용 예시</div>
+  <h2 class="sec-title">지금 이 규제, 우리 제품군엔 해당되는가 — 세렌(비플랜트) 기준 요약</h2>
+  <p class="sec-sub">위 규제 동향을 실제 브랜드에 대입해본 예시입니다. 세렌은 프리미엄 원료 기반 이너뷰티 브랜드로, <strong>건강기능식품과 일반식품이 혼재된 제품 구조</strong>를 갖고 있다는 점을 공개된 자료로 확인했습니다. 이런 구조에서는 같은 규제 이슈라도 제품 유형별로 관련성이 갈립니다. <strong>브랜드마다 실제 제품·원료·표현 방식이 다르므로, 이 표는 예시 수준의 초안이며 정확한 판단은 제품별 실사가 필요합니다.</strong></p>
+
+  <div style="overflow-x:auto;margin-bottom:10px;">
+    <table class="ckl-table">
+      <thead>
+        <tr>
+          <th>규제 이슈</th>
+          <th>세렌 관련성(예시 판단)</th>
+          <th>왜 그렇게 보는가</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item">"체내 흡수율 상승" 표현 사실상 금지<br><span style="font-size:10px;color:var(--ink-lo);">이미 적용 중</span></td>
+          <td><span class="kw kw-no" style="margin:0;">해당 가능성 높음</span></td>
+          <td>세렌 콘텐츠 방향에 "성분 간 상호 흡수를 돕는다"는 시너지 메시지가 이미 검토되고 있습니다. 흡수·시너지 관련 카피는 지금 시점에 우선 재검토 대상입니다.</td>
+        </tr>
+        <tr>
+          <td class="item">의약품 오인·혼동 종합판단 기준(고시 제2024-23호)<br><span style="font-size:10px;color:var(--ink-lo);">이미 시행 중</span></td>
+          <td><span class="kw kw-no" style="margin:0;">해당</span></td>
+          <td>건기식·일반식품 혼재 구조상, 일반식품으로 출시된 라인은 제형·복용안내·상세페이지 구성이 종합판단 대상이 됩니다. 유형별 표현 기준을 분리 관리해야 합니다.</td>
+        </tr>
+        <tr>
+          <td class="item">공정위 실증 운영고시 개정(효능수치·안전성 단정 표현)<br><span style="font-size:10px;color:var(--ink-lo);">확정 전</span></td>
+          <td><span class="kw kw-ctx" style="margin:0;">확인 필요</span></td>
+          <td>원료 스토리를 콘텐츠로 확장하는 방향과 맞물려, "~에 도움을 준다는 것을 확인했다"류 표현을 쓴다면 실증자료(시험·조사기관명 포함)를 표현 단위로 미리 매핑해두는 것이 안전합니다.</td>
+        </tr>
+        <tr>
+          <td class="item">정제·캡슐 일반식품 허용요건 개선 추진<br><span style="font-size:10px;color:var(--ink-lo);">확정 전</span></td>
+          <td><span class="kw kw-ctx" style="margin:0;">확인 필요</span></td>
+          <td>일반식품 라인의 제형과 사용 성분이 멜라토닌·글루타치온·콘드로이친류와 겹치는지는 공개 정보만으로 확인되지 않습니다. 제품별 확인이 필요한 항목입니다.</td>
+        </tr>
+        <tr>
+          <td class="item">GMO건기식 표시 의무 확대(2026.12.31. 시행)</td>
+          <td><span class="kw kw-ctx" style="margin:0;">확인 필요</span></td>
+          <td>레시틴 등 대두 유래 원료를 쓰는 경우가 이너뷰티·건기식 전반에 흔합니다. 원료사에 원재료 자체의 GMO 여부를 서면으로 재확인하는 항목입니다.</td>
+        </tr>
+        <tr>
+          <td class="item">영지버섯·가르시니아 등 개별 원료 재평가(고시 제2026-43호)</td>
+          <td><span class="kw kw-ok" style="margin:0;">해당 없음(추정)</span></td>
+          <td>공개된 정보상 세렌 제품에 해당 원료가 쓰였다는 근거는 확인되지 않았습니다. 다만 "인정받은 원료도 재평가로 지위가 바뀔 수 있다"는 패턴 자체는 프리미엄 원료 전략에 참고할 사례입니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footnote">※ 위 판단은 공개된 자료(브랜드 소개, 제안서 작성 과정에서 조사한 내용) 기준의 예시이며, 세렌의 실제 전 제품 원료·표시 현황을 검수한 결과가 아닙니다. 다른 브랜드에 적용할 경우 이 표의 항목·판단 기준을 제품 구조에 맞게 다시 짜야 합니다.</div>
+
+</div>
+</section>
+
 <!-- ── SECTION: 규제 구조 + 고시 변화 ── -->
 <section id="changes">
 <div class="page-wrap">
 
   <div class="sec-label">규제 구조 이해</div>
   <h2 class="sec-title">건기식 기획이 움직이는 4개 층위</h2>
-  <p class="sec-sub">원료를 정하고 ODM을 찾고 패키지를 만들고 광고를 내보내기까지, 각 단계마다 다른 규제가 적용됩니다. 이 흐름을 먼저 이해하면 기획 단계에서 막히는 지점을 사전에 파악하는 데 도움이 됩니다.</p>
+  <p class="sec-sub">원료를 정하고 ODM을 찾고 패키지를 만들고 광고를 내보내기까지, 각 단계마다 다른 규제가 적용됩니다. 기획자에게는 "무엇을 결정해야 하는가"의 기준이 되고, QC/RA에게는 "무엇을 확인·요청해야 하는가"의 기준이 되는 흐름입니다.</p>
 
   <!-- 4층위 흐름도 -->
   <div class="layer-grid">
@@ -468,65 +536,116 @@ section.dark {
 
   <!-- 고시 변화 타임라인 -->
   <hr class="divider">
-  <div class="sec-label">고시 변화 검토</div>
-  <h2 class="sec-title">2023–2026 주요 고시 개정 — 기획 연결 포인트</h2>
-  <p class="sec-sub">식약처 「건강기능식품의 기준 및 규격」은 원료 안전성·기능성 재평가 결과를 반영해 개정됩니다. 아래는 식약처 공개 고시 원문 및 개정이유서를 기반으로, 기획 판단에 연결이 필요한 항목을 선별했습니다.</p>
+  <div class="sec-label">고시 변화 동향 파악</div>
+  <h2 class="sec-title">2026–2023 주요 고시 개정 — 실무 확인 포인트 (최신순)</h2>
+  <p class="sec-sub">식약처 「건강기능식품의 기준 및 규격」은 원료 안전성·기능성 재평가 결과를 반영해 개정됩니다. 아래는 식약처 공개 고시 원문 및 개정이유서를 기반으로, 기획 과정에 고려해야 할 항목을 선별했습니다. <strong>점선 굵은 테두리</strong>는 아직 행정예고·검토 단계로 확정 전인 항목입니다.</p>
 
   <div class="timeline-wrap">
 
-    <!-- 2023 -->
+    <!-- 2026 -->
     <div class="tl-row">
       <div class="tl-year-col">
-        <div class="tl-year-badge">2023</div>
-        <div class="tl-line"></div>
+        <div class="tl-year-badge" style="background:rgba(192,57,10,0.1);border-color:rgba(192,57,10,0.35);color:var(--warn);">2026</div>
+        <div class="tl-line" style="background:rgba(192,57,10,0.2);"></div>
       </div>
       <div class="tl-content">
-        <div class="tl-items">
-          <div class="tl-item info">
-            <div class="tl-item-main">
-              <div class="tl-item-title">표시 — 도안 또는 문구 선택 허용</div>
-              <div class="tl-item-body">기능성 표시 시 도안과 문구를 병기할 의무에서 둘 중 하나 선택이 가능하도록 변경됐습니다. 경미한 오류는 스티커 수정이 허용되는 범위가 확대됐으나, 안전 관련 주의문구(예: 간독성 등)는 해당 없습니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 2023년 개정</div>
-            </div>
-            <div class="tl-badge badge-check">패키지 설계</div>
-          </div>
-          <div class="tl-item oppo">
-            <div class="tl-item-main">
-              <div class="tl-item-title">원료 — 콜레우스포스콜리 고시형 등재</div>
-              <div class="tl-item-body">개별인정형으로만 사용 가능했던 원료가 고시형으로 전환되면 ODM 협업 시 원료 소싱 경로가 넓어집니다. 고시형 원료는 누구나 사용 가능하므로 원료 스펙 협의의 유연성이 높아질 수 있습니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 · 건강기능식품의 기준 및 규격 2023</div>
-            </div>
-            <div class="tl-badge badge-oppo">원료 확대</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- 2024 -->
-    <div class="tl-row">
-      <div class="tl-year-col">
-        <div class="tl-year-badge">2024</div>
-        <div class="tl-line"></div>
-      </div>
-      <div class="tl-content">
+        <div class="tl-group-label">지금 이미 적용 중</div>
         <div class="tl-items">
           <div class="tl-item alert">
             <div class="tl-item-main">
-              <div class="tl-item-title">제조 — 스마트 GMP 법제화 (고시 제2024-33호)</div>
-              <div class="tl-item-body">우수건강기능식품 제조기준이 전부 개정됐습니다. 칭량·혼합 등 주요 공정 데이터의 자동 기록 및 Audit Trail 관리를 요구하는 스마트 GMP 기준이 신설됐습니다. 스마트 GMP 인증 업체에는 다음 연도 정기 조사 면제 인센티브가 고시에 명시돼 있습니다. ODM 선정 시 해당 업체의 GMP 인증 수준이 기획 리스크에 영향을 미칩니다.</div>
-              <div class="tl-item-src">우수건강기능식품 제조기준 전부개정 · 식약처 고시 제2024-33호, 2024.6.28.</div>
+              <div class="tl-item-title">광고 — "체내 흡수율 상승" 표현 사실상 광범위 금지</div>
+              <div class="tl-item-body">정식 고시 개정 전이지만, 식약처 요청에 따라 한국건강기능식품협회·한국식품산업협회·소비자공익네트워크 등 모든 자율심의기구가 이미 해당 표현을 심의 단계에서 삭제 조치하고 있습니다. 리포좀 등 일부 인정된 제형을 제외하면, "흡수가 더 잘 된다"는 뉘앙스의 카피는 지금 시점에 이미 리스크 표현입니다.</div>
+              <div class="tl-item-src">식품저널 김태민 변호사 칼럼, 2026.2.5.</div>
             </div>
-            <div class="tl-badge badge-watch">ODM 선정 기준</div>
+            <div class="tl-badge badge-watch">카피 표현 즉시 점검</div>
           </div>
           <div class="tl-item info">
             <div class="tl-item-main">
-              <div class="tl-item-title">소비기한 — 안정성 근거 요건 강화 방향</div>
-              <div class="tl-item-body">2022~2023년 계도기간 이후, 소비기한 설정을 위한 안정성 데이터(가속실험·장기보존실험) 확보 요건이 실질적으로 강화되는 방향입니다. ODM 위탁 계약 시 제형별 안정성 시험 데이터 보유 여부를 확인 항목으로 포함할 수 있습니다.</div>
-              <div class="tl-item-src">식품 등의 표시·광고에 관한 법률 / 소비기한 표시제 관련 고시 방향</div>
+              <div class="tl-item-title">광고 — 의약품 오인·혼동 판단 기준 고시 시행 (제2024-23호, 2026.1.1. 시행)</div>
+              <div class="tl-item-body">「식품등의 부당한 표시 또는 광고의 내용 기준」이 개정 시행됐습니다. 특정 문구 하나가 아니라 제형·복용 방식·색상·전문가 이미지·상세페이지 구성 전반을 종합해 의약품 오인 여부를 판단한다는 기준이 이미 적용되고 있습니다.</div>
+              <div class="tl-item-src">식약처 고시 제2024-23호, 2026.1.1. 시행</div>
             </div>
-            <div class="tl-badge badge-check">계약서 항목</div>
+            <div class="tl-badge badge-check">판단기준 근거</div>
+          </div>
+          <div class="tl-item alert">
+            <div class="tl-item-main">
+              <div class="tl-item-title">원료 재평가 — 영지버섯 자실체 추출물 기능성 삭제 (고시 제2026-43호)</div>
+              <div class="tl-item-body">재평가 과정에서 기능성 근거가 충분하지 않다고 판단되어 고시형 원료에서 삭제됐습니다. 해당 원료를 포함한 SKU가 있다면 판매 지속 여부 및 원료 교체 가능성을 검토하는 항목이 됩니다. 이미 인정된 원료라도 재평가 결과에 따라 삭제될 수 있다는 사례입니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+            </div>
+            <div class="tl-badge badge-watch">SKU 라인업 재검토</div>
+          </div>
+          <div class="tl-item alert">
+            <div class="tl-item-main">
+              <div class="tl-item-title">원료 표시 의무화 — 가르시니아캄보지아 간독성 주의사항 추가 (고시 제2026-43호)</div>
+              <div class="tl-item-body">급성 간염 이상사례 보고를 반영해 가르시니아캄보지아 추출물에 섭취 시 주의사항(알코올 관련 문구 포함)이 추가됐습니다. 안전 관련 표시사항으로 스티커 처리가 허용되지 않을 가능성이 높아, 해당 원료를 포함한 포장재는 동판(인쇄판) 수정이 필요할 수 있습니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11. / 약사공론 보도 2026.6 참조</div>
+            </div>
+            <div class="tl-badge badge-watch">동판 수정 일정 확보</div>
+          </div>
+          <div class="tl-item alert">
+            <div class="tl-item-main">
+              <div class="tl-item-title">원료 기준 변경 — 레시틴 납 기준 강화 (고시 제2026-43호)</div>
+              <div class="tl-item-body">레시틴의 중금속(납) 허용 기준이 강화됐습니다. 레시틴은 연질캡슐 및 이너뷰티 제품에 폭넓게 사용됩니다. 기존 성적서가 강화된 기준을 충족하는지 확인이 필요합니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+            </div>
+            <div class="tl-badge badge-watch">CoA 재확인</div>
+          </div>
+          <div class="tl-item info">
+            <div class="tl-item-main">
+              <div class="tl-item-title">품질 기준 신설 — 알로에 겔 요오드 전분 반응 규격 (고시 제2026-43호)</div>
+              <div class="tl-item-body">알로에 겔에 저가 전분류 혼합 여부를 감별하기 위한 정성시험(요오드 전분 반응) 규격이 신설됐습니다. 알로에 겔 원료 입고 시 해당 시험 성적서 확보가 필요합니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+            </div>
+            <div class="tl-badge badge-check">CoA 항목 추가</div>
+          </div>
+          <div class="tl-item oppo">
+            <div class="tl-item-main">
+              <div class="tl-item-title">기능성 확대 — 유단백가수분해물 '수면의 질 개선' 고시형 추가 (고시 제2026-43호)</div>
+              <div class="tl-item-body">개별인정형으로 인정됐던 유단백가수분해물의 '수면의 질 개선에 도움을 줄 수 있음' 기능성이 고시형으로 추가됐습니다. 이너뷰티와 슬립케어를 결합한 제품 기획 시 활용 가능한 원료 선택지가 넓어졌습니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+            </div>
+            <div class="tl-badge badge-oppo">신규 기획 기회</div>
           </div>
         </div>
+
+        <div class="tl-group-label pending-label" style="margin-top:16px;">앞으로 주의해야 할 부분 — 확정 전</div>
+        <div class="tl-items">
+          <div class="tl-item alert pending">
+            <div class="tl-item-main">
+              <div class="tl-item-title">표시 — GMO건기식 표시 의무 확대<span class="pending-tag">시행 예정</span></div>
+              <div class="tl-item-body">기존엔 완제품에 유전자변형 DNA·단백질이 남아있는 경우에만 GMO 표시 의무가 있었지만, 개정 후에는 최종 제품에 남아있지 않아도 식약처가 정하는 원재료를 사용하면 표시 의무가 생깁니다. Non-GMO 표시 근거도 함께 신설됐습니다. 법률은 이미 공포됐고, 2026.12.31. 이후 최초 제조·가공·수입 선적분부터 적용됩니다.</div>
+              <div class="tl-item-src">건강기능식품에 관한 법률 일부개정법률 제21298호, 2025.12.30. 개정 · 2026.12.31. 시행</div>
+            </div>
+            <div class="tl-badge badge-watch">원재료 소싱 서류 확인</div>
+          </div>
+          <div class="tl-item alert pending">
+            <div class="tl-item-main">
+              <div class="tl-item-title">일반식품 — 정제·캡슐 형태 허용요건 개선 추진<span class="pending-tag">행정예고 전 검토</span></div>
+              <div class="tl-item-body">멜라토닌·글루타치온·콘드로이친 등 건기식·의약품에 주로 쓰이는 성분을 정제·캡슐 형태 일반식품으로 만드는 것을 제한하는 방향으로 검토 중입니다. 판단 기준은 성분 자체가 아니라 제품명·복용 안내·디자인을 종합해 의약품처럼 보이는지 여부입니다. 같은 패키지로, 일반식품에 위고비 등 처방의약품 명칭·성분명과 유사한 표시·광고를 금지하는 방안도 함께 추진됩니다. 아직 확정 고시 전 단계로 변동 가능성이 있습니다.</div>
+              <div class="tl-item-src">식약처 2026년 업무보고(2025.12.16.) / 관련 업계 보도(2026.3~5)</div>
+            </div>
+            <div class="tl-badge badge-watch">일반식품 라인 재검토</div>
+          </div>
+          <div class="tl-item alert pending">
+            <div class="tl-item-main">
+              <div class="tl-item-title">광고 — 공정위 「표시·광고 실증에 관한 운영고시」 개정<span class="pending-tag">행정예고 중</span></div>
+              <div class="tl-item-body">기존엔 원칙 수준이던 실증 의무 대상을, 실제 문제됐던 표현을 고시에 예시로 명시하는 방식으로 구체화합니다. "담즙분비 촉진효과", "소화흡수율이 95% 이상", "집중력과 기억력을 향상시키는" 같은 효능 수치·단정 표현과 "인체에 무해한 원료", "AI 기술로 더 안전해졌다" 같은 안전성·신기술 단정 표현이 실증 필요 예시로 제시됐습니다. 의견제출 마감 2026.7.12.</div>
+              <div class="tl-item-src">공정거래위원회 보도자료·행정예고(ftc.go.kr) / 관련 업계 보도</div>
+            </div>
+            <div class="tl-badge badge-watch">카피별 실증자료 확보</div>
+          </div>
+          <div class="tl-item note pending">
+            <div class="tl-item-main">
+              <div class="tl-item-title">광고 — AI 가상인물 표시의무 신설 추진<span class="pending-tag">행정예고 중</span></div>
+              <div class="tl-item-body">생성형 AI·딥페이크로 만든 가상 인물(예: AI 의사·전문가 캐릭터)이 제품을 추천하는 광고에 가상인물임을 표시하도록 하는 「추천·보증 등에 관한 표시·광고 심사지침」 개정이 진행 중입니다. 전문가 추천 신뢰도가 구매에 직결되는 건기식·이너뷰티 업종이 주의 대상으로 언급됐습니다.</div>
+              <div class="tl-item-src">공정거래위원회 행정예고(2026.4.8.) / 식약처 2026년 업무보고</div>
+            </div>
+            <div class="tl-badge badge-note">SNS·인플루언서 소재 점검 범위 확대</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -574,53 +693,57 @@ section.dark {
       </div>
     </div>
 
-    <!-- 2026 -->
+    <!-- 2024 -->
     <div class="tl-row">
       <div class="tl-year-col">
-        <div class="tl-year-badge" style="background:rgba(192,57,10,0.1);border-color:rgba(192,57,10,0.35);color:var(--warn);">2026</div>
-        <div class="tl-line" style="background:rgba(192,57,10,0.2);"></div>
+        <div class="tl-year-badge">2024</div>
+        <div class="tl-line"></div>
       </div>
       <div class="tl-content">
         <div class="tl-items">
           <div class="tl-item alert">
             <div class="tl-item-main">
-              <div class="tl-item-title">원료 재평가 — 영지버섯 자실체 추출물 기능성 삭제 (고시 제2026-43호)</div>
-              <div class="tl-item-body">재평가 과정에서 기능성 근거가 충분하지 않다고 판단되어 고시형 원료에서 삭제됐습니다. 해당 원료를 포함한 SKU가 있다면 판매 지속 여부 및 원료 교체 가능성을 검토하는 항목이 됩니다. 이미 인정된 원료라도 재평가 결과에 따라 삭제될 수 있다는 사례입니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+              <div class="tl-item-title">제조 — 스마트 GMP 법제화 (고시 제2024-33호)</div>
+              <div class="tl-item-body">우수건강기능식품 제조기준이 전부 개정됐습니다. 칭량·혼합 등 주요 공정 데이터의 자동 기록 및 Audit Trail 관리를 요구하는 스마트 GMP 기준이 신설됐습니다. 스마트 GMP 인증 업체에는 다음 연도 정기 조사 면제 인센티브가 고시에 명시돼 있습니다. ODM 선정 시 해당 업체의 GMP 인증 수준이 기획 리스크에 영향을 미칩니다.</div>
+              <div class="tl-item-src">우수건강기능식품 제조기준 전부개정 · 식약처 고시 제2024-33호, 2024.6.28.</div>
             </div>
-            <div class="tl-badge badge-watch">SKU 라인업 재검토</div>
-          </div>
-          <div class="tl-item alert">
-            <div class="tl-item-main">
-              <div class="tl-item-title">원료 표시 의무화 — 가르시니아캄보지아 간독성 주의사항 추가 (고시 제2026-43호)</div>
-              <div class="tl-item-body">급성 간염 이상사례 보고를 반영해 가르시니아캄보지아 추출물에 섭취 시 주의사항(알코올 관련 문구 포함)이 추가됐습니다. 안전 관련 표시사항으로 스티커 처리가 허용되지 않을 가능성이 높아, 해당 원료를 포함한 포장재는 동판(인쇄판) 수정이 필요할 수 있습니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11. / 약사공론 보도 2026.6 참조</div>
-            </div>
-            <div class="tl-badge badge-watch">동판 수정 일정 확보</div>
-          </div>
-          <div class="tl-item alert">
-            <div class="tl-item-main">
-              <div class="tl-item-title">원료 기준 변경 — 레시틴 납 기준 강화 (고시 제2026-43호)</div>
-              <div class="tl-item-body">레시틴의 중금속(납) 허용 기준이 강화됐습니다. 레시틴은 연질캡슐 및 이너뷰티 제품에 폭넓게 사용됩니다. 기존 성적서가 강화된 기준을 충족하는지 확인이 필요합니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
-            </div>
-            <div class="tl-badge badge-watch">CoA 재확인</div>
+            <div class="tl-badge badge-watch">ODM 선정 기준</div>
           </div>
           <div class="tl-item info">
             <div class="tl-item-main">
-              <div class="tl-item-title">품질 기준 신설 — 알로에 겔 요오드 전분 반응 규격 (고시 제2026-43호)</div>
-              <div class="tl-item-body">알로에 겔에 저가 전분류 혼합 여부를 감별하기 위한 정성시험(요오드 전분 반응) 규격이 신설됐습니다. 알로에 겔 원료 입고 시 해당 시험 성적서 확보가 필요합니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+              <div class="tl-item-title">소비기한 — 안정성 근거 요건 강화 방향</div>
+              <div class="tl-item-body">2022~2023년 계도기간 이후, 소비기한 설정을 위한 안정성 데이터(가속실험·장기보존실험) 확보 요건이 실질적으로 강화되는 방향입니다. ODM 위탁 계약 시 제형별 안정성 시험 데이터 보유 여부를 확인 항목으로 포함할 수 있습니다.</div>
+              <div class="tl-item-src">식품 등의 표시·광고에 관한 법률 / 소비기한 표시제 관련 고시 방향</div>
             </div>
-            <div class="tl-badge badge-check">CoA 항목 추가</div>
+            <div class="tl-badge badge-check">계약서 항목</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="tl-row">
+      <div class="tl-year-col">
+        <div class="tl-year-badge">2023</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-items">
+          <div class="tl-item info">
+            <div class="tl-item-main">
+              <div class="tl-item-title">표시 — 도안 또는 문구 선택 허용</div>
+              <div class="tl-item-body">기능성 표시 시 도안과 문구를 병기할 의무에서 둘 중 하나 선택이 가능하도록 변경됐습니다. 경미한 오류는 스티커 수정이 허용되는 범위가 확대됐으나, 안전 관련 주의문구(예: 간독성 등)는 해당 없습니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 2023년 개정</div>
+            </div>
+            <div class="tl-badge badge-check">패키지 설계</div>
           </div>
           <div class="tl-item oppo">
             <div class="tl-item-main">
-              <div class="tl-item-title">기능성 확대 — 유단백가수분해물 '수면의 질 개선' 고시형 추가 (고시 제2026-43호)</div>
-              <div class="tl-item-body">개별인정형으로 인정됐던 유단백가수분해물의 '수면의 질 개선에 도움을 줄 수 있음' 기능성이 고시형으로 추가됐습니다. 이너뷰티와 슬립케어를 결합한 제품 기획 시 활용 가능한 원료 선택지가 넓어졌습니다.</div>
-              <div class="tl-item-src">식약처 건기식 고시 제2026-43호, 2026.6.11.</div>
+              <div class="tl-item-title">원료 — 콜레우스포스콜리 고시형 등재</div>
+              <div class="tl-item-body">개별인정형으로만 사용 가능했던 원료가 고시형으로 전환되면 ODM 협업 시 원료 소싱 경로가 넓어집니다. 고시형 원료는 누구나 사용 가능하므로 원료 스펙 협의의 유연성이 높아질 수 있습니다.</div>
+              <div class="tl-item-src">식약처 건기식 고시 · 건강기능식품의 기준 및 규격 2023</div>
             </div>
-            <div class="tl-badge badge-oppo">신규 기획 기회</div>
+            <div class="tl-badge badge-oppo">원료 확대</div>
           </div>
         </div>
       </div>
@@ -632,7 +755,7 @@ section.dark {
   <hr class="divider">
   <div class="sub-label">광고 규제 구조</div>
   <div class="sub-title">건기식 기능성 광고 이해하기</div>
-  <div class="sub-desc">소비자 입장에서 아쉬웠던 표현 방식의 이유가 여기에 있습니다.</div>
+  <div class="sub-desc">카피를 검토할 때 "왜 이 표현은 안 되는가"를 설명할 수 있어야 기획자와 논의가 됩니다. 그 판단 구조입니다.</div>
 
   <div class="ad-box">
     <div class="ad-box-hd">
@@ -670,7 +793,7 @@ section.dark {
   <div style="margin-top:20px;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(27,43,94,0.05);">
     <div style="background:var(--paper-d);padding:14px 22px;border-bottom:1px solid var(--line);">
       <div style="font-size:13px;font-weight:700;color:var(--ink);">복합 성분의 '시너지 효과'를 광고에 넣을 수 있는가?</div>
-      <div style="font-size:11px;color:var(--ink-lo);margin-top:2px;">학습 과정에서 조사한 내용 — 실제 심의 결과는 케이스별로 다를 수 있습니다</div>
+      <div style="font-size:11px;color:var(--ink-lo);margin-top:2px;">심의 사례 기반 정리 — 실제 심의 결과는 케이스별로 다를 수 있습니다</div>
     </div>
     <div style="padding:20px 22px;background:var(--paper);">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
@@ -697,6 +820,35 @@ section.dark {
     </div>
   </div>
 
+  <!-- 실증 필요 표현 — 공정위 고시 예시 -->
+  <div style="margin-top:20px;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(27,43,94,0.05);">
+    <div style="background:var(--paper-d);padding:14px 22px;border-bottom:1px solid var(--line);">
+      <div style="font-size:13px;font-weight:700;color:var(--ink);">심의 통과 = 실증 면제가 아니다 — 표현별로 별도 실증자료가 필요합니다</div>
+      <div style="font-size:11px;color:var(--ink-lo);margin-top:2px;">공정위 「표시·광고 실증에 관한 운영고시」 개정안(행정예고, 의견제출 ~2026.7.12.) 기반 정리</div>
+    </div>
+    <div style="padding:20px 22px;background:var(--paper);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:var(--warn);text-transform:uppercase;margin-bottom:8px;">실증 필요 예시로 명시된 표현</div>
+          <div style="font-size:12px;color:var(--ink-mid);line-height:1.75;">
+            <strong>효능 수치·단정 표현</strong> — "담즙분비 촉진효과", "소화흡수율이 95% 이상", "집중력과 기억력을 향상시키는"<br><br>
+            <strong>안전성 단정 표현</strong> — "인체에 무해한 원료", "인체에 안전한 성분"<br><br>
+            <strong>신기술 단정 표현</strong> — "AI 기술로 더 안전해졌다"
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;">QC/RA가 카피 확정 전 확보해야 할 것</div>
+          <div style="font-size:12px;color:var(--ink-mid);line-height:1.75;">
+            실증자료는 자율심의 서류와는 <strong>별개 트랙</strong>입니다. 요청받으면 15일 이내 제출해야 하므로, 카피가 확정되는 시점에 시험·조사기관명·대표자·연락처가 포함된 실증자료를 카피 단위로 매핑해두는 것이 안전합니다. 미제출 시 공정위 기준 과태료(최대 1억 원, 임직원 최대 1천만 원)가 발생할 수 있습니다.
+          </div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--ink-lo);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
+        근거: 공정거래위원회 「표시·광고 실증에 관한 운영고시」 개정 행정예고(ftc.go.kr) / 「표시·광고의 공정화에 관한 법률」 제3조·제5조·제20조. 행정예고 원문은 접근 제한으로 직접 열람하지 못해, 관련 언론 보도로 시기·내용을 교차 확인했습니다. 확정 전 단계이므로 최종 고시와 다를 수 있습니다.
+      </div>
+    </div>
+  </div>
+
 </div>
 </section>
 
@@ -705,71 +857,38 @@ section.dark {
 <div class="page-wrap">
 
   <div class="sec-label">실무 연결</div>
-  <h2 class="sec-title">규제 변화를 기획 판단에 연결하기</h2>
-  <p class="sec-sub">규제 내용을 기획 의사결정에 연결하기 위해 고시 변화가 실제로 어떤 기획 질문을 만들고, 어떤 액션으로 이어질지 정리해 보았습니다.</p>
+  <h2 class="sec-title">의약품 오인 판단, 도구로 구조화합니다</h2>
+  <p class="sec-sub">「식품등의 부당한 표시 또는 광고의 내용 기준」(식약처 고시 제2024-23호)은 문구 하나가 아니라 제형·복용안내·디자인·광고 전체 인상을 종합해 판단하도록 규정합니다. 이 기준을 실무에서 바로 쓸 수 있는 5문항 체크로 옮겼습니다.</p>
 
-  <div class="connect-grid">
-
-    <div class="connect-row">
-      <div class="connect-trigger">
-        <div class="c-label reg">고시 변화</div>
-        <div class="c-text"><strong>영지버섯 자실체 추출물 기능성 삭제</strong><br>식약처 건기식 고시 제2026-43호</div>
-      </div>
-      <div class="connect-q">
-        <div class="c-label q">기획 질문</div>
-        <div class="c-text">이 원료를 사용한 SKU가 있는가? 판매 계속이 가능한지, 원료 교체 시 처방 재신고가 필요한지 확인됐는가?</div>
-      </div>
-      <div class="connect-act">
-        <div class="c-label act">우선 확인 액션</div>
-        <div class="c-text">해당 원료 포함 SKU 목록 확인 → ODM사에 대체 원료 처방 전환 가능 여부 및 리드타임 문의</div>
-      </div>
+  <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(27,43,94,0.05);margin-bottom:20px;">
+    <div style="background:var(--paper-d);padding:14px 22px;border-bottom:1px solid var(--line);">
+      <div style="font-size:13px;font-weight:700;color:var(--ink);">일반식품 "의약품처럼 읽히는지" 5문항 체크</div>
+      <div style="font-size:11px;color:var(--ink-lo);margin-top:2px;">근거: 식약처 고시 제2024-23호 · 관련 실무 법률 칼럼의 종합판단 요소</div>
     </div>
-
-    <div class="connect-row">
-      <div class="connect-trigger">
-        <div class="c-label reg">고시 변화</div>
-        <div class="c-text"><strong>가르시니아 간독성 주의문구 의무화</strong><br>식약처 건기식 고시 제2026-43호</div>
-      </div>
-      <div class="connect-q">
-        <div class="c-label q">기획 질문</div>
-        <div class="c-text">현재 출시된 포장재에 해당 주의문구가 반영돼 있는가? 동판 수정 여부 및 일정이 확보됐는가?</div>
-      </div>
-      <div class="connect-act">
-        <div class="c-label act">우선 확인 액션</div>
-        <div class="c-text">포장재 표시 전수 확인 → 스티커 처리 가능 여부 확인 후 불가 시 동판 수정 일정 반영</div>
-      </div>
+    <div style="padding:18px 22px;background:var(--paper);">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="text-align:left;color:var(--ink-lo);font-size:10px;text-transform:uppercase;letter-spacing:0.05em;">
+            <th style="padding-bottom:8px;">판단 축</th><th style="padding-bottom:8px;">질문</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px 8px 0;font-weight:700;white-space:nowrap;">제품명</td><td style="padding:8px 0;">질환명·효능을 연상시키는 단어가 들어있는가?</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px 8px 0;font-weight:700;white-space:nowrap;">제형</td><td style="padding:8px 0;">정제·캡슐 등 의약품과 유사한 형태인가?</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px 8px 0;font-weight:700;white-space:nowrap;">복용 안내</td><td style="padding:8px 0;">"1일 1정" 등 복용법 문구를 쓰는가?</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px 8px 0;font-weight:700;white-space:nowrap;">디자인</td><td style="padding:8px 0;">색상·패키지가 의약품 톤을 연상시키는가?</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px 8px 0;font-weight:700;white-space:nowrap;">광고 인상</td><td style="padding:8px 0;">전문가 이미지·효능 수치 단정이 포함되는가?</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--ink-lo);margin-top:12px;padding-top:10px;border-top:1px solid var(--line);">해당 항목이 <strong>여러 개 겹칠수록</strong> 전체 인상 기준으로 재검토가 필요하다고 보고 있습니다. 항목 하나만으로 위법 여부가 정해지지 않는다는 점도 고시가 명시하는 부분입니다.</div>
     </div>
+  </div>
 
-    <div class="connect-row">
-      <div class="connect-trigger">
-        <div class="c-label reg">고시 변화</div>
-        <div class="c-text"><strong>레시틴 납 허용 기준 강화</strong><br>식약처 건기식 고시 제2026-43호</div>
-      </div>
-      <div class="connect-q">
-        <div class="c-label q">기획 질문</div>
-        <div class="c-text">현재 보유한 레시틴 원료 CoA가 강화된 기준을 충족하는가? 공급사 재소싱 시 리드타임이 출시 일정에 영향을 주는가?</div>
-      </div>
-      <div class="connect-act">
-        <div class="c-label act">우선 확인 액션</div>
-        <div class="c-text">공급사에 개정 기준 기반 성적서 재발급 요청 → 미충족 시 대체 공급사 탐색 착수</div>
-      </div>
+  <div style="border:1px solid var(--line);border-radius:6px;padding:16px 22px;background:var(--paper);margin-bottom:44px;">
+    <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;">참고할 수 있는 다른 접근 — 오니스트(Ownist)</div>
+    <div style="font-size:12px;color:var(--ink-mid);line-height:1.75;">
+      오니스트는 이너뷰티 일반식품에서 "무엇에 도움이 되는가"를 말하는 대신 <strong>"무엇을 넣지 않았는가"</strong>(화학부형제·화학방부제·인공착향료·인공색소·GMO 원료 배제 — 클린원칙)를 전면에 내세웁니다. 효능을 직접 주장하지 않으면서도 원료 관리 수준으로 신뢰를 연상시키는 방식입니다. 다만 "무첨가·무가당" 류 표현도 객관적 근거자료 없이 쓰면 광고 불가 대상이라, 이 접근 역시 실증 준비가 필요한 영역이라는 점은 동일합니다.
     </div>
-
-    <div class="connect-row">
-      <div class="connect-trigger">
-        <div class="c-label reg">고시 변화</div>
-        <div class="c-text"><strong>유단백가수분해물 수면의 질 개선 기능성 고시형 추가</strong><br>식약처 건기식 고시 제2026-43호</div>
-      </div>
-      <div class="connect-q">
-        <div class="c-label q">기획 질문</div>
-        <div class="c-text">이너뷰티 + 슬립케어 복합 콘셉트를 고려 중인 라인업이 있는가? 고시형 전환으로 원료 소싱 비용 구조가 달라지는가?</div>
-      </div>
-      <div class="connect-act">
-        <div class="c-label act">우선 확인 액션</div>
-        <div class="c-text">ODM 기획 RFQ에 해당 원료 포함 가능 여부 타진 → 고시형 원료 단가·공급사 DB 우선 수집</div>
-      </div>
-    </div>
-
   </div>
 
   <!-- 광고 카피 점검 -->
@@ -795,7 +914,7 @@ section.dark {
       <span class="kw kw-ctx">임산부·어린이용</span>
       <span class="kw kw-ctx">건강식품</span>
       <span class="kw kw-ctx">함께 먹으면 시너지</span>
-      <div class="filter-note">어떤 맥락에서 어떤 인상을 주는지가 심의 판단의 핵심이라고 이해하고 있습니다. 단어 단위로는 판단이 어렵고, 실제 적용은 심의 기구 확인이 필요합니다.</div>
+      <div class="filter-note">어떤 맥락에서 어떤 인상을 주는지가 심의 판단의 핵심입니다. 단어 단위로는 판단이 어렵고, 실제 적용은 심의 기구 확인이 필요합니다.</div>
     </div>
     <div class="filter-card">
       <div class="filter-head">✅ 식약처 인정 기능성 표현 방향의 예시</div>
@@ -812,7 +931,7 @@ section.dark {
   <div class="sub-title">단계별 확인 항목 — CoA 검토 및 협력사 평가</div>
 
   <div class="ckl-intro">
-    앞에서는 <strong>고시 하나하나를 기획과 연결해서</strong> 보았고, 이 체크리스트는 <strong>제품 출시 전 "어떤 항목을 확인해야 하는가"를 단계별로 반복 점검하는 운영 도구</strong>입니다. 아래는 2026년 6월 현재 공포된 고시(제2025-11호, 제2026-43호)를 기반으로 정리했습니다. 고시가 개정되면 기준을 갱신해야 하며, 실제 적용 전에는 고시 원문 및 담당자 확인이 필요합니다.
+    앞에서는 <strong>고시 하나하나를 기획과 연결해서</strong> 보았고, 이 체크리스트는 <strong>제품 출시 전 "어떤 항목을 확인해야 하는가"를 단계별로 반복 점검하는 운영 도구</strong>입니다. 아래는 공포된 고시(제2025-11호, 제2026-43호)와 2026년 상반기 행정예고 중인 사안(공정위 실증 운영고시, AI 가상인물 표시, 정제·캡슐 규제, GMO 표시)을 함께 기반으로 정리했습니다. 행정예고 단계 항목은 확정 전 변경될 수 있으므로 별도 표시했고, 고시가 개정되면 기준을 갱신해야 하며 실제 적용 전에는 고시 원문 및 담당자 확인이 필요합니다.
   </div>
 
   <div style="overflow-x:auto;margin-bottom:10px;">
@@ -883,10 +1002,38 @@ section.dark {
           <td>표시·광고에 관한 법률 제10조</td>
           <td>심의 없이 기능성 광고 집행 불가. 출시 일정에 심의 기간(10영업일) 반영 필요</td>
         </tr>
+        <tr>
+          <td class="stage">광고 집행 전</td>
+          <td class="item">카피별 실증자료 확보</td>
+          <td>효능 수치·안전성 단정·신기술 언급 표현에 대한 실증자료(시험·조사기관명·연락처 포함) 매핑</td>
+          <td>표시광고 실증 운영고시 개정안(공정위) / 식품표시광고법 제9조</td>
+          <td>15일 이내 제출 요구에 대응 가능하도록 카피 확정 전 사전 확보. 없으면 카피 수정 또는 제출 검토</td>
+        </tr>
+        <tr>
+          <td class="stage">광고 소재 제작 시</td>
+          <td class="item">AI 가상인물 표시 여부</td>
+          <td>AI·딥페이크로 생성한 가상 인물이 제품을 추천하는 소재인지, 표시가 필요한지 확인</td>
+          <td>추천·보증 등에 관한 표시·광고 심사지침 개정(행정예고)</td>
+          <td>가상인물 표시 문구 추가 또는 소재 방향 재검토</td>
+        </tr>
+        <tr>
+          <td class="stage">원료 소싱 계약 시</td>
+          <td class="item">원재료 GMO 여부 확인</td>
+          <td>완제품 잔류 여부가 아닌 원재료 자체의 유전자변형 여부 서면 확인</td>
+          <td>건강기능식품에 관한 법률 제21298호 (2026.12.31. 시행)</td>
+          <td>GMO 표시 대상 여부 재검토 → 표시 문구 반영 또는 Non-GMO 요건 충족 여부 확인</td>
+        </tr>
+        <tr>
+          <td class="stage">기획 착수 시 (일반식품)</td>
+          <td class="item">정제·캡슐 제형·성분 리스크</td>
+          <td>멜라토닌·글루타치온·콘드로이친류 등 생산제한 검토 성분과 겹치는지, 제품명·복용안내가 의약품처럼 읽히는지</td>
+          <td>일반식품 정제·캡슐 허용요건 개선(추진 중)</td>
+          <td>겹치는 경우 건기식 경로 전환 검토 또는 표현·제형 재설계</td>
+        </tr>
       </tbody>
     </table>
   </div>
-  <div class="footnote">※ 기획 학습 목적으로 정리한 항목입니다. 고시 개정 시 기준값을 갱신해야 하며, 실제 적용 전 고시 원문 및 담당자 확인이 필요합니다. 확인 링크: <a href="https://www.foodsafetykorea.go.kr" target="_blank">식품안전나라 ↗</a> · <a href="https://www.law.go.kr" target="_blank">국가법령정보센터 ↗</a></div>
+  <div class="footnote">※ QC/RA 실무 점검 목적으로 정리한 항목입니다. 고시 개정 시 기준값을 갱신해야 하며, 실제 적용 전 고시 원문 및 담당자 확인이 필요합니다. 확인 링크: <a href="https://www.foodsafetykorea.go.kr" target="_blank">식품안전나라 ↗</a> · <a href="https://www.law.go.kr" target="_blank">국가법령정보센터 ↗</a> · <a href="https://www.ftc.go.kr/www/selectBbsNttView.do?pageUnit=10&pageIndex=1&searchCnd=all&key=12&bordCd=3&searchCtgry=01,02&nttSn=47638" target="_blank">공정위 표시광고 실증 운영고시 개정 행정예고 ↗</a></div>
 
 </div>
 </section>
@@ -896,8 +1043,8 @@ section.dark {
 <div class="page-wrap">
 
   <div class="sec-label">업무 방식</div>
-  <h2 class="sec-title">일을 배우는 방식 — 구조를 먼저 파악하고 체계로 연결한다</h2>
-  <p class="sec-sub">실제로 일하게 됐을 때 어떤 순서로 무엇을 확인해야 하는지를 미리 정리해봤습니다. 현장에서는 달라지는 부분이 있을 것입니다.</p>
+  <h2 class="sec-title">일을 적용하는 방식 — 구조를 먼저 파악하고 체계로 연결한다</h2>
+  <p class="sec-sub">기획자와 QC/RA가 각자 다른 시점에 같은 규제를 마주칩니다. 어느 순서로 무엇을 확인·요청해야 하는지를 미리 정리해뒀습니다. 현장에서는 달라지는 부분이 있을 것입니다.</p>
 
   <div class="work-list">
 
@@ -922,7 +1069,7 @@ section.dark {
       <div class="wi-label">ODM 협업</div>
       <div class="wi-body">
         <div class="wi-title">단가와 함께 규제 대응 역량도 확인 항목으로 넣는다</div>
-        <div class="wi-desc">소규모 브랜드에서 ODM은 단가 협상 대상이기도 하지만, 규제 대응 역량이 상당 부분 위탁되는 지점이기도 하다고 이해하고 있습니다. 실제로 계약서에 어떤 항목을 넣는지, GMP 수준을 어떻게 평가하는지는 실무에서 배워야 할 부분입니다.</div>
+        <div class="wi-desc">소규모 브랜드에서 ODM은 단가 협상 대상이기도 하지만, 규제 대응 역량이 상당 부분 위탁되는 지점이기도 합니다. 계약서 조항과 GMP 평가 기준은 조직·품목별로 달라질 수 있어, 아래는 QC/RA가 우선 확인 항목으로 제안할 수 있는 최소 목록입니다.</div>
         <div class="wi-box">
           <strong>확인해보고 싶은 항목 예시:</strong> ① GMP 인증 등급 ② 스마트 GMP 여부(고시 제2024-33호 기준) ③ 제형별 소비기한 안정성 시험 데이터 보유 여부 ④ 잔류농약 스크리닝 성적서 제공 가능 여부 ⑤ 주의문구 개정 시 라벨 수정 리드타임<br>
           <span style="font-size:10px;color:var(--ink-lo);">→ GMP 기준 원문: <a href="https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulId=33304&efYd=0" target="_blank">우수건강기능식품 제조기준 ↗</a></span>
@@ -934,7 +1081,7 @@ section.dark {
       <div class="wi-label">광고·표시</div>
       <div class="wi-body">
         <div class="wi-title">카피를 먼저 검토한다</div>
-        <div class="wi-desc">디자인 시안 전에 카피 방향을 정리하고 심의를 준비하는 것이 효율적인 순서일 것 같습니다. 심의 신청 후 결과가 나오는 기간(10영업일)을 출시 일정에 포함해야 한다는 것도 이번에 알게 됐습니다.</div>
+        <div class="wi-desc">디자인 시안 전에 카피 방향과 실증자료 확보 여부를 먼저 정리하는 것이 효율적인 순서입니다. 심의 신청 후 결과가 나오는 기간(10영업일)은 출시 일정에 필수로 포함해야 합니다.</div>
         <div class="wi-box">
           <strong>정리한 순서:</strong> 카피 초안 작성 → 금지 표현 카테고리 1차 확인 → 자율심의 신청 → 심의 번호·날짜 기록<br>
           <span style="font-size:10px;color:var(--ink-lo);">→ 심의 신청: <a href="https://ad.khff.or.kr/user/intro/IntroUser1.do" target="_blank">한국건강기능식품협회 광고심의 ↗</a> · <a href="https://www.sobo112food.or.kr" target="_blank">소비자공익네트워크 심의위원회 ↗</a></span>
@@ -946,7 +1093,7 @@ section.dark {
       <div class="wi-label">고시 모니터링</div>
       <div class="wi-body">
         <div class="wi-title">행정예고 단계부터 보면 대응 여유가 생길 수 있다</div>
-        <div class="wi-desc">고시는 행정예고 → 의견수렴 → 공포 순서로 진행됩니다. 공포 이후에 대응하지 않게 행정예고 단계에서 내용을 파악해두면 준비 시간을 확보할 수 있습니다. 실제로 어떤 주기로 어떻게 확인하는지는 현장에서 배워야 알 것 같습니다.</div>
+        <div class="wi-desc">고시는 행정예고 → 의견수렴 → 공포 순서로 진행됩니다. 공포 이후에 대응하지 않게 행정예고 단계에서 내용을 파악해두면 준비 시간을 확보할 수 있습니다. 이번 자료의 2026년 항목 중 상당수도 아직 행정예고 단계이며, 확정 시점까지 추적이 필요합니다. 정기 모니터링 주기는 조직의 운영 방식에 맞춰 조정할 부분입니다.</div>
         <div class="wi-box">
           <strong>확인 경로:</strong><br>
           → <a href="https://www.mfds.go.kr/brd/m_207/list.do" target="_blank">식약처 입법·행정예고 목록 ↗</a>
@@ -974,20 +1121,23 @@ section.dark {
   <div class="limit-box">
     <div class="limit-title">자료 수집 경로 및 한계</div>
     <ul class="limit-list">
-      <li>고시 관련 내용은 식약처 공식 홈페이지(mfds.go.kr), 식품안전나라(foodsafetykorea.go.kr), 국가법령정보센터(law.go.kr) 공개 자료 및 보도자료(약사공론 등)를 기반으로 정리했습니다.</li>
-      <li>고시 제2026-43호는 2026년 6월 11일 공포 기준 최신 고시입니다.</li>
-      <li>광고 심의 기준의 세부 허용·금지 범위는 자율심의기구의 심의 이력에 따라 달라질 수 있으며, 이 자료의 카테고리는 법령 기반 학습 수준의 정리입니다.</li>
-      <li>ODM 실무(계약서 조항, 협력사 평가 기준 등)는 실제 경험 없이 규제 방향을 기반으로 정리한 내용입니다. 현장에서 달라지는 부분이 있을 것입니다.</li>
+      <li>고시·법률 관련 내용은 식약처 공식 홈페이지(mfds.go.kr), 식품안전나라(foodsafetykorea.go.kr), 국가법령정보센터(law.go.kr), 공정거래위원회(ftc.go.kr) 공개 자료 및 보도자료(약사공론, 데일리팜, 푸드투데이 등)를 기반으로 정리했습니다.</li>
+      <li>고시 제2026-43호는 2026년 6월 11일 공포 기준 최신 고시이며, 「건강기능식품에 관한 법률」 GMO 표시 개정(법률 제21298호)은 2026년 12월 31일 시행 예정입니다.</li>
+      <li>공정위 「표시·광고 실증에 관한 운영고시」 개정, AI 가상인물 표시의무, 정제·캡슐 일반식품 허용요건 개선은 <strong>모두 확정 전 행정예고·검토 단계</strong>입니다. 최종 고시·지침과 내용이 달라질 수 있습니다.</li>
+      <li>공정위 실증 운영고시 개정 행정예고 원문(ftc.go.kr)은 접근 제한으로 직접 열람하지 못해, 관련 언론 보도로 시기·내용을 교차 확인했습니다.</li>
+      <li>광고 심의 기준의 세부 허용·금지 범위는 자율심의기구의 심의 이력에 따라 달라질 수 있으며, 이 자료의 카테고리는 법령 기반 참고 수준의 정리입니다.</li>
+      <li>ODM·QC/RA 실무(계약서 조항, 협력사 평가 기준, 실증자료 관리 체계 등)는 실제 현업 경험 없이 규제 방향을 기반으로 정리한 내용입니다. 현장에서 달라지는 부분이 있을 것입니다.</li>
     </ul>
   </div>
 
   <div class="contact-strip">
     <div>
-      <div class="cn-name">공개버</div>
-      <div class="cn-role">상품기획 BM 지원 · 식품공학 전공 · 헬스케어 7년</div>
+      <div class="cn-name">류보라</div>
+      <div class="cn-role">상품기획 · QC/RA 지원 · 식품공학 전공 · 헬스케어 7년</div>
     </div>
     <div class="cn-right">
-
+      <div class="cn-item">boraryu37@gmail.com</div>
+      <div class="cn-item">github.com/bodli-ham</div>
     </div>
   </div>
 

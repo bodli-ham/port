@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>포트폴리오 요약집 (핵심본) — 류보라</title>
+<title>포트폴리오 요약집 — 류보라</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -44,7 +44,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 .cov-title{font-size:34px;font-weight:800;line-height:1.35;margin-bottom:18px;color:var(--navy);}
 .cov-title span{color:var(--accent);}
 .cov-desc{font-size:13.5px;color:var(--ink-mid);max-width:540px;line-height:1.85;margin-bottom:32px;}
-.cov-list{display:flex;flex-direction:column;gap:16px;margin-bottom:40px;}
+.cov-list{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;}
 .cov-list-item{display:flex;gap:12px;align-items:baseline;font-size:13px;color:var(--ink-mid);}
 .cov-list-num{font-family:var(--mono);color:var(--accent);font-weight:700;}
 .cov-meta{font-size:11.5px;color:var(--ink-lo);border-top:1px solid var(--line);padding-top:20px;}
@@ -54,7 +54,6 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 .doc-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
   border-left:2px solid var(--accent);padding-left:8px;margin-bottom:10px;}
 .doc-title{font-size:21px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3;}
-.doc-title span{font-size:12px;color:var(--ink-lo);font-weight:500;margin-left:8px;}
 .doc-sub{font-size:12px;color:var(--ink-lo);margin-bottom:14px;line-height:1.7;max-width:520px;}
 
 /* ── METRIC ROW ── */
@@ -82,6 +81,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 .chart-mini-title{font-size:10.5px;color:var(--ink-lo);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
 
 .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--accent-lo);color:var(--accent);margin-right:6px;}
+.tag-planned{background:#F1F3F9;color:#556688;}
 .tag-progress{background:#FFF4E5;color:#D87A00;}
 
 .footline{position:absolute;bottom:14mm;left:16mm;right:16mm;display:flex;justify-content:space-between;
@@ -95,13 +95,13 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 </head>
 <body>
 
-<!-- ══════════ PAGE 0 : 표지 ── -->
+<!-- ══════════ PAGE 0 : 표지 ══════════ -->
 <div class="page" id="cover">
   <div class="cov-eyebrow">Portfolio Summary · 2026</div>
   <h1 class="cov-title">데이터로 검증하고,<br><span>근거로 제안합니다.</span></h1>
   <p class="cov-desc">
-    <strong>데이터 분석 및 실무 성과 포트폴리오</strong><br>
-    가설을 설정하고 데이터로 이를 실증하며, 도출된 객관적 팩트를 바탕으로 다음 액션을 제안합니다. 국가 통계 및 지역 공공데이터 분석을 통해 시장의 수요 흐름을 과학적으로 규명하고, 실무 환경에서 다변수 테스트 설계를 통해 성과 전환율을 개선한 프로젝트 요약서입니다.
+    <strong>데이터 기반 포트폴리오 트랙</strong><br>
+    가설을 세우고 데이터로 검증하며, 확인된 범위 안에서 대안을 제안합니다. 국가 공공데이터 및 인구 통계 분석을 통한 거시적 산업 트렌드 파악부터, 비즈니스 가설 검증 설계, 그리고 실제 서비스 환경에서 다변수 행동 데이터를 반영한 성능 최적화 성과까지의 기록입니다.
   </p>
   <div class="cov-list">
     <div class="cov-list-item">
@@ -118,9 +118,20 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
     <div class="cov-list-item">
       <span class="cov-list-num">02</span>
       <div>
-        <strong>고객 행동 데이터 기반 실무 성과 (Business Performance)</strong>
+        <strong>비즈니스 가설 & 상품 기획 (Strategy & Planning)</strong>
         <div style="font-size: 11.5px; color: var(--ink-mid); margin-top: 4px; font-weight: 500; line-height: 1.6;">
-          • 고객 행동 데이터 기반 메시지 최적화 실험 (다변수 순차 테스트, 초기 등록률 약 2.7배 개선)
+          • 규제 리터러시 정리 (표시·광고법 및 광고 심의 가이드라인 분석)<br>
+          • <span class="tag tag-planned" style="font-size: 9px; padding: 1px 6px; margin-right: 4px;">Planned</span>수요 가설 & 검증 설계서 (보류)<br>
+          • <span class="tag tag-planned" style="font-size: 9px; padding: 1px 6px; margin-right: 4px;">Planned</span>상품기획안 Concept-v1 (보류)
+        </div>
+      </div>
+    </div>
+    <div class="cov-list-item">
+      <span class="cov-list-num">03</span>
+      <div>
+        <strong>업무 성과 (Business Performance)</strong>
+        <div style="font-size: 11.5px; color: var(--ink-mid); margin-top: 4px; font-weight: 500; line-height: 1.6;">
+          • 고객 행동 데이터 기반 메시지 최적화 실험 (다변수 순차 테스트, 초기 등록률 3배 개선)
         </div>
       </div>
     </div>
@@ -132,7 +143,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 <div class="page">
   <div class="doc-label">Track 01 · Industry Analysis</div>
   <h2 class="doc-title">공공데이터를 통한 산업분석</h2>
-  <p class="doc-sub">국가 보건 의료 통계와 지역 공공데이터의 정량 분석을 결합하여, 건강기능식품 시장의 연도별 섭취 변화 추이와 인구 통계학적 인지-행동 간극을 규명한 분석 트랙입니다.</p>
+  <p class="doc-sub">대규모 국가 통계(국민건강영양조사) 및 지방자치단체 공공데이터(서울시민 먹거리조사) 분석을 통해 건강기능식품 시장의 전반적인 변화 동향과 인식을 추적한 결과물입니다.</p>
 
   <!-- Project 01 -->
   <div class="blk" style="margin-bottom: 20px;">
@@ -204,24 +215,78 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
     </div>
     
     <div style="text-align: right;">
-      <a href="nutrition-gap-portfolio.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline; font-size:11.5px;">[인지-실천 간극 분석결과 보기]</a>
+      <a href="nutrition-gap-portfolio_v5.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline; font-size:11.5px;">[인지-실천 간극 분석결과 보기]</a>
     </div>
   </div>
 
-  <div class="footline"><span>공공데이터를 통한 산업분석 — 류보라</span><span>1 / 2</span></div>
+  <div class="footline"><span>공공데이터를 통한 산업분석 — 류보라</span><span>1 / 3</span></div>
 </div>
 
-<!-- ══════════ PAGE 2 : 고객 행동 데이터 기반 업무 성과 ══════════ -->
+<!-- ══════════ PAGE 2 : 비즈니스 가설 및 기획 설계 ══════════ -->
 <div class="page">
-  <div class="doc-label">Track 02 · Business Performance</div>
+  <div class="doc-label">Track 02 · Strategy & Planning</div>
+  <h2 class="doc-title">비즈니스 가설 및 기획 설계</h2>
+  <p class="doc-sub">공공데이터 분석에서 확인된 사용자 인식과 행동 제약 요인을 비즈니스 상품화 및 마켓 테스트를 통해 검증하기 위해 리스크 분석 가이드를 정리하고 가설을 구체화하는 기획 트랙입니다.</p>
+
+  <!-- Project 03 -->
+  <div class="blk" style="margin-bottom: 24px;">
+    <div class="blk-h">Project 03 · 규제 리터러시 정리 (광고 심의 및 원료 가이드라인)</div>
+    <p class="blk-p" style="font-size: 11.5px; margin-bottom: 10px;">
+      새로운 건강기능식품 기획 및 마케팅 메시지 작성 단계에서 발생할 수 있는 위법 리스크를 사전에 예방하기 위해 <strong>식품 등의 표시·광고법</strong> 및 <strong>심의위원회 가이드</strong>를 철저하게 분석한 규제 리스크 방지 문서입니다.
+    </p>
+    <div class="ins-mini" style="margin-bottom: 8px;">
+      <div class="ins-mini-item">
+        <span class="ins-mini-n">핵심</span>
+        <span>
+          의약품 오인 우려 문구, 효능·효과 과대광고 리스크를 사전에 파악할 수 있는 필터링 체크리스트를 정립하였으며, 성분 배합 시 법적 안전 가이드라인 준수 여부를 판단하는 기획 리터러시 토대를 마련했습니다.
+        </span>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <a href="./regulation-literacy.html" target="_blank" style="color: #5B3E8A; font-weight: 700; text-decoration: underline; font-size:11.5px;">[규제 리터러시 정리 보기]</a>
+    </div>
+  </div>
+
+  <!-- Project 04 & 05 (PLANNED) -->
+  <div class="blk">
+    <div class="blk-h">기획 후속 설계 프로젝트 및 초안 작성계획</div>
+    <p class="blk-p" style="font-size: 11.5px; margin-bottom: 14px; color: var(--ink-mid);">
+      분석을 통해 검증한 핵심 타겟을 대상으로 시장성과 소구 가설을 검토하고 구체적인 상품 스펙 및 마케팅 전개 방안을 실천해 가기 위한 준비 과정입니다. 현재 문서 재구성을 위해 보류 중인 영역입니다.
+    </p>
+
+    <div class="ins-mini" style="gap: 10px;">
+      <div class="ins-mini-item" style="border-left: 3px solid var(--ink-lo); background: var(--paper-d);">
+        <span class="tag tag-planned" style="font-size: 9.5px; padding: 2px 8px;">Project 04 · PLANNED</span>
+        <div>
+          <strong style="font-size: 12.5px; display: block; margin-bottom: 3px; color: var(--ink);">수요 가설 & 검증 설계서</strong>
+          <span style="color: var(--ink-lo); font-size: 11.5px;">(신규 작성 예정 — 타겟의 실천 장벽 완화를 위한 가설 수립 및 스모크 테스트 등 행동 기반 2단계 검증 모델 설계서)</span>
+        </div>
+      </div>
+
+      <div class="ins-mini-item" style="border-left: 3px solid var(--ink-lo); background: var(--paper-d);">
+        <span class="tag tag-planned" style="font-size: 9.5px; padding: 2px 8px;">Project 05 · PLANNED</span>
+        <div>
+          <strong style="font-size: 12.5px; display: block; margin-bottom: 3px; color: var(--ink);">상품기획안 Concept-v1</strong>
+          <span style="color: var(--ink-lo); font-size: 11.5px;">(신규 작성 예정 — 라이프스타일 넛지 소구, 마그네슘·유단백가수분해물 등 원료 배합 및 휴대성 제형 가상 기획서)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footline"><span>비즈니스 가설 및 기획 설계 — 류보라</span><span>2 / 3</span></div>
+</div>
+
+<!-- ══════════ PAGE 3 : 고객 행동 데이터 기반 업무 성과 ══════════ -->
+<div class="page">
+  <div class="doc-label">Track 03 · Business Performance</div>
   <h2 class="doc-title">고객 행동 데이터 기반 메시지 최적화</h2>
   <p class="doc-sub">실무 비즈니스 환경에서 사용자 지표를 실시간으로 측정하고, 다변수 메시지 순차 테스트를 단독 설계 및 운영하여 가시적인 전환 성과를 이끌어 낸 프로젝트입니다.</p>
 
-  <!-- Project 03 -->
+  <!-- Project 06 -->
   <div class="blk">
-    <div class="blk-h">Project 03 · 고객 행동 데이터 기반 메시지 최적화 실험 (실제 업무 성과)</div>
+    <div class="blk-h">Project 06 · 고객 행동 데이터 기반 메시지 최적화 실험 (실제 업무 성과)</div>
     <p class="blk-p" style="font-size: 11.5px; margin-bottom: 12px;">
-      보험 부가서비스 고객 행동 전환을 높이기 위해 발송 시점, 포맷, 감성 맥락(시즌성), 연령 분할 기법 등을 순차적으로 조정하여 등록 유도 반응률을 개선했습니다.
+      보험 부가서비스 고객 행동 전환을 높이기 위해 발송 시점, 포맷, 감성 맥락(시즌성), 연령 분할 기법 등을 순차적으로 정밀 조정하여 등록 유도 반응률을 비약적으로 증가시켰습니다.
     </p>
 
     <div class="metric-row" style="margin-bottom: 16px;">
@@ -239,7 +304,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
         <div class="metric-cell">
           <div class="metric-k">최장 전환 추적</div>
           <div class="metric-v accent">21회</div>
-          <div class="metric-s">최대 21회차까지 전환 발생 (전체 미등록 84.7% 존재)</div>
+          <div class="metric-s">21차 수신 시점 첫 등록 포착</div>
         </div>
       </div>
     </div>
@@ -249,15 +314,15 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
       <div class="ins-mini">
         <div class="ins-mini-item">
           <span class="ins-mini-n">01</span>
-          <span><strong>타이밍과 맥락 통제:</strong> 메시지 발송 내용의 직관성보다 메시지를 열어볼 가능성이 높은 라이프스타일 발송 시점(타이밍) 제어가 영향력을 보임을 시사합니다.</span>
+          <span><strong>타이밍과 맥락 통제:</strong> 메시지 발송 내용의 직관성보다 메시지를 열어볼 가능성이 높은 라이프스타일 발송 시점(타이밍) 제어가 가장 먼저 유의미한 영향력을 보임을 입증했습니다.</span>
         </div>
         <div class="ins-mini-item">
           <span class="ins-mini-n">02</span>
-          <span><strong>시즌 및 감성 결합:</strong> 크리스마스 및 새해 등 시기별 맥락과 부합하는 감성 키워드를 결합하여 발송했을 때 등록 전환율의 향상이 관찰되었습니다 (12월 8.6% → 1월 18.9% → 2월 28.9%).</span>
+          <span><strong>시즌 및 감성 결합:</strong> 크리스마스 및 새해 등 시기별 맥락과 부합하는 감성 키워드를 결합하여 발송했을 때 등록 전환율이 폭발적으로 누적 향상되었습니다 (12월 8.6% → 1월 18.9% → 2월 28.9%).</span>
         </div>
         <div class="ins-mini-item">
           <span class="ins-mini-n">03</span>
-          <span><strong>비이탈 행동 패턴 확인:</strong> 단기 미등록 고객에 대해 일회성으로 발송을 중단하지 않고, 장기적이며 정밀한 피로도 관리 하에 최대 21회차까지 순차 테스트를 이어갔을 때 추가적인 전환이 발생할 수 있음을 시사합니다 (전체 미등록 84.7% 존재).</span>
+          <span><strong>비이탈 행동 패턴 확인:</strong> 단기 미등록 고객에 대해 일회성으로 발송을 중단하지 않고, 장기적이며 정밀한 피로도 관리 하에 다회차(최대 21회)까지 순차 테스트를 이어갔을 때 추가적인 전환을 달성할 수 있음을 입증했습니다.</span>
         </div>
       </div>
     </div>
@@ -271,7 +336,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
     </div>
   </div>
 
-  <div class="footline"><span>업무 성과 및 최적화 — 류보라</span><span>2 / 2</span></div>
+  <div class="footline"><span>업무 성과 및 최적화 — 류보라</span><span>3 / 3</span></div>
 </div>
 
 </body>
