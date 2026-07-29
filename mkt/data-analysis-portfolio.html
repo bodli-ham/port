@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>건강기능식품 섭취율 데이터 분석 포트폴리오 | 류보라</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── 토큰 (규제이해 복사본.html 기반) ── */
+:root {
+  --navy:      #1B2B5E;
+  --navy-mid:  #2B3F82;
+  --navy-lo:   rgba(27,43,94,0.08);
+  --ink:       #1A1A2E;
+  --ink-mid:   #3D3D5C;
+  --ink-lo:    #8888AA;
+  --paper:     #FFFFFF;
+  --paper-d:   #F4F5F9;
+  --paper-dd:  #EAECF4;
+  --line:      #DDE0EE;
+  --accent:    #3A5FD9;
+  --accent-lo: rgba(58,95,217,0.09);
+  --warn:      #C0390A;
+  --warn-lo:   rgba(192,57,10,0.08);
+  --ok:        #1A6E48;
+  --ok-lo:     rgba(26,110,72,0.08);
+  --note:      #5B3E8A;
+  --note-lo:   rgba(91,62,138,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; word-break: keep-all; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, sans-serif;
+  background: var(--paper-d);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 15px;
+  word-break: keep-all;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: var(--navy);
+  z-index: 999;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  height: 52px;
+}
+.nav-name {
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.92);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55);
+  text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: rgba(255,255,255,0.95); }
+
+/* ── LAYOUT ── */
+.page-wrap { max-width: 900px; margin: 0 auto; padding: 0 48px; }
+
+section {
+  background: var(--paper);
+  margin-bottom: 3px;
+  padding: 72px 0 64px;
+}
+
+/* ── COVER (HERO) ── */
+#cover {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+#cover::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 48%; height: 100%;
+  background: linear-gradient(135deg, rgba(58,95,217,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+#cover::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3A5FD9 0%, #7AA3FF 50%, transparent 100%);
+}
+
+.cover-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  color: rgba(122,163,255,0.85); text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.cover-title {
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800; line-height: 1.2;
+  color: #fff; margin-bottom: 28px;
+  letter-spacing: -0.025em;
+}
+.cover-title .accent { color: #7AA3FF; }
+
+.cover-rule {
+  width: 40px; height: 3px;
+  background: #3A5FD9; margin-bottom: 28px;
+}
+
+.cover-body {
+  font-size: 15px; color: rgba(255,255,255,0.65);
+  max-width: 600px; line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+.origin-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-left: 3px solid #3A5FD9;
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+.origin-box-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+  color: #7AA3FF; text-transform: uppercase; margin-bottom: 12px;
+}
+.origin-box p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.85; }
+.origin-box p + p { margin-top: 10px; }
+.origin-box strong { color: rgba(255,255,255,0.92); }
+
+.cover-meta {
+  font-size: 12px; color: rgba(255,255,255,0.38);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+.cover-meta span { color: rgba(255,255,255,0.6); }
+
+/* ── NAVY META STRIP ── */
+.meta-strip-navy {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 640px;
+  background: rgba(255,255,255,0.04);
+}
+.meta-cell-navy {
+  padding: 12px 18px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  flex: 1; min-width: 140px;
+}
+.meta-cell-navy:last-child { border-right: none; }
+.meta-k-navy {
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 4px; font-weight: 700;
+  font-family: 'DM Mono', monospace;
+}
+.meta-v-navy {
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.9);
+}
+
+/* ── SECTION HEADER ── */
+.sec-label {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--accent); text-transform: uppercase;
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+  margin-bottom: 14px;
+}
+.sec-title {
+  font-size: 24px; font-weight: 800; color: var(--ink);
+  line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.015em;
+}
+.sec-sub {
+  font-size: 13px; color: var(--ink-lo); margin-bottom: 44px;
+  max-width: 640px; line-height: 1.75;
+}
+
+/* ── TYPOGRAPHY ── */
+.body {
+  font-size: 15px; color: var(--ink-mid); line-height: 1.85; margin-bottom: 16px;
+}
+.body strong {
+  color: var(--ink); font-weight: 700;
+}
+h3 {
+  font-size: 16px; font-weight: 800; color: var(--ink);
+  margin: 40px 0 16px;
+  padding-left: 12px; border-left: 3px solid var(--accent);
+}
+
+/* ── CALLOUT BOX ── */
+.callout {
+  border: 1px solid var(--line);
+  border-left: 3.5px solid;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  background: var(--paper-d);
+}
+.callout.blue   { border-left-color: var(--accent); background: var(--accent-lo); }
+.callout.red    { border-left-color: var(--warn); background: var(--warn-lo); }
+.callout.green  { border-left-color: var(--ok); background: var(--ok-lo); }
+.callout.yellow { border-left-color: var(--note); background: var(--note-lo); }
+.callout.gray   { border-left-color: var(--ink-lo); background: var(--paper-d); }
+.callout.neutral{ border-left-color: var(--line); background: var(--paper-d); }
+
+.callout-hd {
+  font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+}
+.callout.blue .callout-hd { color: var(--navy-mid); }
+.callout.red .callout-hd { color: var(--warn); }
+.callout.green .callout-hd { color: var(--ok); }
+.callout.yellow .callout-hd { color: var(--note); }
+.callout.gray .callout-hd { color: var(--ink-mid); }
+.callout.neutral .callout-hd { color: var(--ink-mid); }
+
+/* ── DATA TABLES ── */
+.exp-table {
+  width: 100%; border-collapse: collapse; margin: 28px 0;
+  font-size: 13px; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(27,43,94,0.05);
+}
+.exp-table thead th {
+  background: var(--navy); color: rgba(255,255,255,0.8); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.05em;
+  padding: 12px 16px; text-align: left;
+}
+.exp-table tbody td {
+  padding: 12px 16px; border-bottom: 1px solid var(--line);
+  color: var(--ink-mid); vertical-align: top; line-height: 1.6;
+}
+.exp-table tr:last-child td { border-bottom: none; }
+.exp-table tr:nth-child(even) td { background: var(--paper-d); }
+.exp-table tr:hover td { background: var(--accent-lo); }
+
+.tag-green { color: var(--ok); font-weight: 700; }
+.tag-red   { color: var(--warn); font-weight: 700; }
+.tag-amber { color: var(--note); font-weight: 700; }
+
+.chip {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--paper-dd);
+  color: var(--navy-mid);
+  font-size: 10px; font-weight: 700;
+  border-radius: 4px;
+  margin-left: 6px;
+  letter-spacing: .02em;
+}
+.chip-yellow {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--note-lo);
+  color: var(--note);
+  font-size: 10px; font-weight: 700;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+.chip-check {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--ok);
+  font-weight: 700;
+}
+
+/* ── HYPOTHESIS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge-adopt   { background: var(--ok-lo);   color: var(--ok); }
+.badge-reject  { background: var(--warn-lo); color: var(--warn); }
+.badge-partial { background: var(--note-lo); color: var(--note); }
+
+/* ── HYPOTHESIS TABLE (readability boost) ── */
+.hyp-table { font-size: 13px; }
+.hyp-table thead th { font-size: 12.5px; padding: 14px 18px; }
+.hyp-table tbody td { padding: 16px 18px; line-height: 1.8; }
+.hyp-table .badge { font-size: 13px; padding: 5px 14px; }
+
+/* ── LISTS ── */
+ul, ol { margin: 20px 0; padding-left: 24px; }
+li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14.5px; }
+
+/* ── INSIGHTS LIST ── */
+.ins-list { margin: 28px 0; display: flex; flex-direction: column; gap: 14px; }
+.ins-item {
+  display: flex; gap: 18px;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(27,43,94,0.04);
+  transition: box-shadow 0.15s;
+}
+.ins-item:hover {
+  box-shadow: 0 2px 8px rgba(27,43,94,0.08);
+}
+.ins-n {
+  font-size: 14px; font-weight: 800;
+  color: var(--accent); flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.ins-t { font-size: 13.5px; color: var(--ink-mid); line-height: 1.75; }
+.ins-t strong { color: var(--ink); margin-right: 4px; font-weight: 700; }
+
+/* ── STATS BLOCK ── */
+.big-res {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin: 28px 0;
+  box-shadow: 0 1px 4px rgba(27,43,94,0.05);
+}
+.res-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.res-cell { text-align: center; }
+.res-k {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ink-lo); margin-bottom: 6px; text-transform: uppercase;
+}
+.res-v {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800; color: var(--ink); line-height: 1.1;
+}
+.res-v.green { color: var(--ok); }
+.res-v.highlight { color: var(--accent); }
+.res-s {
+  font-size: 11px; color: var(--ink-mid); margin-top: 6px;
+}
+.res-divider {
+  width: 1px; height: 48px; background: var(--line);
+}
+
+@media (max-width: 680px) {
+  .res-grid { grid-template-columns: 1fr; }
+  .res-divider { width: 40px; height: 1px; justify-self: center; margin: 12px 0; }
+}
+
+/* ── CHARTS ── */
+.chart-section { margin: 32px 0; }
+.chart-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ink-lo); margin-bottom: 12px; text-transform: uppercase;
+}
+.chart-container {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(27,43,94,0.05);
+}
+
+/* ── DATA EXTENSION LIST LABELS ── */
+.msg-section-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent); margin: 36px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.msg-section-label::before {
+  content: ''; display: inline-block; width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+}
+
+/* ── FOOTER & CONTACT ── */
+.contact-strip {
+  background: var(--navy); border-radius: 6px; padding: 28px 32px;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  margin-top: 48px;
+}
+.cn-name { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; letter-spacing: -0.01em; }
+.cn-role { font-size: 13px; color: rgba(255,255,255,0.45); }
+.cn-right { display: flex; flex-direction: column; gap: 6px; }
+.cn-item  { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+.divider { border: none; border-top: 1px solid var(--line); margin: 48px 0 40px; }
+
+.footer {
+  padding: 48px 0; text-align: center;
+  background: var(--paper-d);
+}
+.footer p { font-size: 11px; color: var(--ink-lo); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">류보라 · 국민건강영양조사 데이터 분석</div>
+  <div class="nav-links">
+    <a href="index.html" style="color: #7AA3FF; font-weight: 700; margin-right: 16px;">← 요약집</a>
+    <a href="#intro">분석 배경</a>
+    <a href="#results">핵심 결과</a>
+    <a href="#insights">결과 해석</a>
+    <a href="#planning">기획 인사이트</a>
+    <a href="#data">데이터·방법론</a>
+    <a href="#regression">추가 결과</a>
+    <a href="#future">한계·과제</a>
+  </div>
+</nav>
+
+<!-- ── COVER (HERO) ── -->
+<section id="cover">
+<div class="page-wrap">
+
+  <div class="cover-eyebrow">국민건강영양조사 데이터 분석 프로젝트</div>
+
+  <h1 class="cover-title">
+    건기식 섭취율 상승,<br>
+    <span class="accent">세그먼트 별로 어떻게 달랐나</span>
+  </h1>
+
+  <div class="cover-rule"></div>
+
+  <p class="cover-body">
+    2018~2024년 국민건강영양조사(KNHANES) 7개년 통합 원시자료(유효표본 44,048명)를 기반으로 성별 및 연령에 따른 건기식 섭취 수준과 소비 트렌드의 증가 속도를 다각적으로 분석했습니다.
+  </p>
+
+  <div class="origin-box">
+    <div class="origin-box-label">분석 핵심 요약</div>
+    <p>
+      국내 건강기능식품 시장이 성숙기에 접어들며 전체 섭취율이 65~68% 수준에서 안정화되는 추세입니다. 지금은 양적 팽창보다 <strong>세그먼트별로 다르게 접근하는 것</strong>이 더 중요한 시점입니다.
+    </p>
+    <p>
+      분석 결과, <strong>섭취율은 50대 여성(83.2%)</strong>이 가장 높지만, <strong>증가 속도는 20대가 가장 빠르게</strong> 나타났습니다(다만 50대를 제외한 핵심 연령대와는 통계적으로 유의한 차이는 아닙니다).
+    </p>
+    <p>
+      연령·성별·소득 외에 <strong>영양표시 인지, 아침식사 습관 같은 건강 관심 세그먼트도 섭취율과 강하게 연관</strong>되어 있음을 확인했습니다(오즈비 1.53, 소득보다 강한 연관성). 본 포트폴리오는 이 데이터를 기반으로 한 구체적인 기획 방향성을 제시합니다.
+    </p>
+  </div>
+
+ 
+  <div class="meta-strip-navy">
+    <div class="meta-cell-navy">
+      <div class="meta-k-navy">📅 분석 대상 기간</div>
+      <div class="meta-v-navy">2018–2024년 (7개년 통합)</div>
+    </div>
+    <div class="meta-cell-navy">
+      <div class="meta-k-navy">👤 역할</div>
+      <div class="meta-v-navy">단독 설계 · 전처리 · 분석 · 시각화</div>
+    </div>
+    <div class="meta-cell-navy">
+      <div class="meta-k-navy">🛠 방법론</div>
+      <div class="meta-v-navy">복합표본설계 · 가중 로지스틱 회귀</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ── STEP 01: 분석 배경 및 가설 ── -->
+<section id="intro">
+<div class="page-wrap">
+  <div class="sec-label">STEP 01 · 분석 배경</div>
+  <h2 class="sec-title">🚩 분석 배경 및 가설</h2>
+  <p class="sec-sub">식습관의 구조적 변화가 가속화됨에 따라 건강기능식품의 소비 행태를 국가 공인 데이터를 통해 파악하고자 분석을 진행했습니다.</p>
+
+  <p class="body">
+    영양 정보에 대한 대중적 인식 확산, 1인 가구 확산 등 식습관의 구조적 변화가 가속화되면서, 건기식 소비 행태를 데이터로 파악할 필요성이 커졌습니다.
+    시장이 성숙기로 이행하는 상황에서 <strong>개별 세그먼트에서 어떤 움직임을 보였는지 분석</strong>하면 기획에 좋은 인사이트를 얻을 수 있다고 판단했습니다.
+  </p>
+  <p class="body">
+    국가승인통계인 국민건강영양조사(KNHANES) 2018~2024년 자료를 결합해, 연령·성별 등 세그먼트 별 건기식 섭취 <strong>수준</strong>과 <strong>증가 속도</strong>를 나누어 확인하고
+    시장 세분화 및 타깃별 제품 기획에 쓸 수 있는 근거를 도출하는 것을 목표로 삼았습니다.
+  </p>
+
+  <div class="callout neutral" style="margin-top:28px;">
+    <div class="callout-hd">📋 수립된 가설 목록</div>
+    <table class="exp-table hyp-table" style="margin:16px 0 0;">
+      <thead>
+        <tr><th style="width:32px;">#</th><th>가설</th><th style="width:88px;">결과</th><th>근거</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>H1</td>
+          <td>10대 이하 청소년도 건기식 섭취율이 올랐을 것이다.</td>
+          <td><span class="badge badge-adopt">채택</span></td>
+          <td>1–9세·10대 모두 2018→2024년 섭취율이 뚜렷하게 올랐습니다(각각 +12.5%p·+11.8%p, 통계적으로 유의). '올랐다'는 부분은 맞지만, 다른 연령대보다 특별히 빨리 늘었다고 보기는 어렵습니다.</td>
+        </tr>
+        <tr>
+          <td>H2</td>
+          <td>자기관리(셀프케어) 트렌드로 20·30대의 건기식 섭취율이 가장 빠르게 늘었을 것이다.</td>
+          <td><span class="badge badge-partial">부분채택</span></td>
+          <td>9개 연령대 중 20대의 증가 속도가 가장 빨랐다는 점은 맞습니다. 다만 '30대'까지 함께 가장 빠르다고 하기엔 근거가 약합니다 — 오히려 40대·60대가 30대보다 20대와 더 비슷한 속도를 보였고, 30·40·60대 모두 20대와 뚜렷한 차이가 없어 두 연령대만 따로 묶기는 어렵습니다.</td>
+        </tr>
+        <tr>
+          <td>H3</td>
+          <td>40~60대 중년층은 건강 관리가 늘어나는 시기와 맞물려 섭취율과 다중 복용 비율이 높을 것이다.</td>
+          <td><span class="badge badge-partial">부분채택</span></td>
+          <td>섭취율 자체는 50대가 가장 높아 맞습니다(여성 83.2%). 다만 증가 속도는 오히려 50대가 20대보다 느렸습니다(반대 방향). 다중 복용 비율은 '식이보충제 심층분석'에서 별도로 다룰 예정입니다.</td>
+        </tr>
+        <tr>
+          <td>H4</td>
+          <td>연령·성별 격차뿐 아니라, 소득·영양표시 인지·아침식사·운동 같은 건강 관심·실천 관련 변수도 건기식 섭취율과 같은 방향으로 움직일 것이다.</td>
+          <td><span class="badge badge-adopt">채택</span></td>
+          <td>성인 34,303명을 분석한 결과, 네 변수 모두 건기식 섭취와 유의미하게 관련 있었습니다(오즈비 1.10~1.53배).</td>
+        </tr>
+        <tr>
+          <td>H5</td>
+          <td>소득은 높지만 아침을 잘 안 먹고 건기식도 안 챙기는 사람들이 있고, 이들은 직업이나 결혼 여부로 더 구체적으로 설명될 수 있다.</td>
+          <td><span class="badge badge-adopt">채택</span></td>
+          <td>이런 특징을 가진 사람이 성인의 11.3%(95% 신뢰구간 10.9~11.8%)였습니다. 미혼(47.1% vs 성인 전체 24.6%)·관리자전문직(21.5% vs 15.8%)·사무직(14.6% vs 11.5%)에서 특히 많았습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 02: 분석 결과 ── -->
+<section id="results">
+<div class="page-wrap">
+  <div class="sec-label">STEP 02 · 핵심 결과</div>
+  <h2 class="sec-title">📈 핵심 결과</h2>
+  <p class="sec-sub">지난 7개년간의 가중 섭취율 추이와 연령·성별 격차 및 상대적 증가 속도를 시각화하여 핵심 지표를 요약했습니다.</p>
+
+  <div class="big-res">
+    <div class="res-grid">
+      <div class="res-cell">
+        <div class="res-k">2018년 섭취율</div>
+        <div class="res-v">51.4%</div>
+        <div class="res-s">분석 시작 시점</div>
+      </div>
+      <div class="res-divider"></div>
+      <div class="res-cell">
+        <div class="res-k">2022년 섭취율</div>
+        <div class="res-v green">68.4%</div>
+        <div class="res-s">정점 · 이후 완만화</div>
+      </div>
+      <div class="res-divider"></div>
+      <div class="res-cell">
+        <div class="res-k">성별 격차</div>
+        <div class="res-v highlight">10.1%p</div>
+        <div class="res-s">2024년, 여성 > 남성</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>연도별 전체 섭취율 추이 (95% CI 기반 가중 추정치)</h3>
+  <div class="chart-section">
+    <div class="chart-container">
+      <svg viewBox="0 0 660 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+        <line x1="30" y1="70" x2="630" y2="70" stroke="var(--line)" stroke-width="1"/>
+        <line x1="30" y1="110" x2="630" y2="110" stroke="var(--line)" stroke-width="1"/>
+        <line x1="30" y1="150" x2="630" y2="150" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="24" y="74" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="end">70%</text>
+        <text x="24" y="114" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="end">50%</text>
+        <polygon points="60,104.8 150,93.0 240,80.6 330,71.4 420,70.8 510,77.2 600,74.8 600,79.4 510,81.8 420,75.6 330,76.4 240,85.8 150,97.6 60,109.6" fill="var(--accent)" opacity="0.12"/>
+        <polyline points="60,107.2 150,95.4 240,83.2 330,73.8 420,73.2 510,79.6 600,77.0" fill="none" stroke="var(--accent)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="60" cy="107.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="150" cy="95.4" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="240" cy="83.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="330" cy="73.8" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="420" cy="73.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="510" cy="79.6" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="600" cy="77.0" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <text x="60" y="99.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">51.4%</text>
+        <text x="150" y="87.4" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">57.3%</text>
+        <text x="240" y="75.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">63.4%</text>
+        <text x="330" y="65.8" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">68.1%</text>
+        <text x="420" y="65.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">68.4%</text>
+        <text x="510" y="71.6" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">65.2%</text>
+        <text x="600" y="69.0" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">66.5%</text>
+        <text x="60" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2018</text>
+        <text x="150" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2019</text>
+        <text x="240" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2020</text>
+        <text x="330" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2021</text>
+        <text x="420" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2022</text>
+        <text x="510" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2023</text>
+        <text x="600" y="205" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2024</text>
+        <text x="600" y="18" font-family="var(--sans)" font-size="9.5" fill="var(--accent)" text-anchor="end" font-weight="700">━ 가중 섭취율　▨ 95% 신뢰구간</text>
+      </svg>
+      <p style="font-size:14px;color:var(--ink-lo);text-align:left;margin-top:8px;">* 2018년 51.4%(50.2–52.6) → 2021년 68.1%(66.8–69.3)까지는 인접 연도 신뢰구간이 겹치지 않는 뚜렷한 상승, 2022년 이후는 신뢰구간이 겹쳐 그래프만으로 유의한 변화라 단정하기 어렵습니다.</p>
+    </div>
+  </div>
+
+  <h3>섭취율 증가 속도(Growth) — 어떤 연령대가 가장 빠르게 늘었나</h3>
+  <p class="body" style="margin-bottom:24px;">단순 섭취 수준 비교로는 "어떤 연령대에서 상승이 가장 빨랐는가"에 답할 수 없어, 연도×연령대 상호작용을 포함한 가중 로지스틱 회귀로 <strong>연령대별 연도별 증가 속도를 20–29세를 기준</strong>으로 비교했습니다.</p>
+
+  <div class="chart-section">
+    <div class="chart-container">
+      <svg viewBox="0 0 660 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+        <!-- 보조 그리드 -->
+        <line x1="238.3" y1="20" x2="238.3" y2="316" stroke="var(--line)" stroke-width="1"/>
+        <line x1="371.7" y1="20" x2="371.7" y2="316" stroke="var(--line)" stroke-width="1"/>
+        <!-- 20대 기준선 (OR=1.000) -->
+        <line x1="505" y1="16" x2="505" y2="316" stroke="var(--ink-lo)" stroke-width="1.5" stroke-dasharray="4"/>
+        <text x="505" y="10" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="var(--sans)" font-weight="700">20대 기준선 (OR = 1.000)</text>
+        <text x="238.3" y="330" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">0.90</text>
+        <text x="371.7" y="330" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">0.95</text>
+        <text x="505" y="330" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.00</text>
+
+        <!-- 1-9세: OR .925 [.875–.979] 유의 -->
+        <text x="8" y="60" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">1–9세</text>
+        <line x1="171.7" y1="56" x2="449.0" y2="56" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="171.7" y1="51" x2="171.7" y2="61" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="449.0" y1="51" x2="449.0" y2="61" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="305.0" cy="56" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="305.0" y="46" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.925</text>
+        <text x="584" y="60" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <!-- 10-19세: OR .926 [.879–.976] 유의 -->
+        <text x="8" y="94" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">10–19세</text>
+        <line x1="182.3" y1="90" x2="441.0" y2="90" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="182.3" y1="85" x2="182.3" y2="95" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="441.0" y1="85" x2="441.0" y2="95" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="307.7" cy="90" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="307.7" y="80" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.926</text>
+        <text x="584" y="94" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <!-- 30-39세: OR .966 [.922–1.012] 비유의: 기준선 넘어감 -->
+        <text x="8" y="128" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">30–39세</text>
+        <line x1="297.0" y1="124" x2="537.0" y2="124" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="297.0" y1="119" x2="297.0" y2="129" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="537.0" y1="119" x2="537.0" y2="129" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="414.3" cy="124" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="414.3" y="114" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.966</text>
+        <text x="584" y="128" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
+
+        <!-- 40-49세: OR .972 [.926–1.020] 비유의: 기준선 넘어감 -->
+        <text x="8" y="162" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">40–49세</text>
+        <line x1="307.7" y1="158" x2="558.3" y2="158" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="307.7" y1="153" x2="307.7" y2="163" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="558.3" y1="153" x2="558.3" y2="163" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="430.3" cy="158" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="430.3" y="148" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.972</text>
+        <text x="584" y="162" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
+
+        <!-- 50-59세: OR .946 [.904–.989] 유의 -->
+        <text x="8" y="196" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">50–59세</text>
+        <line x1="249.0" y1="192" x2="475.7" y2="192" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="249.0" y1="187" x2="249.0" y2="197" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="475.7" y1="187" x2="475.7" y2="197" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="361.0" cy="192" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="361.0" y="182" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.946</text>
+        <text x="584" y="196" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+        <!-- 60-69세: OR .967 [.922–1.014] 비유의: 기준선 넘어감 -->
+        <text x="8" y="230" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">60–69세</text>
+        <line x1="297.0" y1="226" x2="542.3" y2="226" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="297.0" y1="221" x2="297.0" y2="231" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="542.3" y1="221" x2="542.3" y2="231" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="417.0" cy="226" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="417.0" y="216" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.967</text>
+        <text x="584" y="230" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">20대와 차이 없음</text>
+
+        <!-- 70-79세: OR .958 [.912–1.007] 경계 p=0.09: 기준선 살짝 넘어감 → 파란 점선(비유의 쪽으로 분류하되 경계임을 표시) -->
+        <text x="8" y="264" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">70–79세</text>
+        <line x1="270.3" y1="260" x2="523.7" y2="260" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="5,4"/>
+        <line x1="270.3" y1="255" x2="270.3" y2="265" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3,2"/>
+        <line x1="523.7" y1="255" x2="523.7" y2="265" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3,2"/>
+        <circle cx="393.0" cy="260" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="393.0" y="250" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.958</text>
+        <text x="584" y="264" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">경계선(p=0.09)</text>
+
+        <!-- 80세 이상: OR .922 [.867–.981] 유의 -->
+        <text x="8" y="298" font-size="11" fill="var(--ink)" font-family="var(--sans)" font-weight="700">80세 이상</text>
+        <line x1="150.3" y1="294" x2="454.3" y2="294" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <line x1="150.3" y1="289" x2="150.3" y2="299" stroke="var(--ink-lo)" stroke-width="2"/>
+        <line x1="454.3" y1="289" x2="454.3" y2="299" stroke="var(--ink-lo)" stroke-width="2"/>
+        <circle cx="297.0" cy="294" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="297.0" y="284" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.922</text>
+        <text x="584" y="298" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">유의하게 느림</text>
+
+      </svg>
+      <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:12px;">* 그래프의 점 = 오즈비(OR), 가로선 = 95% 신뢰구간. 신뢰구간이 20대 기준선(OR=1.00)을 가로지르면 <strong>통계적으로 20대와 속도 차이가 없다</strong>는 뜻입니다.</p>
+      <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:4px;">* 오즈비(OR)란 어떤 조건에서 사건이 일어날 가능성을 그렇지 않은 경우와 비교한 배수로, <strong>1보다 크면 그 조건에서 더 잘 일어난다</strong>는 뜻입니다.</p>
+    </div>
+  </div>
+
+  <div class="callout gray">
+    <p class="body" style="margin:0;">20대는 9개 연령대 중 점추정치가 가장 높아, 증가 속도가 가장 빠른 연령대로 나타났습니다 (다른 8개 연령대 모두 OR&lt;1).<br> 다만 그 차이가 통계적으로 유의한 연령대는 10대 이하·50대·80세 이상 4개뿐이고, 30·40·60대는 신뢰구간이 기준선을 가로질러 20대와 증가 속도 차이가 오차 범위 내로 확인됩니다. 70대는 p=0.090으로 경계선에 걸쳐 있습니다(관례적 기준인 0.05보다는 크지만 0.1보다는 작아, '차이가 없다'고 단정하기도 '유의하게 다르다'고 말하기도 조심스러운 애매한 구간입니다).<br> 즉 <strong>20대를 비롯한 핵심 연령대(30·40·60대)는 50대보다 섭취율 증가 속도가 빨랐습니다.</strong></p>
+  </div>
+
+  <h3>연령대별 실제 섭취율 — 남성 vs 여성</h3>
+  <p class="body">실제 건기식 섭취율을 보면 20대부터 여성이 남성을 앞서기 시작하며, 여성 우위 섭취율은 전생애주기에 걸쳐 지속됩니다. 반면 <strong>10대는 유일하게 남성의 섭취율이 더 높게</strong> 나타납니다(남 47.1% &gt; 여 41.1%).</p>
+
+  <div class="chart-section">
+    <div class="chart-container">
+      <div class="chart-title">연령대별 실제 섭취율 — 남성 vs 여성</div>
+      <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--sans);display:block;">
+        <line x1="120" y1="10" x2="120" y2="370" stroke="var(--line)" stroke-width="1"/>
+        <text x="120" y="8" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">0%</text>
+        <line x1="480" y1="10" x2="480" y2="370" stroke="var(--line)" stroke-width="1" stroke-dasharray="2,2"/>
+        <text x="480" y="8" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">100%</text>
+
+        <text x="20" y="34" font-size="11" fill="var(--ink)" font-weight="700">1–9세</text>
+        <rect x="120" y="24" width="268.2" height="8" fill="var(--accent)"/>
+        <rect x="120" y="34" width="265.0" height="8" fill="var(--warn)"/>
+        <text x="495" y="32" font-size="9.5" fill="var(--ink-lo)" font-family="DM Mono,monospace">74.5 / 73.6 (0.9%p)</text>
+
+        <text x="20" y="74" font-size="12" fill="var(--accent)" font-weight="800">10–19세</text>
+        <rect x="120" y="64" width="169.6" height="8" fill="var(--accent)"/>
+        <rect x="120" y="74" width="148.0" height="8" fill="var(--warn)"/>
+        <text x="495" y="72" font-size="9.5" fill="var(--ink)" font-family="DM Mono,monospace" font-weight="700">47.1 / 41.1 (-6.0%p, 남성 우위)</text>
+
+        <text x="20" y="114" font-size="11" fill="var(--ink)" font-weight="700">20–29세</text>
+        <rect x="120" y="104" width="173.5" height="8" fill="var(--accent)"/>
+        <rect x="120" y="114" width="220.3" height="8" fill="var(--warn)"/>
+        <text x="495" y="112" font-size="9.5" fill="var(--ink)" font-family="DM Mono,monospace" font-weight="700">48.2 / 61.2 (13.0%p)</text>
+
+        <text x="20" y="154" font-size="11" fill="var(--ink)" font-weight="700">30–39세</text>
+        <rect x="120" y="144" width="235.8" height="8" fill="var(--accent)"/>
+        <rect x="120" y="154" width="257.4" height="8" fill="var(--warn)"/>
+        <text x="495" y="152" font-size="9.5" fill="var(--ink-lo)" font-family="DM Mono,monospace">65.5 / 71.5 (6.0%p)</text>
+
+        <text x="20" y="194" font-size="11" fill="var(--ink)" font-weight="700">40–49세</text>
+        <rect x="120" y="184" width="242.3" height="8" fill="var(--accent)"/>
+        <rect x="120" y="194" width="258.8" height="8" fill="var(--warn)"/>
+        <text x="495" y="192" font-size="9.5" fill="var(--ink-lo)" font-family="DM Mono,monospace">67.3 / 71.9 (4.6%p)</text>
+
+        <text x="20" y="234" font-size="11" fill="var(--ink)" font-weight="700">50–59세</text>
+        <rect x="120" y="224" width="232.2" height="8" fill="var(--accent)"/>
+        <rect x="120" y="234" width="299.5" height="8" fill="var(--warn)"/>
+        <text x="495" y="232" font-size="9.5" fill="var(--ink)" font-family="DM Mono,monospace" font-weight="700">64.5 / 83.2 (18.7%p)</text>
+
+        <text x="20" y="274" font-size="11" fill="var(--ink)" font-weight="700">60–69세</text>
+        <rect x="120" y="264" width="231.8" height="8" fill="var(--accent)"/>
+        <rect x="120" y="274" width="291.6" height="8" fill="var(--warn)"/>
+        <text x="495" y="272" font-size="9.5" fill="var(--ink-lo)" font-family="DM Mono,monospace">64.4 / 81.0 (16.6%p)</text>
+
+        <text x="20" y="314" font-size="11" fill="var(--ink)" font-weight="700">70–79세</text>
+        <rect x="120" y="304" width="222.1" height="8" fill="var(--accent)"/>
+        <rect x="120" y="314" width="283.0" height="8" fill="var(--warn)"/>
+        <text x="495" y="312" font-size="9.5" fill="var(--ink-lo)" font-family="DM Mono,monospace">61.7 / 78.6 (16.9%p)</text>
+
+        <text x="20" y="354" font-size="11" fill="var(--ink)" font-weight="700">80세 이상</text>
+        <rect x="120" y="344" width="204.8" height="8" fill="var(--accent)"/>
+        <rect x="120" y="354" width="221.4" height="8" fill="var(--warn)"/>
+        <text x="495" y="352" font-size="9.5" fill="var(--ink-lo)" font-family="DM Mono,monospace">56.9 / 61.5 (4.6%p)</text>
+
+        <rect x="20" y="378" width="10" height="8" fill="var(--accent)"/>
+        <text x="34" y="386" font-size="9.5" fill="var(--ink-lo)">남성</text>
+        <rect x="80" y="378" width="10" height="8" fill="var(--warn)"/>
+        <text x="94" y="386" font-size="9.5" fill="var(--ink-lo)">여성</text>
+      </svg>
+     <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:12px;">* 국민건강영양조사 2024년 원자료, 복합표본 가중 섭취율 (남성 / 여성, %p 격차)</p>
+     <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:4px;">* <strong>80세 이상 구간 정밀도 참고:</strong> KNHANES 가중치는 70-74세/75세 이상까지만 인구 추계치에 맞춰 보정돼 있어 80세 구분 자체에 최적화된 것은 아닙니다. 실제로 확인한 결과 80세 이상 구간의 RSE(변동계수)는 연도·성별 평균 8.7%(최대 12.3%)로 70-79세 구간(평균 4.5%, 최대 6.5%)보다 약 2배 넓습니다. 두 구간 모두 이 보고서의 불안정 기준(RSE 25%)에는 미치지 않지만, 80세 이상 수치는 이웃 구간보다 해석에 더 신중해야 합니다.</p>
+    </div>
+  </div>
+
+  <p class="body" style="font-size:12.5px;color:var(--ink-lo);">이 격차가 20대와 통계적으로도 유의하게 다른지 검증한 결과(오즈비 분석)는 <a href="#regression" style="color:var(--accent);font-weight:700;">STEP07(추가 결과)</a>에서 확인할 수 있습니다.</p>
+
+  <h3>세그먼트별 섭취율 격차 — 소득 수준</h3>
+  <p class="body">연령·성별 외에 소득 수준에 따른 격차도 확인했습니다. 2018–2024년 소득 4분위별 가중 섭취율을 연도별로 나누어 보면, 소득이 높을수록 섭취율도 높은 순서(하위 &lt; 중하 &lt; 중상 &lt; 상위)가 대부분의 연도에서 유지되며, 격차의 폭은 시장 국면에 따라 달라집니다(표본 43,903명, 소득 무응답 제외).</p>
+
+  <div class="chart-section">
+    <div class="chart-container">
+      <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+        <line x1="330" y1="20" x2="330" y2="210" stroke="var(--ink-lo)" stroke-width="1" stroke-dasharray="4"/>
+        <text x="170" y="14" font-size="9.5" fill="var(--ink-lo)" text-anchor="middle" font-family="var(--sans)" font-weight="700">◀ 성장기 (2018–2021)</text>
+        <text x="470" y="14" font-size="9.5" fill="var(--ink-lo)" text-anchor="middle" font-family="var(--sans)" font-weight="700">정체기 (2021–2024) ▶</text>
+
+        <line x1="30" y1="200" x2="630" y2="200" stroke="var(--line)" stroke-width="1"/>
+        <line x1="30" y1="160" x2="630" y2="160" stroke="var(--line)" stroke-width="1"/>
+        <line x1="30" y1="120" x2="630" y2="120" stroke="var(--line)" stroke-width="1"/>
+        <line x1="30" y1="80" x2="630" y2="80" stroke="var(--line)" stroke-width="1"/>
+        <line x1="30" y1="40" x2="630" y2="40" stroke="var(--line)" stroke-width="1"/>
+        <text x="24" y="203" font-size="9" fill="var(--ink-lo)" text-anchor="end" font-family="DM Mono,monospace">40%</text>
+        <text x="24" y="163" font-size="9" fill="var(--ink-lo)" text-anchor="end" font-family="DM Mono,monospace">50%</text>
+        <text x="24" y="123" font-size="9" fill="var(--ink-lo)" text-anchor="end" font-family="DM Mono,monospace">60%</text>
+        <text x="24" y="83" font-size="9" fill="var(--ink-lo)" text-anchor="end" font-family="DM Mono,monospace">70%</text>
+        <text x="24" y="43" font-size="9" fill="var(--ink-lo)" text-anchor="end" font-family="DM Mono,monospace">80%</text>
+
+        <polyline points="60,151.6 150,132 240,98.4 330,89.6 420,86 510,95.2 600,89.6" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.45" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="60,168.8 150,144.4 240,121.2 330,89.2 420,98.8 510,98 600,104.4" fill="none" stroke="var(--note)" stroke-width="1.4" opacity="0.45" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="60,134.8 150,106 240,89.6 330,68 420,65.2 510,90.8 600,82" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="60,176.8 150,159.2 240,139.6 330,126.4 420,112.8 510,127.2 600,114.4" fill="none" stroke="var(--note)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <circle cx="60" cy="134.8" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="150" cy="106" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="240" cy="89.6" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="330" cy="68" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="420" cy="65.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="510" cy="90.8" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="600" cy="82" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+
+        <circle cx="60" cy="176.8" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+        <circle cx="150" cy="159.2" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+        <circle cx="240" cy="139.6" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+        <circle cx="330" cy="126.4" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+        <circle cx="420" cy="112.8" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+        <circle cx="510" cy="127.2" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+        <circle cx="600" cy="114.4" r="3.5" fill="var(--paper)" stroke="var(--note)" stroke-width="2.2"/>
+
+        <text x="60" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2018</text>
+        <text x="150" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2019</text>
+        <text x="240" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2020</text>
+        <text x="330" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2021</text>
+        <text x="420" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2022</text>
+        <text x="510" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2023</text>
+        <text x="600" y="223" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2024</text>
+
+        <text x="60" y="243" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">격차 10.5%p</text>
+        <text x="330" y="243" font-size="9" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">격차 14.6%p</text>
+        <text x="600" y="243" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">격차 8.1%p</text>
+
+        <line x1="40" y1="270" x2="55" y2="270" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="60" y="273" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">상위(4분위)</text>
+        <line x1="190" y1="270" x2="205" y2="270" stroke="var(--accent)" stroke-width="1.4" opacity="0.45"/>
+        <text x="210" y="273" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">중상(3분위)</text>
+        <line x1="360" y1="270" x2="375" y2="270" stroke="var(--note)" stroke-width="1.4" opacity="0.45"/>
+        <text x="380" y="273" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">중하(2분위)</text>
+        <line x1="530" y1="270" x2="545" y2="270" stroke="var(--note)" stroke-width="2.6"/>
+        <text x="550" y="273" font-size="9.5" fill="var(--ink-lo)" font-family="var(--sans)">하위(1분위)</text>
+      </svg>
+      <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:12px;">* 상-하위 격차(%p)는 2018년 10.5%p → 2021년 14.6%p로 확대되었다가 → 2024년 8.1%p까지 좁혀졌습니다. 4개 분위 순서(하위&lt;중하&lt;중상&lt;상위)는 2021년 한 해(중하·중상이 오차범위 내에서 거의 겹침)를 제외하고 모든 연도에서 유지되며, 하-상 구간 신뢰구간은 겹치지 않아 통계적으로도 뚜렷한 격차입니다.</p>
+    </div>
+  </div>
+
+  <p class="body" style="font-size:12.5px;color:var(--ink-lo);"><strong>결측치 처리:</strong> 소득 무응답(144명, 전체의 0.33%)을 제외하고 위 결과를 산출했습니다. 이 144명은 나머지 표본과 통계적으로 유의하게 다릅니다(카이제곱 p=0.003) — 평균연령 57.3세로 나머지(46.1세)보다 고령층에 치우쳐 있고, 건기식 섭취율도 51.4%로 나머지(63.6%)보다 낮으며, 여성 비중(64.6%)도 더 높습니다.<br> 즉 무작위 결측이 아니라 특정 집단(고령·저섭취 성향)에서 소득 응답을 더 꺼린 경향이 있습니다. 다만 규모가 전체의 0.33%에 불과해 소득 분위별 추정치에 미치는 영향은 미미할 것으로 판단해 단순 제외를 유지했으나, 이 결측군의 실제 소득 분포를 알 수 없어 완전히 배제할 수 없는 편향으로 남겨둡니다.</p>
+
+  <p class="body" style="font-size:13px;">연도별로 보면, 시장 성장기(2018–2021)에는 소득 상위 집단이 하위 집단보다 더 빠르게 상승한 것처럼 보이지만, 격차 확대폭이 통계적 오차범위 안에 있어 유의미한 차이로 보기는 어렵습니다(p=0.258). 반면 정체기(2021–2024)에는 상위 집단 대비 하위 집단의 섭취율이 상대적으로 더 빠르게 늘며 격차가 좁혀지는 경향이 있고, 이는 통계적 경계선 수준에서 관찰됩니다(p=0.052). 이 결과가 어떤 의미를 갖는지는 <a href="#insights" style="color:var(--accent);font-weight:700;">STEP03(결과 해석)</a>에서 이어서 다룹니다.</p>
+
+  <h3 id="income-segment">소득은 높지만 아침·건기식을 모두 못 챙기는 세그먼트</h3>
+  <p class="body">소득 중상위(상·중상 분위)이면서 아침식사가 불규칙하고 건기식도 섭취하지 않는 조합을 별도로 특정했습니다.</p>
+
+  <div class="chart-section">
+    <div class="chart-container">
+      <div class="chart-title">이 세그먼트는 성인 전체 대비 몇 배 더 몰려 있나 (성별 구성 포함)</div>
+      <svg viewBox="0 0 660 195" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--sans);display:block;">
+        <rect x="120" y="8" width="11" height="11" fill="var(--accent)"/>
+        <text x="136" y="17" font-size="10" fill="var(--ink)">남성</text>
+        <rect x="190" y="8" width="11" height="11" fill="var(--warn)"/>
+        <text x="206" y="17" font-size="10" fill="var(--ink)">여성</text>
+
+        <line x1="338.2" y1="30" x2="338.2" y2="160" stroke="var(--ink-lo)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="338.2" y="28" font-size="9.5" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">1.0배(성인 전체와 동일)</text>
+
+        <text x="110" y="54" font-size="11" fill="var(--ink)" text-anchor="end" font-weight="700">미혼</text>
+        <rect x="120" y="44" width="250.0" height="16" fill="var(--accent)"/>
+        <text x="245.0" y="55" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Mono,monospace">n=725</text>
+        <rect x="370.0" y="44" width="166.8" height="16" fill="var(--warn)"/>
+        <text x="453.4" y="55" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Mono,monospace">n=616</text>
+        <text x="546" y="56" font-size="10" fill="var(--ink)" font-family="DM Mono,monospace" font-weight="700">1.91배</text>
+
+        <text x="110" y="94" font-size="11" fill="var(--ink)" text-anchor="end" font-weight="700">관리자·전문직</text>
+        <rect x="120" y="84" width="169.6" height="16" fill="var(--accent)"/>
+        <text x="204.8" y="95" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Mono,monospace">n=351</text>
+        <rect x="289.6" y="84" width="126.5" height="16" fill="var(--warn)"/>
+        <text x="352.9" y="95" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Mono,monospace">n=352</text>
+        <text x="426" y="96" font-size="10" fill="var(--ink)" font-family="DM Mono,monospace" font-weight="700">1.36배</text>
+
+        <text x="110" y="134" font-size="11" fill="var(--ink)" text-anchor="end" font-weight="700">사무직</text>
+        <rect x="120" y="124" width="130.1" height="16" fill="var(--accent)"/>
+        <text x="185.1" y="135" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Mono,monospace">n=219</text>
+        <rect x="250.1" y="124" width="146.8" height="16" fill="var(--warn)"/>
+        <text x="323.5" y="135" font-size="8.5" fill="#fff" text-anchor="middle" font-family="DM Mono,monospace">n=257</text>
+        <text x="406" y="136" font-size="10" fill="var(--ink)" font-family="DM Mono,monospace" font-weight="700">1.27배</text>
+
+        <text x="120" y="170" font-size="9" fill="var(--ink-lo)" text-anchor="start" font-family="DM Mono,monospace">0배</text>
+        <text x="338.2" y="170" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">1배</text>
+        <text x="556.4" y="170" font-size="9" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">2배</text>
+      </svg>
+      <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:12px;">* "소득 중상위 + 아침식사 불규칙 + 건기식 미섭취" 세그먼트 안에서 각 특성을 가진 사람의 비율이, 성인 전체에서 그 특성을 가진 사람의 비율의 몇 배인지를 보여줍니다. 막대 안의 색은 그 특성을 가진 사람 중 성별 구성(파랑=남성, 주황=여성)을, 막대 안 숫자(n)는 비가중 표본수를 나타냅니다. 예를 들어 미혼 1.91배는 — 이 세그먼트 안의 미혼 비율(47.1%)이 성인 전체의 미혼 비율(24.6%)의 1.91배라는 뜻이며, 세그먼트 내 미혼자 중 남성이 60.0%(n=725)·여성이 40.0%(n=616)로 남성이 더 많습니다(95% 신뢰구간이 서로 겹치지 않아 통계적으로 뚜렷한 차이입니다). 세 특성의 성별 구성 추정치 모두 변동계수 2.5~5.1%로 안정적입니다.</p>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">세그먼트 규모</div>
+    <p class="body" style="margin:0;">성인의 <strong>11.3%</strong>(95% CI 10.9–11.8%, 비가중 표본 n=3,235)가 "소득 중상위 + 아침식사 불규칙 + 건기식 미섭취" 조합에 해당합니다. 이 세그먼트는 미혼(세그먼트 내 47.1% vs 성인 전체 24.6%, 1.91배)·관리자전문직(21.5% vs 15.8%, 1.36배)·사무직(14.6% vs 11.5%, 1.27배)에 뚜렷하게 몰려 있으며(세 지표 모두 변동계수 2.1~4.8%로 안정적), 위 그래프처럼 미혼·관리자전문직 그룹은 남성이, 사무직 그룹은 여성이 상대적으로 더 많습니다. 직업·결혼상태·성별이 이 세그먼트를 구체화하는 단서가 될 수 있으며, 이 결과가 기획에 어떤 의미를 갖는지는 <a href="#insights" style="color:var(--accent);font-weight:700;">STEP03(결과 해석)</a>에서 이어서 다룹니다.</p>
+  </div>
+
+  <h3 id="behavior-income-model">건강 관심 세그먼트와 섭취율 연관성 (성인, n=34,303)</h3>
+  <p class="body" style="font-size:13px;">위 소득 분석과 이어서, 성인(19세 이상) 표본에서 소득 · 신체활동 실천 · 영양표시 인지 · 아침식사 규칙성 네 변수를 함께 투입한 모형입니다. 대상 표본이 달라(성인만 포함) 소득 4분위 표의 오즈비와 직접 비교하지 않습니다.</p>
+
+  <div class="chart-section" style="margin-top:16px;">
+    <div class="chart-container">
+      <div class="chart-title">4개 변수의 건기식 섭취 연관성 (오즈비, 성인 n=34,303)</div>
+      <svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--sans);display:block;">
+        <line x1="212.9" y1="15" x2="212.9" y2="185" stroke="var(--ink-lo)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="212.9" y="9" font-size="9.5" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">OR=1.0</text>
+
+        <text x="20" y="44" font-size="11" fill="var(--ink)" font-weight="700">영양표시 인지</text>
+        <line x1="440.1" y1="40" x2="547.5" y2="40" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="491.9" cy="40" r="5.5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="491.9" y="30" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.527</text>
+        <text x="558" y="43" font-size="9" fill="var(--ink-lo)" font-family="var(--sans)">가장 강함</text>
+
+        <text x="20" y="94" font-size="11" fill="var(--ink)" font-weight="700">아침식사 규칙적</text>
+        <line x1="449.1" y1="90" x2="543.3" y2="90" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="494.6" cy="90" r="5.5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="494.6" y="80" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.532</text>
+        <text x="558" y="93" font-size="9" fill="var(--ink-lo)" font-family="var(--sans)">영양표시와 동률</text>
+
+        <text x="20" y="144" font-size="11" fill="var(--ink)" font-weight="700">소득(1단계당)</text>
+        <line x1="281.2" y1="140" x2="320.4" y2="140" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <circle cx="300.8" cy="140" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="300.8" y="130" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.166</text>
+        <text x="330" y="143" font-size="9" fill="var(--ink-lo)" font-family="var(--sans)">유의 · 상대적 약함</text>
+
+        <text x="20" y="184" font-size="11" fill="var(--ink)" font-weight="700">신체활동 실천</text>
+        <line x1="233.6" y1="180" x2="295.5" y2="180" stroke="var(--ink-lo)" stroke-width="2.5"/>
+        <circle cx="263.8" cy="180" r="5" fill="var(--ink-lo)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="263.8" y="170" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.096</text>
+        <text x="305" y="183" font-size="9" fill="var(--ink-lo)" font-family="var(--sans)">가장 약함</text>
+      </svg>
+      <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:12px;">* 점=오즈비(OR), 가로선=95% CI. 진한 색(영양표시인지·아침식사)이 통계적으로 동률인 상위 두 변수입니다.</p>
+    </div>
+  </div>
+
+  <div class="callout gray">
+    <p class="body" style="margin:0;">네 변수 모두 유의한 양의 연관성을 보였으나 크기는 다릅니다. <strong>영양표시 인지(1.527)와 아침식사 규칙성(1.532)이 통계적으로 동률로 가장 강한 연관성</strong>을 보였고, 소득(1.166)·신체활동 실천(1.096)은 상대적으로 약하지만 유의했습니다(p=0.001~p&lt;0.001). 다만 해석에는 주의가 필요합니다 — 영양표시 인지는 라벨을 유심히 보는 습관 자체가 이미 보충제 사용 경험에서 비롯됐을 가능성(역인과)을 배제할 수 없고, 아침식사 규칙성은 오히려 아침을 챙기는 사람이 건기식도 더 섭취하는 방향이라, 고른 영양 섭취를 실천하려는 건강행동이 함께 묶이는 패턴에 가깝습니다. 이 모형의 계수는 모두 상관관계이며, 각 변수 간 시간 순서(무엇이 먼저인지)를 확인할 수 있는 자료가 아니라 인과관계로 해석할 수 없습니다.</p>
+  </div>
+
+
+</div>
+</section>
+
+<!-- ── STEP 03: 결과 해석 ── -->
+<section id="insights">
+<div class="page-wrap">
+  <div class="sec-label">STEP 03 · 결과 해석</div>
+  <h2 class="sec-title">🔎 결과 해석</h2>
+  <p class="sec-sub"><a href="#results" style="color:var(--accent);font-weight:700;">STEP02</a>에서 확인한 결과를 해석합니다.</p>
+
+  <p class="body" style="font-size:12px;color:var(--ink-lo); margin-bottom: 20px;">
+    ※ 아래 해석은 매년 다른 표본을 조사한 반복 횡단면 자료를 근거로 하므로, 상관관계로만 제한하며 개인 수준의 변화나 인과관계로 단정하지 않습니다.
+  </p>
+
+  <div class="ins-list">
+    <div class="ins-item">
+      <span class="ins-n">01</span>
+      <span class="ins-t"><strong>'섭취 수준'과 '증가 속도'는 다른 세그먼트를 가리킵니다.</strong> 섭취율 자체는 50대 여성(83.2%)이 가장 높습니다. 증가 속도는 20대가 점추정치 기준 가장 빠르지만, 통계적으로 유의하게 느린 연령대는 1–9세·10대·50대·80세 이상 4개뿐이고 나머지(30·40·60·70대)는 20대와 유의한 차이가 없습니다. 뒤집어 보면 <strong>50대(이미 섭취 수준이 가장 높은 세그먼트)만 상대적으로 느려졌을 뿐, 나머지 핵심 연령대(20~70대 다수)는 비슷한 속도로 함께 성장해 비슷한 수준으로 수렴하고 있다는 뜻이기도 합니다</strong> — 특정 연령대 하나가 시장을 주도한다기보다, 핵심 연령대 전반이 함께 포화 국면에 가까워지고 있다고 보는 편이 더 정확할 수 있습니다.</span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">02</span>
+      <span class="ins-t"><strong>시장은 성숙기 국면으로 보입니다.</strong> 2018년 51.4% → 2021~2022년 68% 내외까지 뚜렷하게 상승한 뒤, 2023~2024년에는 65~66%대에서 신뢰구간이 겹치는 완만한 흐름으로 바뀌었습니다.</span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">03</span>
+      <span class="ins-t"><strong>성별 격차는 연령대마다 방향과 크기가 다릅니다.</strong> 여성의 건기식 섭취율은 전반적으로 남성보다 높고, 50대(18.7%p)·60대(16.6%p)·70대(16.9%p) 같은 핵심 연령대에서는 그 격차가 크게 벌어지기도 합니다. 다만 10대만은 예외로, 남성(47.1%)이 여성(41.1%)보다 높게 나타났습니다. 이 격차는 다른 변수를 통제해도 사라지지 않습니다 — 교육·소득·건강행태를 보정한 성인 표본(33,770명) 모형에서도 여성의 섭취 오즈가 남성보다 유의하게 높게 유지됩니다(오즈비 1.70배, p&lt;0.001, <a href="#regression" style="color:var(--accent);font-weight:700;">STEP07</a> 참고).</span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">04</span>
+      <span class="ins-t"><strong>소득 수준에 따른 섭취율 격차가 뚜렷하며, 시장 국면에 따라 격차의 폭이 달라집니다</strong> 집단 단위로 보면, 소득이 높은 집단일수록 건기식 섭취로 영양 성분을 충분히 공급하거나, 부족한 영양을 메우고 있을 가능성이 있습니다. 그러나 개인 단위로 다시 보면 다른 그림이 나타납니다 — <strong>아침을 규칙적으로 챙기는 사람이 오히려 건기식도 더 많이 섭취</strong>하는 경향이 확인되어(<a href="#behavior-income-model" style="color:var(--accent);font-weight:700;">STEP02 행동·소득 보정모형</a> 참고, 오즈비 1.53, p&lt;0.001), 집단 평균에서 보이는 경향이 개인 수준에서 그대로 재현되지는 않습니다. 이에 따라 소득 상위층의 '영양 보완' 가설은 이 데이터만으로 확정할 수 없는 방향성 수준의 가설로 남겨두고, 대신 소득 상위 집단 중 아침식사가 불규칙하면서 건기식도 섭취하지 않는 집단을 별도로 특정했습니다. 그 결과 이 세그먼트는 성인의 11.3%를 차지했고, 미혼 비율이 성인 전체의 1.91배에 달하는 등 통계적으로 뚜렷하게 구분되는 특징을 보였습니다.</span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">05</span>
+      <span class="ins-t"><strong>영양표시 인지 여부와 규칙적인 아침식사(주5–7회)는 건기식 섭취와 가장 강한 연관성을 보인 변수입니다</strong>(오즈비 1.53, 개인 수준 보정모형 기준 — <a href="#behavior-income-model" style="color:var(--accent);font-weight:700;">STEP02</a> 참고). 이는 위 04번에서 확인한 개인 수준 패턴의 근거이기도 합니다. 이 세그먼트(성인의 11.3%)의 '영양 인지'를 추가 확인한 결과, <strong>영양표시 인지율은 오히려 90.5%로 성인 전체(81.4%)보다 높았습니다</strong> — 정보를 몰라서가 아니라, 알면서도 아침식사·건기식 섭취로 이어지지 않는 집단이라는 뜻입니다. 이는 별도 분석인 서울시민 영양 인식-실천 갭 연구가 다뤘던 '영양 관련 정보를 알면 실천하는가'라는 질문과 같은 결의 관찰입니다.</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── STEP 04: 기획 인사이트 (Who + How) ── -->
+<section id="planning">
+<div class="page-wrap">
+  <div class="sec-label">STEP 04 · 기획 인사이트</div>
+  <h2 class="sec-title">🎯 기획 인사이트</h2>
+  <p class="sec-sub">분석 결과에서 <strong>어떤 타겟을(Who)</strong> 우선순위로 볼 수 있는지 정리했습니다.</p>
+
+  <h3>분석으로 특정된 기획 타겟</h3>
+
+  <div class="callout gray">
+    <div class="callout-hd">10대 — 관심사 중심 접근</div>
+    <p class="body" style="margin:0;">10대 진입 시 섭취율이 크게 낮아지는 현상(1–9세 70%대 → 10대 남 47.1%·여 41.1%)에는, 이 시기 관심사(학업 집중력, 성장기 영양 등)에 맞춘 접근을 검토할 수 있습니다. 또한 10대는 유일하게 여성 섭취율이 남성보다 낮은 점을 고려해 10대 여성을 타겟으로 하는 제품도 고려해볼 수 있습니다. 다만 이 조사에는 '관심사' 자체를 직접 측정한 문항이 없어, 실제 관심사는 별도 설문·정성조사로 확인이 필요합니다. 그 전까지는 소용량·저가 파일럿 제품으로 반응을 먼저 확인해볼 수 있습니다.</p>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">여성 — 20대 진입 시점</div>
+    <p class="body" style="margin:0;">10대까지는 남성의 섭취율이 여성보다 높습니다(남 47.1% &gt; 여 41.1%). 그런데 <strong>20대에 들어서면서 여성의 섭취율이 남성을 앞지르고(여 61.2% &gt; 남 48.2%)</strong>, 이 역전 현상은 이후 모든 연령대에서 그대로 이어집니다. 즉 <strong>20대는 성별 격차가 시작되는 지점</strong>입니다. 이 역전은 연령대×성별 모형에서도 통계적으로 유의하게 확인되는 결과입니다(STEP02 참고).</p>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-hd">남성 — 30대 진입 시점</div>
+    <p class="body" style="margin:0;">운동을 실천하고 비흡연인 남성(표본 4,956명) 기준으로 보면, <strong>20대(50.5%)에서 30대(71.7%)</strong>로 넘어가며 섭취율이 뚜렷하게 뛰고(95% CI가 겹치지 않음), 이후 30~60대는 신뢰구간이 서로 겹쳐 통계적으로 구분되지 않는 하나의 고원 구간을 이룹니다. 20대에서 30대로 넘어가는 시점에 무언가 바뀌고(예, 건강관리 시작), 그 섭취 수준이 지속된다라고 볼 수 있습니다. 30대 안에서도 운동 실천(오즈 1.33배)과 비흡연(흡연 시 오즈 0.60배로 하락)이 유의하게 작동해, 생활습관 변수가 연령 진입 효과와 별개로도 계속 유효함을 보여줍니다.
+    <span style="color:var(--ink-lo);">(이 분석은 전체 남성이 아니라 '운동+비흡연' 조건을 이미 충족한 남성만을 대상으로 한 결과입니다.)</span><br><br>
+    남성을 하나로 묶기보다 건강관리 성향이 높은 남성부터 우선 타겟팅하는 편이 유효해 보입니다 — 남성 14,681명(전체 남성의 75.2%)을 신체활동×흡연 조합으로 나눠 보면, 운동 실천+비흡연 남성은 섭취율이 최고 64.00%까지 오르는 반면 운동 미실천+흡연 남성은 50.87%에 그쳤습니다(13.13%p 차이, 모두 p&lt;0.001). 음주는 예외적으로 오히려 섭취율이 더 높게 나타나(오즈비 1.184) 흡연과는 다른 성격의 변수로 보입니다.</p>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-hd">50대 여성 — Core Target (섭취 수준 1위)</div>
+    <p class="body" style="margin:0;">섭취율이 83.2%로 포화에 가까워, 세부 기능성 카테고리를 결합한 제품 확장이나 신규 원료 도입을 적극적으로 검토할 수 있습니다. 이 그룹은 연도별 증가 속도 자체는 20대보다 유의하게 느려, '섭취 수준은 높지만 이미 성숙한 세그먼트'로 해석할 수 있습니다. 다만 이는 50대만의 특징은 아니고, 20~70대 전반이 비슷한 수준으로 수렴하며 나타나는 포화 국면의 일부로 보는 것이 더 정확합니다.</p>
+  </div>
+
+  <div class="callout yellow">
+    <div class="callout-hd">비섭취자(약 33~35%) — Volume Growth</div>
+    <p class="body" style="margin:0;">성숙기 시장에서 전체 볼륨을 늘리려면, 아직 섭취하지 않는 응답자의 진입 장벽을 낮추는 체험 키트, 소용량 트라이얼 패키지 등의 제품 구성이 고려될 수 있습니다.</p>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-hd">미혼 · 소득 중상위 — 알면서도 안 하는 세그먼트</div>
+    <p class="body" style="margin:0;">소득 중상위이면서 아침식사가 불규칙하고 건기식도 섭취하지 않는 <a href="#income-segment" style="color:var(--accent);font-weight:700;">세그먼트</a>(성인의 11.3%)는 미혼 비율이 성인 전체의 1.91배(관리자·전문직 1.36배, 사무직 1.27배)에 달합니다. 이 세그먼트의 영양표시 인지율은 90.5%로 성인 전체(81.4%)보다 오히려 높아, <strong>정보 부족이 아니라 알면서도 실천으로 이어지지 않는 집단</strong>임을 시사합니다. 따라서 이 타겟에는 정보 전달형 메시지보다, 아침 루틴에 자연스럽게 끼워 넣을 수 있는 간편 포맷(스틱형·1회분 패키지 등)이나 실천 장벽을 낮추는 넛지형 접근이 더 유효할 수 있습니다.</p>
+  </div>
+
+  <h3 style="margin-top:32px;">이 분석의 한계와 다음 단계</h3>
+  <p class="body">이 분석은 '누가 언제 많이/적게 섭취하는지'까지만 답하고, '무엇을 선호하는지'는 답하지 못합니다. 이 질문은 식이보충제 품목 심층분석에서 별도 데이터로 확인하겠습니다.</p>
+  
+</div>
+</section>
+
+<!-- ── STEP 05: 데이터 개요 및 방법론 ── -->
+<section id="data">
+<div class="page-wrap">
+  <div class="sec-label">STEP 05 · 데이터 개요</div>
+  <h2 class="sec-title">🗂 데이터 개요 및 방법론</h2>
+  <p class="sec-sub">분석에 활용된 원천 데이터 및 통계 검증 설계 구조입니다.</p>
+
+  <table class="exp-table">
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th>내용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>데이터 출처</td>
+        <td>국민건강영양조사(KNHANES) 2018–2024년 통합 원시자료</td>
+      </tr>
+      <tr>
+        <td>자료 구조 차이</td>
+        <td>2018–2021년: 기본자료+식이보충제 상세자료 병합 /<br> 2022–2024년: 조사 설계 변경으로 상세 문항 수집불가</td>
+      </tr>
+      <tr>
+        <td>종속변수</td>
+        <td>최근 1년 이내 2주 이상 식이보충제 섭취 여부</td>
+      </tr>
+      <tr>
+        <td>독립변수</td>
+        <td>조사연도(중심화: 2018=0), 성별, 연령대(10세 단위 9구간)</td>
+      </tr>
+      <tr>
+        <td>보정변수(3차 모형)</td>
+        <td>교육수준·가구소득·결혼여부·직업상태·흡연·음주·BMI·만성질환 3종·아침식사·에너지섭취량·영양표시인지</td>
+      </tr>
+      <tr>
+        <td>통계 기법</td>
+        <td>테일러 선형화 기반 복합표본 분산추정 + 가중 로지스틱 회귀(cluster-robust SE, PSU 기준)</td>
+      </tr>
+      <tr>
+        <td>설계효과(Deff)</td>
+        <td>전체 2.39 (연도별 최댓값 2019년 2.90 · 최솟값 2024년 1.72). 2020~2021년 신뢰구간이 넓었던 주된 이유는 집락효과가 아니라 표본수 감소로 확인됨</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ── STEP 06: 전처리 및 신뢰성 검증 ── -->
+<section id="preprocessing">
+<div class="page-wrap">
+  <div class="sec-label">STEP 06 · 전처리 및 검증</div>
+  <h2 class="sec-title">🧪 전처리 및 신뢰성 검증</h2>
+  <p class="sec-sub">통계 데이터 정합성과 모델 설계 안정성을 위한 데이터 필터링 내역입니다.</p>
+
+  <ul>
+    <li><strong>전처리 세부사항:</strong> 통합 65,703행 → 2018~2021년 중복행(1인이 섭취하는 식이보충제 종류 수만큼 중복) 제거 14,961행 → 가중치 결측(조사 미완료) 6,694행 제거 → 최종 유효 표본 <strong>44,048명</strong>.</li>
+    <li><strong>표본 유의사항:</strong> 가중치 결측 비율이 2020년(24.6%) · 2021년(21.2%)에 특히 높아, 이 두 해는 다른 연도보다 정밀도가 낮을 수 있습니다.</li>
+  </ul>
+
+  <h3>연도별 최종 표본</h3>
+  <table class="exp-table" style="max-width:360px;">
+    <thead>
+      <tr>
+        <th>조사연도</th>
+        <th>최종 유효 표본수</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2018</td>
+        <td>6,726</td>
+      </tr>
+      <tr>
+        <td>2019</td>
+        <td>6,757</td>
+      </tr>
+      <tr>
+        <td>2020</td>
+        <td>5,546</td>
+      </tr>
+      <tr>
+        <td>2021</td>
+        <td>5,585</td>
+      </tr>
+      <tr>
+        <td>2022</td>
+        <td>5,832</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>6,797</td>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>6,805</td>
+      </tr>
+      <tr style="font-weight:700; background:var(--paper-dd);">
+        <td>합계</td>
+        <td>44,048</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="body" style="font-size:13px; color:var(--ink-lo); margin-top:8px;"><strong>해석 주의:</strong> 모든 수치는 95% 신뢰구간과 함께 확인했고, 표본수가 작은 셀(1–9세, 80세 이상, 10대 등)은 신뢰구간이 넓어 세부 등락을 과잉 해석하지 않도록 신뢰도 플래그(표본수·RSE 기준)를 별도로 매겨 관리했습니다. 연령·성별 교차표 전체(207개 셀)를 이 기준으로 판정한 결과, RSE(상대표준오차) 25%를 넘어 '불안정'으로 분류된 셀은 0개였습니다 — KNHANES가 셀당 최소 100명 이상을 유지하도록 설계된 국가승인통계라 이 정도 교차분할에서는 자연스러운 결과입니다. 다만 '안정' 판정 안에서도 상대적으로 정밀도가 낮은 구간은 있었는데, 세 표 모두에서 일관되게 <strong>80세 이상과 10·20대</strong>가 이에 해당했습니다. 가장 낮은 사례는 2020년 남자 80세 이상(N=114)으로 RSE 9.6%, 95% CI 폭이 약 18%p(39.8~58.2%)까지 벌어졌습니다 — 그래도 25% 임계값에는 한참 못 미쳐 '불안정'으로 분류되진 않았지만, 이 구간의 세부 수치는 다른 구간보다 더 보수적으로 해석하는 것이 안전합니다.</p>
+  <p class="body" style="font-size:13px; color:var(--ink-lo); margin-top:8px;"><strong>분석별 표본수:</strong> 이 보고서는 분석 목적에 따라 대상 표본을 다르게 정의합니다. 전체 44,048명 중 소득 분석은 소득 무응답을 제외한 43,903명, 교육수준·직업상태·영양표시인지·아침식사·신체활동 등 성인 대상 분석은 만 19세 이상 36,827명, 이 중 행동변수(운동·영양표시인지·아침식사)와 소득을 모두 포함한 회귀분석은 결측을 추가로 제외한 34,303명을 사용했습니다. 각 결과에는 해당 표본수를 개별 표기합니다.</p>
+</div>
+</section>
+
+<!-- ── STEP 07: 가중 로지스틱 회귀 결과 ── -->
+<section id="regression">
+<div class="page-wrap">
+  <div class="sec-label">STEP 07 · 추가 결과</div>
+  <h2 class="sec-title">📐 추가 분석 결과</h2>
+  <p class="sec-sub">STEP02(핵심 결과)를 뒷받침하는 회귀 상세표와, 핵심 결과에는 포함하지 않은 참고용 세부 분석입니다.</p>
+
+  <table class="exp-table">
+    <thead>
+      <tr>
+        <th>모형</th>
+        <th>오즈비(OR)</th>
+        <th>95% CI</th>
+        <th>해석</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>연도 단독 효과</td>
+        <td>1.107</td>
+        <td>1.091–1.124</td>
+        <td>연도가 지날수록 섭취 오즈가 유의하게 증가(p&lt;0.001)</td>
+      </tr>
+      <tr>
+        <td>성별·연령 보정 후 연도 효과</td>
+        <td>1.109</td>
+        <td>1.092–1.127</td>
+        <td>인구구조를 보정해도 연도 효과 유지(p&lt;0.001)</td>
+      </tr>
+      <tr>
+        <td>연도×성별 상호작용</td>
+        <td>1.023</td>
+        <td>1.001–1.045</td>
+        <td>여성이 남성보다 '약간' 더 가파르게 증가(p=0.039, CI가 1에 근접해 해석에 유의)</td>
+      </tr>
+      <tr>
+        <td>성별 (보정 전)</td>
+        <td>1.512</td>
+        <td>—</td>
+        <td>교육·소득·건강행태 등을 통제하기 전 성별 오즈비</td>
+      </tr>
+      <tr>
+        <td>성별 (완전사례 보정모형)</td>
+        <td>1.702</td>
+        <td>—</td>
+        <td>완전사례 보정모형에서도 여성의 섭취 오즈가 유의하게 높게 유지됨(p&lt;0.001) · 전체표본(1.512) 대비 표본 구성(성인 중심)이 달라 두 수치를 직접 비교해 '격차 확대'로 해석하지 않음</td>
+      </tr>
+      <tr>
+        <td>다중공선성(VIF)</td>
+        <td>최대 5.3</td>
+        <td>—</td>
+        <td>통상 기준(10) 이하로 심각한 공선성 없음</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="body" style="font-size:12px; color:var(--ink-lo); margin-top:-8px;"><strong>다중공선성(VIF)이란:</strong> 회귀모형에 함께 투입한 독립변수들이 서로 얼마나 겹치는 정보를 담고 있는지 보여주는 지표입니다. 통상 10을 넘으면 특정 변수가 다른 변수들로 상당 부분 설명돼 개별 오즈비 추정이 불안정해질 수 있다고 봅니다. 이번 모형은 최대 VIF가 5.3으로 이 기준을 넘지 않아, 투입한 변수들이 서로 심각하게 겹치지 않고 각자 독립적인 정보를 제공하고 있다고 해석할 수 있습니다.</p>
+
+  <h3 style="margin-top:40px;">연령대별 성별 격차, 20대와 통계적으로 다른가</h3>
+  <p class="body">STEP02에서 확인한 연령대별 성별 격차(및 10대의 역전 현상)가 우연이 아닌지 검증하기 위해, 연도 효과를 통제하고 각 연령대의 격차 크기를 20대·남성 기준과 비교했습니다.</p>
+
+  <div class="chart-section">
+    <div class="chart-container">
+      <div class="chart-title">연령대별 성별 격차 (20대 기준 오즈비 · 연도 효과 통제)</div>
+      <svg viewBox="0 0 700 390" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:var(--sans);display:block;">
+        <line x1="350" y1="18" x2="350" y2="358" stroke="var(--ink-lo)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="350" y="12" font-size="10" fill="var(--ink-lo)" text-anchor="middle" font-family="DM Mono,monospace">OR=1.0 (20대·남성 기준)</text>
+
+        <text x="20" y="44" font-size="11" fill="var(--ink)" font-weight="700">1–9세</text>
+        <line x1="257" y1="40" x2="350" y2="40" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="257" cy="40" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="257" y="30" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.718</text>
+
+        <text x="20" y="82" font-size="11" fill="var(--warn)" font-weight="800">10–19세</text>
+        <line x1="224" y1="78" x2="350" y2="78" stroke="var(--warn)" stroke-width="3"/>
+        <circle cx="224" cy="78" r="6" fill="var(--warn)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="224" y="68" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">0.639</text>
+        <text x="590" y="82" font-size="10" fill="var(--warn)" font-weight="800">역전</text>
+
+        <text x="20" y="120" font-size="11" fill="var(--ink)" font-weight="700">20–29세 (기준)</text>
+        <circle cx="350" cy="116" r="5" fill="var(--ink)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="350" y="106" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.000</text>
+
+        <text x="20" y="158" font-size="11" fill="var(--ink)" font-weight="700">30–39세</text>
+        <circle cx="350" cy="154" r="4" fill="var(--ink-lo)"/>
+        <text x="365" y="158" font-size="9.5" fill="var(--ink-lo)">차이 없음</text>
+
+        <text x="20" y="196" font-size="11" fill="var(--ink)" font-weight="700">40–49세</text>
+        <circle cx="350" cy="192" r="4" fill="var(--ink-lo)"/>
+        <text x="365" y="196" font-size="9.5" fill="var(--ink-lo)">차이 없음</text>
+
+        <text x="20" y="234" font-size="11" fill="var(--ink)" font-weight="700">50–59세</text>
+        <line x1="350" y1="230" x2="494" y2="230" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="494" cy="230" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="494" y="220" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.669</text>
+
+        <text x="20" y="272" font-size="11" fill="var(--ink)" font-weight="700">60–69세</text>
+        <line x1="350" y1="268" x2="447" y2="268" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="447" cy="268" r="5" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5"/>
+        <text x="447" y="258" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-family="DM Mono,monospace" font-weight="700">1.409</text>
+
+        <text x="20" y="310" font-size="11" fill="var(--ink)" font-weight="700">70–79세</text>
+        <circle cx="350" cy="306" r="4" fill="var(--ink-lo)"/>
+        <text x="365" y="310" font-size="9.5" fill="var(--ink-lo)">차이 없음</text>
+
+        <text x="20" y="348" font-size="11" fill="var(--ink)" font-weight="700">80세 이상</text>
+        <circle cx="350" cy="344" r="4" fill="var(--ink-lo)"/>
+        <text x="365" y="348" font-size="9.5" fill="var(--ink-lo)">차이 없음</text>
+
+        <text x="150" y="378" font-size="10" fill="var(--ink-lo)" text-anchor="middle">← 남성 우위 방향</text>
+        <text x="550" y="378" font-size="10" fill="var(--ink-lo)" text-anchor="middle">여성 우위 방향 →</text>
+      </svg>
+      <p style="font-size:12px;color:var(--ink-lo); text-align:left; margin-top:12px;">* 점 = 오즈비(OR, 로그 스케일). 파란/빨간 점은 20대·남성 기준과 통계적으로 유의하게 다른 연령대, 회색 점은 유의한 차이가 없는 연령대입니다. 막대 길이는 섭취율 %p 격차와 비례하지 않으며, 실제 %p 격차는 STEP02의 "연령대별 실제 섭취율" 그래프에서 확인할 수 있습니다.</p>
+    </div>
+  </div>
+
+  <p class="body" style="font-size:12.5px;color:var(--ink-lo);"><strong>10대의 역전(OR 0.639)</strong>은 통계적으로도 뒷받침되는 결과입니다. 1–9세는 통계적으로는 유의하지만 실제 차이가 0.9%p로 작아 역전으로 보지 않으며, 50대·60대 격차도 실제 데이터 기준 오즈비(각각 약 2.74배·2.36배)와 방향·크기가 비슷하게 나타납니다.</p>
+
+  <div class="msg-section-label">교육수준·직업상태별 식이보충제 섭취율 (성인)</div>
+  <p class="body" style="font-size:13px;">단독으로는 뚜렷한 방향성이 확인되지 않아 핵심 결과(STEP02)에서는 제외했으나, 참고용으로 남겨둡니다. 두 변수 모두 미성년자에게는 자립적 판단이 어렵다고 보아 성인(19세 이상, n=36,827) 표본만 사용했습니다.</p>
+  <table class="exp-table" style="max-width:520px;">
+    <thead><tr><th>교육수준</th><th>가중 섭취율</th><th>95% CI</th></tr></thead>
+    <tbody>
+      <tr><td>초졸 이하</td><td>58.7%</td><td>57.2 – 60.1%</td></tr>
+      <tr><td>중졸</td><td>65.0%</td><td>62.9 – 67.0%</td></tr>
+      <tr><td>고졸</td><td>61.8%</td><td>60.8 – 62.9%</td></tr>
+      <tr><td>대졸 이상</td><td>68.3%</td><td>67.2 – 69.2%</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--ink-lo); margin-top:-8px; margin-bottom:20px;">* 중졸이 고졸보다 높게 나오는 비단조 패턴이 있어(연령 등 다른 요인 개입 가능성), 학력 자체의 단독 효과로 해석하지 않습니다.</p>
+  <table class="exp-table" style="max-width:560px;">
+    <thead><tr><th>직업상태</th><th>가중 섭취율</th><th>95% CI</th></tr></thead>
+    <tbody>
+      <tr><td>사무종사자</td><td>69.9%</td><td>68.0 – 71.7%</td></tr>
+      <tr><td>관리자·전문가</td><td>68.3%</td><td>66.8 – 69.8%</td></tr>
+      <tr><td>서비스·판매종사자</td><td>65.9%</td><td>64.2 – 67.5%</td></tr>
+      <tr><td>무직(주부, 학생 등)</td><td>62.9%</td><td>61.9 – 64.0%</td></tr>
+      <tr><td>단순노무</td><td>63.0%</td><td>61.0 – 65.0%</td></tr>
+      <tr><td>기능·기계조작</td><td>59.0%</td><td>57.1 – 60.9%</td></tr>
+      <tr><td>농림어업</td><td>56.2%</td><td>52.5 – 59.9%</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--ink-lo); margin-top:-8px;">* 사무직·전문직에서 높고 농림어업에서 낮은 경향은 보이나, 소득·연령과 얽혀 있어 직업 자체의 단독 효과로 해석하지 않습니다.</p>
+</div>
+</section>
+
+<!-- ── STEP 08: 한계와 향후 과제 ── -->
+<section id="future" style="margin-bottom: 0;">
+<div class="page-wrap">
+  <div class="sec-label">STEP 08 · 한계 및 과제</div>
+  <h2 class="sec-title">🔍 한계와 향후 과제</h2>
+  <p class="sec-sub">이 분석의 한계를 정리하고, 다른 조사로 보완하거나 더 세분화된 기획으로 이어갈 수 있는 다음 과제를 제안합니다.</p>
+
+  <div class="callout gray">
+    <p class="body" style="margin:0;">본 분석은 매년 새로 추출된 표본을 비교한 반복 횡단면 조사이므로, 개인 수준의 변화나 특정 요인의 직접적 인과관계로 단정할 수 없습니다. 완전사례 분석(Step07)은 만성질환 진단여부나 흡연·음주 등 일부 통제 변수가 미성년자에게는 조사 대상이 아니어서(해당없음), 이들이 제외되고 남은 33,770명(76.9%) 성인 중심 표본으로 진행됐습니다. 따라서 이 모형의 결과를 전체 연령대로 일반화해 해석할 때는 선택 편향(Selection Bias)이 섞여 있을 수 있음에 유의해야 합니다. 또한 일부 세부 교차(연도×성별×연령대) 셀은 표본수가 작아 신뢰구간이 넓다는 점도 함께 고려해야 합니다.</p>
+  </div>
+
+  <h3 style="margin-top:40px;">🚀 데이터 결합 및 확장 연구 제언</h3>
+  <p class="body">여기서 확인한 결과를 더 세분화된 기획으로 발전시키기 위해, 다음과 같은 데이터 결합 및 확장 분석을 제언합니다.</p>
+
+  <div class="callout blue" style="margin-bottom:32px;">
+    <div class="callout-hd">🔗 이어진 분석</div>
+    <p class="body" style="margin:0;">이 분석에서 답하지 못한 <strong>다중 복용 비율과 카테고리</strong>는 같은 원시자료의 추출 범위를 넓힌 <a href="식이보충제_품목_심층분석_포트폴리오.html" target="_blank" style="color:var(--navy-mid);font-weight:700;">식이보충제 품목 심층분석</a>에서, <strong>"인식이 실천으로 이어지는가"</strong>는 별도 원시자료(서울시민 먹거리조사)를 활용한 <a href="nutrition-gap-portfolio.html" target="_blank" style="color:var(--navy-mid);font-weight:700;">영양 인식-실천 갭 분석</a>에서 확인했습니다.</p>
+  </div>
+
+  <div class="msg-section-label">중장기 과제 : 외부 데이터 결합 및 심층 연구</div>
+  <div class="ins-list" style="margin-top:0.5rem; margin-bottom: 40px;">
+    <div class="ins-item">
+      <span class="ins-n">01</span>
+      <span class="ins-t"><strong>섭취 목적 데이터 연동 분석</strong><br>
+      성별 및 연령별 구체적인 섭취 목적(예: 건강 유지, 피로 회복 등)과 관심사 변수를 분석에 추가하여 제품의 소구점을 더욱 정밀하게 도출합니다.</span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">02</span>
+      <span class="ins-t"><strong>성별 격차 지속성 분석</strong><br>
+      20대 이후 벌어지는 성별 섭취율 격차가 앞으로도 유지되는지 시계열로 추적하면, 여성向·남성向 투자 배분을 지금 방향으로 얼마나 오래 끌고 가도 될지 판단하는 근거가 됩니다.</span>
+    </div>
+    <div class="ins-item">
+      <span class="ins-n">03</span>
+      <span class="ins-t"><strong>구매 데이터 및 사회경제적 요인 결합 심층 탐구</strong><br>
+      현재의 '섭취 여부' 지표에 실제 '지출 금액' 데이터를 더해 시장 가치(Market Value)를 정량화하는 연구를 진행합니다. 또한, 건강 관심도나 매체 노출과 같이 측정되지 않은 변수를 정성 조사로 보완하여 통계 보정 모델의 설명력을 한층 높일 수 있습니다.</span>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <div>
+      <div class="cn-name">류보라</div>
+      <div class="cn-role">데이터 기반 기획자 마케터 · 식품공학 전공 · 헬스케어 7년</div>
+    </div>
+    <div class="cn-right">
+      <!-- Contact links can go here if needed -->
+    </div>
+  </div>
+
+</div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 bodli's Blog · 데이터 분석 프로젝트. All rights reserved.</p>
+  <p style="margin-top: 6px; font-size: 10px; color: var(--ink-lo);">데이터 출처: 질병관리청 국민건강영양조사(KNHANES) 2018–2024년 원시자료</p>
+</footer>
+
+</body>
+</html>

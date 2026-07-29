@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>포트폴리오 요약집 — 류보라</title>
+<title>포트폴리오 요약집 (핵심본) — 류보라</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -24,12 +24,12 @@
   --mono:'DM Mono',monospace;
 }
 html{background:#DDE0EE;}
-body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;word-break:keep-all;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;word-break:keep-all;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 
 .page{
   width:210mm;min-height:297mm;
   margin:0 auto;background:var(--paper);
-  padding:20mm 18mm;
+  padding:16mm 16mm;
   page-break-after:always;
   position:relative;
 }
@@ -43,10 +43,9 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 .cov-eyebrow{font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:20px;}
 .cov-title{font-size:34px;font-weight:800;line-height:1.35;margin-bottom:18px;color:var(--navy);}
 .cov-title span{color:var(--accent);}
-.cov-desc{font-size:14px;color:var(--ink-mid);max-width:420px;line-height:1.85;margin-bottom:32px;}
-.cov-list{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;}
+.cov-desc{font-size:13.5px;color:var(--ink-mid);max-width:540px;line-height:1.85;margin-bottom:32px;}
+.cov-list{display:flex;flex-direction:column;gap:16px;margin-bottom:40px;}
 .cov-list-item{display:flex;gap:12px;align-items:baseline;font-size:13px;color:var(--ink-mid);}
-.cov-list-item strong{font-weight:700;color:var(--navy);}
 .cov-list-num{font-family:var(--mono);color:var(--accent);font-weight:700;}
 .cov-meta{font-size:11.5px;color:var(--ink-lo);border-top:1px solid var(--line);padding-top:20px;}
 .cov-meta strong{color:var(--ink);}
@@ -55,11 +54,12 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 .doc-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
   border-left:2px solid var(--accent);padding-left:8px;margin-bottom:10px;}
 .doc-title{font-size:21px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3;}
-.doc-sub{font-size:12px;color:var(--ink-lo);margin-bottom:22px;line-height:1.7;max-width:520px;}
+.doc-title span{font-size:12px;color:var(--ink-lo);font-weight:500;margin-left:8px;}
+.doc-sub{font-size:12px;color:var(--ink-lo);margin-bottom:14px;line-height:1.7;max-width:520px;}
 
 /* ── METRIC ROW ── */
-.metric-row{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:22px;}
-.metric-cell{flex:1;padding:14px 16px;border-right:1px solid var(--line);}
+.metric-row{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:14px;}
+.metric-cell{flex:1;padding:10px 12px;border-right:1px solid var(--line);}
 .metric-cell:last-child{border-right:none;}
 .metric-k{font-size:9.5px;color:var(--ink-lo);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
 .metric-v{font-family:var(--mono);font-size:24px;font-weight:700;color:var(--navy);}
@@ -68,22 +68,23 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
 .metric-s{font-size:10.5px;color:var(--ink-lo);margin-top:2px;}
 
 /* ── BLOCK ── */
-.blk{margin-bottom:20px;}
-.blk-h{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:8px;padding-left:10px;border-left:3px solid var(--accent);}
-.blk-p{font-size:12px;color:var(--ink-mid);line-height:1.8;}
-.blk-p+.blk-p{margin-top:6px;}
+.blk{margin-bottom:14px;}
+.blk-h{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px;padding-left:8px;border-left:3px solid var(--accent);}
+.blk-p{font-size:12px;color:var(--ink-mid);line-height:1.7;}
+.blk-p+.blk-p{margin-top:4px;}
 
-.ins-mini{display:flex;flex-direction:column;gap:8px;}
-.ins-mini-item{display:flex;gap:10px;padding:10px 14px;background:var(--paper-d);border-radius:5px;font-size:12px;color:var(--ink-mid);line-height:1.7;}
+.ins-mini{display:flex;flex-direction:column;gap:6px;}
+.ins-mini-item{display:flex;gap:8px;padding:8px 12px;background:var(--paper-d);border-radius:5px;font-size:12px;color:var(--ink-mid);line-height:1.6;}
 .ins-mini-n{font-family:var(--mono);font-weight:700;color:var(--accent);flex-shrink:0;}
 .ins-mini-item strong{color:var(--ink);}
 
-.chart-mini{border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:20px;}
+.chart-mini{border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:14px;}
 .chart-mini-title{font-size:10.5px;color:var(--ink-lo);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
 
 .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--accent-lo);color:var(--accent);margin-right:6px;}
+.tag-progress{background:#FFF4E5;color:#D87A00;}
 
-.footline{position:absolute;bottom:14mm;left:18mm;right:18mm;display:flex;justify-content:space-between;
+.footline{position:absolute;bottom:14mm;left:16mm;right:16mm;display:flex;justify-content:space-between;
   font-size:9.5px;color:var(--ink-lo);border-top:1px solid var(--line);padding-top:8px;}
 
 @media print{
@@ -99,143 +100,322 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13.5px;
   <div class="cov-eyebrow">Portfolio Summary · 2026</div>
   <h1 class="cov-title">데이터로 검증하고,<br><span>근거로 제안합니다.</span></h1>
   <p class="cov-desc">
-    데이터로 가설을 세우고 검증하며, 확인된 범위 안에서만 제안합니다.<br>
-    아래 두 프로젝트는 각각 공공데이터 기반의 분석과, 실제 업무에서 거둔 메시지 최적화 성과입니다.
+    <strong>데이터 분석 및 콘텐츠 최적화 포트폴리오</strong><br>
+    가설을 설정하고 데이터로 이를 실증하며, 도출된 결과를 바탕으로 세그먼트 맞춤형 콘텐츠 최적화 방안을 제안합니다. 국가 통계 및 지역 공공데이터 분석을 통해 고객 세그먼트의 행동 패턴을 객관적으로 규명하고, 실무 환경에서 다변수 테스트 설계를 통해 메시지 전환율을 개선한 프로젝트 요약서입니다.
   </p>
   <div class="cov-list">
-    <div class="cov-list-item"><span class="cov-list-num">01</span> <strong>영양 정보 인식-실천 갭 분석</strong> — 서울시민 먹거리조사(2024), 3,435명 표본 · 아는 것과 실천하는 것 사이의 간극을 검증</div>
-    <div class="cov-list-item"><span class="cov-list-num">02</span> <strong>데이터 기반 메시지 최적화</strong> — 코호트별 순차적 다변수 테스트, 쿠폰 등록률 5.7% → 15.3%</div>
+    <div class="cov-list-item">
+      <span class="cov-list-num">01</span>
+      <div>
+        <strong>공공데이터를 통한 고객 세그먼트 분석 (Segment Analysis)</strong>
+        <div style="font-size: 11.5px; color: var(--ink-mid); margin-top: 4px; font-weight: 500; line-height: 1.6;">
+          • 국민건강영양조사 기반 건기식 섭취 트렌드 분석 (KNHANES 7개년, n=44,048)<br>
+          • 서울시민 영양 인식-실천 갭(Gap) 연구 (2024, n=3,435)
+        </div>
+      </div>
+    </div>
+    <div class="cov-list-item">
+      <span class="cov-list-num">02</span>
+      <div>
+        <strong>고객 행동 데이터 기반 콘텐츠 최적화 (Content Optimization)</strong>
+        <div style="font-size: 11.5px; color: var(--ink-mid); margin-top: 4px; font-weight: 500; line-height: 1.6;">
+          • 고객 행동 데이터 기반 메시지 최적화 실험 (다변수 순차 테스트, 초기 등록률 약 2.7배 개선)
+        </div>
+      </div>
+    </div>
   </div>
   <div class="cov-meta"><strong>류보라</strong> · boraryu37@gmail.com · https://github.com/bodli-ham</div>
 </div>
 
-<!-- ══════════ PAGE 1 : 영양인식 갭 분석 ══════════ -->
+<!-- ══════════ PAGE 1 : 국민건강영양조사 기반 건기식 섭취 트렌드 분석 ══════════ -->
 <div class="page">
-  <div class="doc-label">Project 01 · Behavioral Gap Analysis</div>
-  <h2 class="doc-title">아는 만큼 실천할까 — 영양 정보 인식-실천 갭 분석</h2>
-  <p class="doc-sub">서울시민 먹거리조사(2024) 원시자료(만 18세 이상 3,435명)로, 영양 정보에 대한 지식 수준(인식)과 실제 생활 속 실천 정도 사이의 관계를 정량 분석하고, 그 격차가 무엇으로 설명되는지 검증한 프로젝트입니다.</p>
+  <div class="doc-label">Track 01 · Segment Analysis</div>
+  <h2 class="doc-title">공공데이터를 통한 고객 세그먼트 분석</h2>
+  <p class="doc-sub">국가 보건 의료 통계와 지역 공공데이터의 정량 분석을 결합하여, 건강기능식품 시장의 연도별 섭취 변화 추이와 인구 통계학적 인지-행동 간극을 규명한 세그먼트 분석 트랙입니다.</p>
 
-  <div class="metric-row">
-    <div class="metric-cell">
-      <div class="metric-k">인식-실천 상관계수</div>
-      <div class="metric-v">0.41</div>
-      <div class="metric-s">가중치 반영, p&lt;0.001</div>
+  <!-- Project 01 -->
+  <div class="blk" style="margin-bottom: 20px;">
+    <div class="blk-h">Project 01 · 국민건강영양조사 기반 건기식 섭취 트렌드 분석</div>
+    <p class="blk-p" style="font-size: 11.5px; margin-bottom: 8px;">국민건강영양조사 2018-2024년(7개년) 통합 원자료(n=44,048)를 전처리하고 성·연령별 세부 섭취 행태 분석 및 행동·소득 통제 로지스틱 회귀분석을 통해 타겟 세그먼트의 통계적 유의성을 검증했습니다.</p>
+
+    <div class="chart-mini" style="margin-bottom: 12px; padding: 8px 12px;">
+      <div class="chart-mini-title" style="margin-bottom: 6px;">식이보충제 가중 섭취율 변화 추이 (2018–2024, 단위: %)</div>
+      <svg viewBox="0 0 660 215" style="width: 100%; height: 110px;">
+        <rect width="660" height="215" fill="var(--paper)" rx="6"/>
+        <line x1="60" y1="180" x2="600" y2="180" stroke="var(--line)" stroke-width="1"/>
+        <line x1="60" y1="30" x2="600" y2="30" stroke="var(--line)" stroke-dasharray="3 3"/>
+        <line x1="60" y1="80" x2="600" y2="80" stroke="var(--line)" stroke-dasharray="3 3"/>
+        <line x1="60" y1="130" x2="600" y2="130" stroke="var(--line)" stroke-dasharray="3 3"/>
+        <path d="M 60 107.2 L 150 95.4 L 240 83.2 L 330 73.8 L 420 73.2 L 510 79.6 L 600 77.0" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="60" cy="107.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="150" cy="95.4" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="240" cy="83.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="330" cy="73.8" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="420" cy="73.2" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="510" cy="79.6" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <circle cx="600" cy="77.0" r="3.5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2"/>
+        <text x="60" y="99.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">51.4%</text>
+        <text x="150" y="87.4" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">57.3%</text>
+        <text x="240" y="75.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">63.4%</text>
+        <text x="330" y="65.8" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">68.1%</text>
+        <text x="420" y="65.2" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">68.4%</text>
+        <text x="510" y="71.6" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">65.2%</text>
+        <text x="600" y="69.0" font-family="DM Mono,monospace" font-size="9.5" fill="var(--ink)" text-anchor="middle" font-weight="700">66.5%</text>
+        <text x="60" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2018</text>
+        <text x="150" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2019</text>
+        <text x="240" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2020</text>
+        <text x="330" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2021</text>
+        <text x="420" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2022</text>
+        <text x="510" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2023</text>
+        <text x="600" y="200" font-family="DM Mono,monospace" font-size="9" fill="var(--ink-lo)" text-anchor="middle">2024</text>
+      </svg>
     </div>
-    <div class="metric-cell">
-      <div class="metric-k">다중회귀 설명력</div>
-      <div class="metric-v accent">22.6%</div>
-      <div class="metric-s">성별·연령·학력·소득 등 통제</div>
+
+    <div class="metric-row" style="margin-bottom: 10px;">
+      <div class="metric-cell">
+        <div class="metric-k">여성의 섭취 가능성</div>
+        <div class="metric-v">1.70배</div>
+        <div class="metric-s">남성 대비, 오즈비*·p&lt;0.001</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">아침식사와의 연관성</div>
+        <div class="metric-v">1.53배</div>
+        <div class="metric-s">규칙적 아침식사 시, 오즈비*·p&lt;0.001</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">특징 세그먼트 비중</div>
+        <div class="metric-v accent">11.3%</div>
+        <div class="metric-s">소득 상위·아침 불규칙·건기식 미섭취</div>
+      </div>
     </div>
-    <div class="metric-cell">
-      <div class="metric-k">개인 단위 편차</div>
-      <div class="metric-v ok">82.3%</div>
-      <div class="metric-s">한쪽으로 치우친 응답자 비율</div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">핵심 인사이트</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>시장은 성숙기 국면으로 보입니다.</strong> 2018년 51.4%에서 2021~2022년 68% 내외까지 뚜렷하게 상승한 뒤, 2023~2024년은 65~66%대에서 신뢰구간이 겹치는 완만한 흐름으로 바뀌었습니다. 통계적으로 유의한 변화로 보기 어려워, 성장기에서 성숙기로 넘어가는 신호로 해석됩니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>성별 격차는 연령대마다 다릅니다.</strong> 여성 섭취율은 전반적으로 남성보다 높고, 50대(18.7%p)·60대(16.6%p)·70대(16.9%p)에서 격차가 특히 크게 벌어집니다. 예외는 10대로, 남성(47.1%)이 여성(41.1%)보다 높습니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">03</span>
+          <span><strong>'몰라서'가 아니라 '루틴에 없어서'입니다.</strong> 소득이 높으면서 아침을 거르고 건기식도 챙기지 않는 사람들(성인의 11.3%)을 따로 살펴보니, 영양표시 인지율은 오히려 90.5%로 성인 전체 평균(81.4%)보다 높았습니다. 정보가 부족해서가 아니라 알면서도 실천으로는 이어지지 않는 집단이라는 뜻으로, 서울시민 영양 인식-실천 갭 연구와 같은 결의 관찰입니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">방법론 한계</div>
+      <p class="blk-p" style="font-size: 11px;">국민건강영양조사는 자기기입식 단면조사로, 특정 시점의 연관성을 보여줄 뿐 인과관계를 증명하지 않습니다. 집단 단위 경향을 개인 수준의 인과로 바로 연결하지 않고 별도로 검증한 것도 이런 이유에서입니다.</p>
+    </div>
+
+    <div class="blk" style="margin-bottom: 8px;">
+      <div class="blk-h" style="font-size: 11.5px;">콘텐츠 최적화 및 마케팅에 적용한다면</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>성별 타겟팅:</strong> 여성 타겟 중심의 콘텐츠 설계는 여전히 유효하지만, 10대만은 예외로 남성 섭취율이 높으므로 연령대별로 타겟 성별 가정을 다르게 콘텐츠를 기획해야 합니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>콘텐츠 최적화:</strong> '정보를 몰라서 행동하지 않는' 것이 아니라 '알면서도 생활 루틴에 없어서 행동하지 않는' 집단이 존재합니다. 지식 전달형 콘텐츠보다는 일상 루틴에 자연스럽게 녹아드는 행동 유도형 콘텐츠와 간편한 접근 경로를 제공하는 것이 효과적입니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size: 10px; color: var(--ink-lo); line-height: 1.5; margin-bottom: 10px;">* 오즈비: 한 집단에서 어떤 일이 일어날 가능성이 다른 집단보다 몇 배 높은지 보여주는 통계 수치입니다. 1.70배라면 그 집단에서 일어날 가능성이 다른 집단보다 약 1.7배 높다는 뜻입니다.</p>
+
+    <div style="text-align: right; margin-bottom: 12px;">
+      <a href="data-analysis-portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:11.5px;">[건기식 섭취율 트렌드 분석 포트폴리오 원본 보기]</a>
     </div>
   </div>
 
-  <div class="chart-mini">
-    <div class="chart-mini-title">영양 정보 인식-실천 갭 분석 주요 통계 지표</div>
-    <svg viewBox="0 0 660 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-      <!-- 1. 전체 평균 비교 섹션 -->
-      <text x="30" y="30" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="11" fill="var(--ink)" font-weight="700">① 서울시민 전체 평균 지수 (100점 만점 기준)</text>
-      
-      <!-- 인식 평균 막대 (Knowledge) -->
-      <text x="30" y="58" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="10" fill="var(--ink-mid)">영양 정보 인식 (Knowledge)</text>
-      <rect x="220" y="47" width="362" height="15" rx="3" fill="var(--accent)"/>
-      <text x="590" y="59" font-family="DM Mono,monospace" font-size="11" fill="var(--navy)" font-weight="700">72.4점</text>
-      
-      <!-- 실천 평균 막대 (Practice) -->
-      <text x="30" y="83" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="10" fill="var(--ink-mid)">식생활 실천 (Practice)</text>
-      <rect x="220" y="72" width="360" height="15" rx="3" fill="var(--navy-mid)"/>
-      <text x="590" y="84" font-family="DM Mono,monospace" font-size="11" fill="var(--navy)" font-weight="700">72.1점</text>
-      
-      <!-- 평균 갭 텍스트 설명 -->
-      <text x="30" y="106" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9.5" fill="var(--ink-lo)">* 서울시민 전체 평균으로 보면 인식과 실천 지수가 거의 일치함 (평균 갭 0.003)</text>
-      
-      <!-- 구분선 -->
-      <line x1="30" y1="120" x2="630" y2="120" stroke="var(--line)" stroke-width="1"/>
-      
-      <!-- 2. 개인 단위 갭 분포 섹션 -->
-      <text x="30" y="141" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="11" fill="var(--ink)" font-weight="700">② 개인 단위의 인식-실천 일치 여부 분포</text>
-      
-      <!-- 100% 가로 누적 막대 (전체 넓이 400px) -->
-      <!-- 균형/일치 영역 (17.7%) -->
-      <rect x="220" y="156" width="71" height="18" rx="3" fill="var(--line)"/>
-      <text x="255" y="168" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9" fill="var(--ink-mid)" text-anchor="middle">일치 17.7%</text>
-      
-      <!-- 불균형/치우침 영역 (82.3%) -->
-      <rect x="293" y="156" width="329" height="18" rx="3" fill="var(--accent-lo)" stroke="var(--accent)" stroke-width="1"/>
-      <text x="458" y="168" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9.5" fill="var(--accent)" font-weight="700">한쪽으로 치우침 (불균형) 82.3%</text>
-      
-      <text x="30" y="169" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="10" fill="var(--ink-mid)">응답자 개인별 분포</text>
-      
-      <text x="30" y="194" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9.5" fill="var(--ink-lo)">* 평균은 균형을 이루나, 개인 단위로는 10명 중 8명 이상이 아는 만큼 실천하지 못하거나(인식&gt;실천) 반대인 상태입니다.</text>
-    </svg>
-  </div>
-
-  <div class="blk">
-    <div class="blk-h">인사이트</div>
-    <div class="ins-mini">
-      <div class="ins-mini-item"><span class="ins-mini-n">01</span><span><strong>'아는 만큼 실천'하는 흐름은 있지만, 크지 않습니다.</strong> 인식과 실천의 상관계수는 0.41로 중간 정도이며, 지식이 많아도 실천은 안 하는 사람과 지식이 부족해도 실천은 잘하는 사람이 함께 섞여 있습니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>인구통계로는 예측하기 어려운 격차입니다.</strong> 서울시민 전체 평균으로는 인식과 실천이 균형을 이뤘지만(평균 갭 0.003), 개인 단위로 보면 82.3%가 한쪽으로 치우쳐 있어 개인차가 매우 컸습니다. 연령대·소득별 갭 차이도 통계적으로 뒷받침되지 않았습니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>지식보다 접근성이 실천을 갈랐습니다.</strong> 식품을 직접 사고 조리하는 사람일수록 실천 수준이 뚜렷하게 높습니다. 실천은 마음가짐만의 문제가 아니라, 지금 바로 실천할 수 있는 상황에 있는지의 문제이기도 했습니다.</span></div>
-    </div>
-    <p style="font-size:10px;color:var(--ink-lo);margin-top:8px;">* 서울시민 대상 단면조사이며, 상관관계로만 해석했습니다. 건기식 섭취 여부는 직접 묻지 않아, 실천 공백을 건기식이 보완하는지는 이 데이터로 확인할 수 없습니다.</p>
-  </div>
-
-  <div class="blk">
-    <div class="blk-h">콘텐츠·상품 기획에 적용한다면</div>
-    <p class="blk-p"><span class="tag">정보량</span>지식을 더 쌓게 하기보다, 지금 바로 이해하고 구매·실천할 수 있는 만큼으로 정보를 압축해 전달</p>
-    <p class="blk-p"><span class="tag">접근성</span>구매·조리 접근성을 낮추는 포맷(즉시 실천형 콘텐츠, 원스텝 구매 연결)이 정보량 확장보다 근거가 탄탄한 방향</p>
-  </div>
-
-  <div class="footline"><span>인식-실천 갭 분석 — <a href="nutrition-gap-portfolio_v5.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:12px;">[포트폴리오 원본 보기]</a></span><span>1 / 2</span></div>
+  <div class="footline"><span>공공데이터를 통한 고객 세그먼트 분석 — 류보라</span><span>1 / 3</span></div>
 </div>
 
-<!-- ══════════ PAGE 2 : 메시지 최적화 ══════════ -->
+<!-- ══════════ PAGE 2 : 서울시민 영양 인식-실천 갭 연구 ══════════ -->
 <div class="page">
-  <div class="doc-label">Project 02 · Message Optimization (Actual Performance)</div>
-  <h2 class="doc-title">데이터 기반 메시지 최적화</h2>
-  <p class="doc-sub">"매일 같은 문자를 재발송하라"는 지시에 반대하고, 단독으로 설계한 5개월간의 순차적 변수 조정 결과.<br> 비즈니스 제약 안에서 가설을 검증하기 위해 수행한 코호트별 순차 다변수 테스트입니다.</p>
+  <div class="doc-label">Track 01 · Segment Analysis</div>
+  <h2 class="doc-title">공공데이터를 통한 고객 세그먼트 분석</h2>
+  <p class="doc-sub">국가 보건 의료 통계와 지역 공공데이터의 정량 분석을 결합하여, 건강기능식품 시장의 연도별 섭취 변화 추이와 인구 통계학적 인지-행동 간극을 규명한 세그먼트 분석 트랙입니다.</p>
 
-  <div class="metric-row">
-    <div class="metric-cell">
-      <div class="metric-k">초기 등록률</div>
-      <div class="metric-v">5.7%</div>
-      <div class="metric-s">운영 시작 시점</div>
-    </div>
-    <div class="metric-cell">
-      <div class="metric-k">누적 등록률</div>
-      <div class="metric-v ok">15.3%</div>
-      <div class="metric-s">5개월 후</div>
-    </div>
-    <div class="metric-cell">
-      <div class="metric-k">최장 전환</div>
-      <div class="metric-v accent">21회</div>
-      <div class="metric-s">21차 수신 후 등록</div>
-    </div>
-  </div>
-
+  <!-- Project 02 -->
   <div class="blk">
-    <div class="blk-h">검증한 것</div>
-    <p class="blk-p">발송 타이밍 · 이미지 포맷 · 계절 맥락(크리스마스·새해) · 연령대 세분화 · 채널 확장(LMS+알림톡) 순으로 변수를 하나씩 조정하며 반응을 기록했습니다.</p>
-  </div>
+    <div class="blk-h">Project 02 · 서울시민 영양 인식-실천 갭(Gap) 연구</div>
+    <p class="blk-p" style="font-size: 11.5px; margin-bottom: 10px;">
+      서울시민 먹거리조사(2024년, n=3,435) 데이터를 분석하여 "정보를 알고 영양 표시를 인지하는 등 지식 수준이 높으면 실제로 식생활 건강 실천을 잘 하는가"를 검증한 독립 분석입니다. Project 01과는 별도로 수행했으며, 결과의 유사성은 두 프로젝트가 각각 독립적으로 도달한 관찰입니다.
+    </p>
 
-  <div class="blk">
-    <div class="blk-h">인사이트</div>
-    <div class="ins-mini">
-      <div class="ins-mini-item"><span class="ins-mini-n">01</span><span><strong>타이밍이 포맷보다 먼저입니다.</strong> 같은 이미지도 발송 시간대에 따라 반응이 달랐습니다.</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">02</span><span><strong>계절x감성 맥락이 열어볼 이유를 만듭니다.</strong> 크리스마스·새해 테마 발송에서 등록 전환이 가장 가파르게 상승했습니다.<br>(12월 8.6% → 1월 18.9% → 2월 28.9%).</span></div>
-      <div class="ins-mini-item"><span class="ins-mini-n">03</span><span><strong>장기 미등록자는 포기 대상이 아니었습니다.</strong> 21차 발송 이후 처음 등록한 사례가 있었습니다.</span></div>
+    <div class="metric-row" style="margin-bottom: 12px;">
+      <div class="metric-cell">
+        <div class="metric-k">인식-실천 상관계수</div>
+        <div class="metric-v">0.41</div>
+        <div class="metric-s">가중치 반영, p&lt;0.001</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">다중회귀 설명력</div>
+        <div class="metric-v">22.6%</div>
+        <div class="metric-s">성별·연령·학력·소득 등 통제</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">개인 단위 편차</div>
+        <div class="metric-v accent">82.3%</div>
+        <div class="metric-s">한쪽으로 치우친 응답자 비율</div>
+      </div>
+    </div>
+
+    <div class="chart-mini" style="margin-bottom: 12px; padding: 10px 12px;">
+      <div class="chart-mini-title">영양 정보 인식-실천 갭 분석 주요 통계 지표</div>
+      <svg viewBox="0 0 660 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+        <!-- 1. 전체 평균 비교 섹션 -->
+        <text x="30" y="30" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="11" fill="var(--ink)" font-weight="700">① 서울시민 전체 평균 지수 (100점 만점 기준)</text>
+        
+        <!-- 인식 평균 막대 (Knowledge) -->
+        <text x="30" y="58" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="10" fill="var(--ink-mid)">영양 정보 인식 (Knowledge)</text>
+        <rect x="220" y="47" width="362" height="15" rx="3" fill="var(--accent)"/>
+        <text x="590" y="59" font-family="DM Mono,monospace" font-size="11" fill="var(--navy)" font-weight="700">72.4점</text>
+        
+        <!-- 실천 평균 막대 (Practice) -->
+        <text x="30" y="83" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="10" fill="var(--ink-mid)">식생활 실천 (Practice)</text>
+        <rect x="220" y="72" width="360" height="15" rx="3" fill="var(--navy-mid)"/>
+        <text x="590" y="84" font-family="DM Mono,monospace" font-size="11" fill="var(--navy)" font-weight="700">72.1점</text>
+        
+        <!-- 평균 갭 텍스트 설명 -->
+        <text x="30" y="106" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9.5" fill="var(--ink-lo)">* 서울시민 전체 평균으로 보면 인식과 실천 지수가 거의 일치함 (평균 갭 0.003)</text>
+        
+        <!-- 구분선 -->
+        <line x1="30" y1="120" x2="630" y2="120" stroke="var(--line)" stroke-width="1"/>
+        
+        <!-- 2. 개인 단위 갭 분포 섹션 -->
+        <text x="30" y="141" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="11" fill="var(--ink)" font-weight="700">② 개인 단위의 인식-실천 일치 여부 분포</text>
+        
+        <!-- 100% 가로 누적 막대 (전체 넓이 400px) -->
+        <!-- 균형/일치 영역 (17.7%) -->
+        <rect x="220" y="156" width="71" height="18" rx="3" fill="var(--line)"/>
+        <text x="255" y="168" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9" fill="var(--ink-mid)" text-anchor="middle">일치 17.7%</text>
+        
+        <!-- 불균형/치우침 영역 (82.3%) -->
+        <rect x="293" y="156" width="329" height="18" rx="3" fill="var(--accent-lo)" stroke="var(--accent)" stroke-width="1"/>
+        <text x="458" y="168" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9.5" fill="var(--accent)" font-weight="700">한쪽으로 치우침 (불균형) 82.3%</text>
+        
+        <text x="30" y="169" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="10" fill="var(--ink-mid)">응답자 개인별 분포</text>
+        
+        <text x="30" y="194" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="9.5" fill="var(--ink-lo)">* 평균은 균형을 이루나, 개인 단위로는 10명 중 8명 이상이 아는 만큼 실천하지 못하거나(인식&gt;실천) 반대인 상태입니다.</text>
+      </svg>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">핵심 인사이트</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>'아는 만큼 실천'하는 흐름은 있지만, 크지 않습니다.</strong> 인식과 실천의 상관계수는 0.41로 중간 정도이며, 지식이 많아도 실천은 안 하는 사람과 지식이 부족해도 실천은 잘하는 사람이 함께 섞여 있습니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>인구통계로는 예측하기 어려운 격차입니다.</strong> 서울시민 전체 평균으로는 인식과 실천이 거의 일치했지만(평균 갭 0.003), 개인 단위로 보면 82.3%가 한쪽으로 치우쳐 있어 개인차가 매우 컸습니다. 연령대·소득별 갭 차이도 통계적으로 뒷받침되지 않았습니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">03</span>
+          <span><strong>지식보다 접근성이 실천을 갈랐습니다.</strong> 식품을 직접 사고 조리하는 사람일수록 실천 수준이 뚜렷하게 높았습니다. 실천은 마음가짐만의 문제가 아니라, 지금 바로 실천할 수 있는 상황에 있는지의 문제이기도 했습니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">방법론 한계</div>
+      <p class="blk-p" style="font-size: 11px;">서울시민 대상 단면조사이며, 상관관계로만 해석했습니다. 건기식 섭취 여부는 직접 묻지 않아, 실천 공백을 건기식이 보완하는지는 이 데이터로 확인할 수 없습니다.</p>
+    </div>
+
+    <div class="blk" style="margin-bottom: 8px;">
+      <div class="blk-h" style="font-size: 11.5px;">콘텐츠 기획 및 최적화에 적용한다면</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>정보량 최적화:</strong> 유저에게 지식을 주입하려 하기보다, 지금 바로 직관적으로 이해하고 실천할 수 있도록 메시지의 핵심 정보량을 압축하여 전달합니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>행동 유도 콘텐츠:</strong> 실천 장벽을 낮추는 즉각적인 가이드 콘텐츠(예: 간편 가이드)와 원스텝 행동 연결 링크를 제공하여 실질적인 전환을 유도해야 합니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: right; margin-top: 10px;">
+      <a href="nutrition-gap-portfolio_v5.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline; font-size:11.5px;">[인지-실천 간극 분석결과 보기]</a>
     </div>
   </div>
 
+  <div class="footline"><span>영양 인식-실천 갭 연구 — 류보라</span><span>2 / 3</span></div>
+</div>
+
+<!-- ══════════ PAGE 3 : 고객 행동 데이터 기반 콘텐츠 최적화 ══════════ -->
+<div class="page">
+  <div class="doc-label">Track 02 · Content Optimization</div>
+  <h2 class="doc-title">고객 행동 데이터 기반 메시지 최적화</h2>
+  <p class="doc-sub">실무 비즈니스 환경에서 사용자 지표를 실시간으로 측정하고, 다변수 메시지 순차 테스트를 단독 설계 및 운영하여 가시적인 전환 성과를 이끌어 낸 프로젝트입니다.</p>
+
+  <!-- Project 03 -->
   <div class="blk">
-    <div class="blk-h">콘텐츠·상품 기획에 적용한다면</div>
-    <p class="blk-p">동시 대조군을 둔 A/B 테스트는 아니었지만, 타이밍·세그먼트·맥락을 하나씩 순차 조정하며 반응을 기록했던 방식은 콘텐츠 발행 시간대 최적화나 소재별 반응 비교 실험에도 그대로 적용해볼 수 있다고 생각합니다.</p>
+    <div class="blk-h">Project 03 · 고객 행동 데이터 기반 메시지 최적화 실험 (실제 업무 성과)</div>
+    <p class="blk-p" style="font-size: 11.5px; margin-bottom: 12px;">
+      보험 부가서비스 고객 행동 전환을 높이기 위해 발송 시점, 포맷, 감성 맥락(시즌성), 연령 분할 기법 등을 순차적으로 조정하여 등록 유도 반응률을 개선했습니다.
+    </p>
+
+    <div class="metric-row" style="margin-bottom: 14px;">
+      <div class="metric-cell">
+        <div class="metric-k">초기 등록률</div>
+        <div class="metric-v">5.7%</div>
+        <div class="metric-s">운영 시작 시점 (Baseline)</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">누적 등록률</div>
+        <div class="metric-v ok">15.3%</div>
+        <div class="metric-s">5개월 모니터링 후 성과</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">최장 전환 추적</div>
+        <div class="metric-v accent">21회</div>
+        <div class="metric-s">최대 21회차 수신 후 신규 전환 발생</div>
+      </div>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">검증한 것</div>
+      <p class="blk-p" style="font-size: 12px;">발송 타이밍 · 이미지 포맷 · 계절 맥락(크리스마스·새해) · 연령대 세분화 · 채널 확장(LMS+알림톡) 순으로 변수를 하나씩 조정하며 고객 반응을 기록했습니다.</p>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">성공 지표 및 검증 프로세스</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>발송 타이밍이 이미지 포맷보다 중요합니다.</strong> 콘텐츠의 화려함보다는 타겟 세그먼트의 라이프스타일을 고려하여 메시지를 열어볼 가능성이 높은 시간대(타이밍)를 설정하는 것이 전환율에 더 직접적인 영향을 미쳤습니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>시즌과 감성 맥락의 결합이 높은 오픈율을 만듭니다.</strong> 크리스마스 및 새해 등 시기별 타겟의 심리적 맥락과 부합하는 메시지 소재를 결합하여 순차 발송했을 때, 전환율이 눈에 띄게 상승했습니다 (12월 8.6% → 1월 18.9% → 2월 28.9%).</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">03</span>
+          <span><strong>정교한 피로도 관리 기반의 순차적 테스트가 유효했습니다.</strong> 단기 미등록 고객이라고 해서 바로 발송을 중단하지 않고, 장기적인 피로도를 관리하며 카피와 채널을 순차적으로 테스트해 나갈 때 최대 21회차에서도 신규 전환이 지속적으로 발생했습니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="blk-p" style="margin-top: 14px; font-size: 11.5px; color: var(--ink-mid);">
+      <strong>콘텐츠 최적화 교훈:</strong> 단순히 비주얼 디자인의 화려함에만 의존하는 것이 아니라, 고객이 반응할 수밖에 없는 발송 타이밍(Time), 정교한 타겟 세그먼트(Who), 메시지 맥락(Context) 변수를 데이터 기반으로 측정하고 최적화하는 행동 설계 방식의 중요성을 확인했습니다.
+    </p>
+
+    <div style="text-align: right; margin-top: 14px;">
+      <a href="msg-optimization_portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:11.5px;">[메시지 최적화 실험 포트폴리오 원본 보기]</a>
+    </div>
   </div>
 
-  <div class="footline"><span>메시지 최적화 실험 — <a href="msg-optimization_portfolio.html" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline; font-size:12px;">[포트폴리오 원본 보기]</a></span><span>2 / 2</span></div>
+  <div class="footline"><span>메시지 최적화 실험 — 류보라</span><span>3 / 3</span></div>
 </div>
 
 </body>
