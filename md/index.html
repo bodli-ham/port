@@ -110,8 +110,8 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
         <strong>공공데이터를 통한 산업분석 (Industry Analysis)</strong>
         <div style="font-size: 11.5px; color: var(--ink-mid); margin-top: 4px; font-weight: 500; line-height: 1.6;">
           • 국민건강영양조사 기반 건기식 섭취 트렌드 분석 (KNHANES 7개년, n=44,048)<br>
+          • 국민건강영양조사 기반 식이보충제 품목 심층분석 (후속 분석, KNHANES 상세품목 2018–2021, n=13,282)
           • 서울시민 영양 인식-실천 갭(Gap) 연구 (2024, n=3,435)<br>
-          • <span class="tag tag-progress" style="font-size: 9px; padding: 1px 6px; margin-right: 4px;">진행중</span>식이보충제 섭취 행동 심층분석 (후속 분석 연계)
         </div>
       </div>
     </div>
@@ -242,14 +242,73 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
   <div class="doc-label">Track 01 · Industry Analysis</div>
   <h2 class="doc-title">공공데이터를 통한 산업분석</h2>
 
-  <!-- Project 01 연계 후속 분석 -->
-  <div class="callout-card" style="margin-top: 16px; background: var(--paper-d); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 5px; padding: 10px 12px;">
-    <p class="blk-p" style="font-weight: 700; color: var(--navy-mid); margin-bottom: 3px; font-size: 11.5px;">
-      <span class="tag tag-progress" style="font-size: 9px; padding: 1px 6px;">진행중</span> 후속 분석: 식이보충제 섭취 행동 심층분석
+  <!-- Project 01 후속 분석 -->
+  <div class="blk">
+    <div class="blk-h">Project 02 · 국민건강영양조사 기반 식이보충제 품목 심층분석</div>
+    <p class="blk-p" style="font-size: 11.5px; margin-bottom: 10px;">
+      Project 01(2018–2024, n=44,048)이 "몇 %가 먹는가"를 확인했다면, 이 분석은 KNHANES 상세 품목 자료(2018–2021년, 13,282명·27,497행)를 직접 계산해 "무엇을 어떤 조합으로 먹는가"와, Project 01이 특정한 세그먼트가 구체적으로 무엇을 섭취하는지를 확인했습니다. 상세 품목 문항은 2022년 이후 조사 설계 변경으로 더는 수집되지 않아, 2018–2021년 시점의 소비 구조를 보여주는 기록입니다.
     </p>
-    <p class="blk-p" style="font-size: 11px; color: var(--ink-mid); line-height: 1.6;">
-      상세 섭취 문항이 수집된 특정 연도(2018~2021년) 국민건강영양조사 원자료를 활용하여, 연도별로 다른 표본에 대해 복합표본 가중치를 반영하여 분석하는 프로젝트입니다. 전체 건기식 섭취 트렌드가 변동함에 따라 비타민·무기질, 프로바이오틱스 등 <strong>세부 식이보충제 개별 카테고리들이 어떻게 연동하여 변화했는지</strong> 섭취 행동 변화 양상을 분석하고 있습니다.
-    </p>
+
+    <div class="metric-row" style="margin-bottom: 12px;">
+      <div class="metric-cell">
+        <div class="metric-k">매스 제품 1위</div>
+        <div class="metric-v">48.0%</div>
+        <div class="metric-s">다목적/복합, 연령·연도 변동성 모두 최저</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">핀셋 제품 1위</div>
+        <div class="metric-v accent">CV* 0.77</div>
+        <div class="metric-s">콜라겐/피부, 4년 연속 감소 없이 증가</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-k">다중 복용 비율</div>
+        <div class="metric-v ok">21.3%</div>
+        <div class="metric-s">4개 이상 동시 복용(2018년 10.2%)</div>
+      </div>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">핵심 인사이트</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>매스 제품과 핀셋 제품은 뚜렷이 갈립니다.</strong> 다목적/복합·비타민C·자양강장/피로면역·혈행/혈관은 전 연령·연도에 고르게 쓰이는 매스 제품이고, 콜라겐/피부는 이용률은 아직 4.3%로 작지만 4년 내내 감소 없이 늘어(연도 CV 0.77) 핀셋에서 매스로 확장 중인 품목으로 보입니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>선행연구가 찾은 세그먼트는 '무엇을 먹는지'가 갈렸습니다.</strong> 소득 상위·아침 불규칙·미혼 세그먼트는 여성이 장 건강·비타민D·콜라겐, 남성이 간 건강 중심으로 소비가 갈렸고, 30대 진입 비흡연·운동 실천 남성은 20대 대비 장 건강(+12.8%p)·혈행/혈관(+10.8%p)이 통계적으로 유의하게 늘었습니다(p&lt;0.05).</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">03</span>
+          <span><strong>혼자 먹지 않는 사람이 늘고 있습니다.</strong> 1인당 평균 이용 카테고리 수는 2018년 1.78개에서 2021년 2.17개로 늘었고, 4개 이상 동시 복용 비율도 10.2%→21.3%로 두 배 넘게 늘어, 단일 품목보다 조합·번들 상품을 기획할 여지가 커지고 있습니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blk" style="margin-bottom: 10px;">
+      <div class="blk-h" style="font-size: 11.5px;">방법론 한계</div>
+      <p class="blk-p" style="font-size: 11px;">상세 품목 자료는 2018–2021년까지만 존재하며, 2022년 이후는 조사 설계 변경으로 더는 수집되지 않습니다. Lift·변동계수(CV)는 상관 지표로 계산했으며 인과관계로 해석하지 않았고, 세그먼트별 분석 일부는 표본이 상대적으로 작아(n=200대) 방향성 신호로 제시했습니다.</p>
+    </div>
+
+    <div class="blk" style="margin-bottom: 6px;">
+      <div class="blk-h" style="font-size: 11.5px;">기획·마케팅에 적용한다면</div>
+      <div class="ins-mini">
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">01</span>
+          <span><strong>번들 전략:</strong> 다중 복용이 늘어나는 추세를 반영해, 단일 품목보다 조합형 번들(예: 여성 장 건강+비타민D+콜라겐, 남성 장 건강+혈행/혈관)의 기획 여지가 커지고 있습니다.</span>
+        </div>
+        <div class="ins-mini-item">
+          <span class="ins-mini-n">02</span>
+          <span><strong>세그먼트별 라인업 분리:</strong> 하나의 라인업이 아니라 성별·생애주기별로 조합을 분리 설계하는 것이 근거가 탄탄합니다. 예: '50대 갱년기 토탈케어'(여성건강+칼슘+관절/연골+눈 건강), '30대 진입 남성 컨디션 케어'(장 건강+혈행/혈관).</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size: 10px; color: var(--ink-lo); line-height: 1.5; margin-bottom: 10px;">* CV(변동계수): 값이 클수록 특정 시점·연령에 쏠려 있다는 뜻이고, 낮을수록 전 구간에 고르게 쓰인다는 뜻입니다.</p>
+
+    <div style="text-align: right;">
+      <a href="data-analysis-portfolio-post.html" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline; font-size:11.5px;">[식이보충제 품목 심층분석 원본 보기]</a>
+    </div>
   </div>
 
   <div class="footline"><span>공공데이터를 통한 산업분석 — 류보라</span><span>2 / 4</span></div>
@@ -262,7 +321,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 
   <!-- Project 02 -->
   <div class="blk">
-    <div class="blk-h">Project 02 · 서울시민 영양 인식-실천 갭(Gap) 연구</div>
+    <div class="blk-h">Project 03 · 서울시민 영양 인식-실천 갭(Gap) 연구</div>
     <p class="blk-p" style="font-size: 11.5px; margin-bottom: 10px;">
       서울시민 먹거리조사(2024년, n=3,435) 데이터를 분석하여 "정보를 알고 영양 표시를 인지하는 등 지식 수준이 높으면 실제로 식생활 건강 실천을 잘 하는가"를 검증한 독립 분석입니다. Project 01과는 별도로 수행했으며, 결과의 유사성은 두 프로젝트가 각각 독립적으로 도달한 관찰입니다.
     </p>
@@ -362,7 +421,7 @@ body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:13px;wo
 
   <!-- Project 03 -->
   <div class="blk">
-    <div class="blk-h">Project 03 · 고객 행동 데이터 기반 메시지 최적화 실험 (실제 업무 성과)</div>
+    <div class="blk-h">Project 04 · 고객 행동 데이터 기반 메시지 최적화 실험 (실제 업무 성과)</div>
     <p class="blk-p" style="font-size: 11.5px; margin-bottom: 12px;">
       보험 부가서비스 고객 행동 전환을 높이기 위해 발송 시점, 포맷, 감성 맥락(시즌성), 연령 분할 기법 등을 순차적으로 조정하여 등록 유도 반응률을 개선했습니다.
     </p>
